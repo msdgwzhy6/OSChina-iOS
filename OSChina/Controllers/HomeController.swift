@@ -18,12 +18,23 @@ import UIKit
 
 class HomeController: UITabBarController {
 
+    var tweetListController: TweetListController?
+    var myController: MyController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let loginController:LoginController = LoginController()
-        self.presentViewController(loginController, animated: true, completion: nil)
+        self.tweetListController = TweetListController(nibName: nil, bundle: nil)
+        self.myController = MyController(nibName: nil, bundle: nil)
 
+        // Tweet
+        let tweetNC: UINavigationController = UINavigationController.init(rootViewController: self.tweetListController!)
+        tweetNC.title = "Tweet"
+        self.addChildViewController(tweetNC)
+        // My
+        let myNC: UINavigationController = UINavigationController.init(rootViewController: self.myController!)
+        myNC.title = "My"
+        self.addChildViewController(myNC)
+        
     }
 
     override func didReceiveMemoryWarning() {
