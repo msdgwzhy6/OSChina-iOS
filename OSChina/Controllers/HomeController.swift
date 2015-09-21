@@ -28,11 +28,9 @@ class HomeController: UITabBarController {
 
         // Tweet
         let tweetNC: UINavigationController = UINavigationController.init(rootViewController: self.tweetListController!)
-        tweetNC.title = "Tweet"
         self.addChildViewController(tweetNC)
         // My
         let myNC: UINavigationController = UINavigationController.init(rootViewController: self.myController!)
-        myNC.title = "My"
         self.addChildViewController(myNC)
         
     }

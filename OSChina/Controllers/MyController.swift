@@ -21,6 +21,7 @@ class MyController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.navigationItem.title = "MY"
     }
 
     override func didReceiveMemoryWarning() {
