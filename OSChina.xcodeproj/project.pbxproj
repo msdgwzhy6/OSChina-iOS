@@ -8,6 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1A3FFC7E2E6ED1524A980DB1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94731FA4CF476F5D5FA61F37 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		87A9E0280C3E86203AC5CF12 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4B91AE0289FF5B1D4BD /* TempView.swift */; };
+		87A9E040A5B876F665AB498D /* PostListController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E2F40E4715F2C36FE8F4 /* PostListController.swift */; };
+		87A9E38FB4DF26D4DFD6D14A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0455D0226EF612B424B /* Post.swift */; };
+		87A9E3ACF2EB8B11CD727465 /* TweetDetailController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E63573089524DEAE6411 /* TweetDetailController.swift */; };
+		87A9E4030B1DD2C9409A4001 /* HomeController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E131DC84E6D6198D1ACD /* HomeController.swift */; };
+		87A9E42C9529452D198AAF6C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E1EE2CEA64227AC5E16A /* Project.swift */; };
+		87A9E5C26D4167BA2841CDB8 /* ProjectListController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E736A9DDEEAAC00A530F /* ProjectListController.swift */; };
+		87A9E63CA6834E11C4801B2D /* TweetListController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E56468C096AF12DAB9F6 /* TweetListController.swift */; };
+		87A9E66022A06583B3779EA2 /* SearchController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E654502074C84D14E9A8 /* SearchController.swift */; };
+		87A9E791FBED0E069A3DD070 /* PublishTweetController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E4688F6259F4E6C67C2D /* PublishTweetController.swift */; };
+		87A9E88D95438A6D1731B1D7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4DF3312460B70364FDC /* Comment.swift */; };
+		87A9E9E9445EAA9B678D9E8B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E5A30175DECC903540EB /* ApiClient.swift */; };
+		87A9EA1FCD100FF384DBBE25 /* MyController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E8B06839001F69771015 /* MyController.swift */; };
+		87A9EA9FE4F7DE055E3C5A92 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E05C7D9959451E999D9D /* Tweet.swift */; };
+		87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */; };
+		87A9EB5416B49CF4C4555C9C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF8DC8ED99B74536371B /* URLs.swift */; };
+		87A9EC314F05AD510B283AFB /* PublishPostController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E3CF68FEF1B33E22C4B9 /* PublishPostController.swift */; };
+		87A9ED88F1A9A6BD6C73334C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E994427DB72A767B5A13 /* User.swift */; };
+		87A9EF4F214A10B92C56C5D4 /* LoginController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 87A9EC896360588BCF3C260E /* LoginController.swift */; };
 		F5B3250F1BAFAAD900527D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */; };
 		F5B325111BAFAAD900527D7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B325101BAFAAD900527D7D /* ViewController.swift */; };
 		F5B325141BAFAAD900527D7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B325121BAFAAD900527D7D /* Main.storyboard */; };
@@ -17,6 +36,25 @@
 
 /* Begin PBXFileReference section */
 		48987C2767CC1A53708D1488 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		87A9E0455D0226EF612B424B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		87A9E05C7D9959451E999D9D /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		87A9E131DC84E6D6198D1ACD /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		87A9E1EE2CEA64227AC5E16A /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		87A9E2F40E4715F2C36FE8F4 /* PostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
+		87A9E3CF68FEF1B33E22C4B9 /* PublishPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishPostController.swift; sourceTree = "<group>"; };
+		87A9E4688F6259F4E6C67C2D /* PublishTweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTweetController.swift; sourceTree = "<group>"; };
+		87A9E4B91AE0289FF5B1D4BD /* TempView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
+		87A9E4DF3312460B70364FDC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		87A9E56468C096AF12DAB9F6 /* TweetListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetListController.swift; sourceTree = "<group>"; };
+		87A9E5A30175DECC903540EB /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		87A9E63573089524DEAE6411 /* TweetDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailController.swift; sourceTree = "<group>"; };
+		87A9E654502074C84D14E9A8 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		87A9E736A9DDEEAAC00A530F /* ProjectListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListController.swift; sourceTree = "<group>"; };
+		87A9E8B06839001F69771015 /* MyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
+		87A9E994427DB72A767B5A13 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		87A9EC896360588BCF3C260E /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		87A9EF8DC8ED99B74536371B /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		8B45D772AA858FD96316B5D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		94731FA4CF476F5D5FA61F37 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3250B1BAFAAD900527D7D /* OSChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +84,60 @@
 				94731FA4CF476F5D5FA61F37 /* Pods.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87A9E7B07DE3B3967B86DB5D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				87A9E0455D0226EF612B424B /* Post.swift */,
+				87A9E994427DB72A767B5A13 /* User.swift */,
+				87A9E05C7D9959451E999D9D /* Tweet.swift */,
+				87A9E4DF3312460B70364FDC /* Comment.swift */,
+				87A9E1EE2CEA64227AC5E16A /* Project.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87A9E95F127B3E9896B74CE2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		87A9EAA7F1387E3E0D822F7E /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				87A9EF8DC8ED99B74536371B /* URLs.swift */,
+				87A9E5A30175DECC903540EB /* ApiClient.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		87A9EACEC66415FCB883DDB5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				87A9E8B06839001F69771015 /* MyController.swift */,
+				87A9E131DC84E6D6198D1ACD /* HomeController.swift */,
+				87A9EC896360588BCF3C260E /* LoginController.swift */,
+				87A9E654502074C84D14E9A8 /* SearchController.swift */,
+				87A9E2F40E4715F2C36FE8F4 /* PostListController.swift */,
+				87A9E56468C096AF12DAB9F6 /* TweetListController.swift */,
+				87A9E736A9DDEEAAC00A530F /* ProjectListController.swift */,
+				87A9E3CF68FEF1B33E22C4B9 /* PublishPostController.swift */,
+				87A9E63573089524DEAE6411 /* TweetDetailController.swift */,
+				87A9E4688F6259F4E6C67C2D /* PublishTweetController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		87A9EFEBB9DD707FEA6898A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				87A9E4B91AE0289FF5B1D4BD /* TempView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		911320683B67690615672DD9 /* Pods */ = {
@@ -84,6 +176,11 @@
 				F5B325151BAFAAD900527D7D /* Assets.xcassets */,
 				F5B325171BAFAAD900527D7D /* LaunchScreen.storyboard */,
 				F5B3251A1BAFAAD900527D7D /* Info.plist */,
+				87A9EAA7F1387E3E0D822F7E /* APIs */,
+				87A9EACEC66415FCB883DDB5 /* Controllers */,
+				87A9E7B07DE3B3967B86DB5D /* Models */,
+				87A9E95F127B3E9896B74CE2 /* Utils */,
+				87A9EFEBB9DD707FEA6898A9 /* Views */,
 			);
 			path = OSChina;
 			sourceTree = "<group>";
@@ -151,6 +248,16 @@
 				F5B325191BAFAAD900527D7D /* LaunchScreen.storyboard in Resources */,
 				F5B325161BAFAAD900527D7D /* Assets.xcassets in Resources */,
 				F5B325141BAFAAD900527D7D /* Main.storyboard in Resources */,
+				87A9EA1FCD100FF384DBBE25 /* MyController.swift in Resources */,
+				87A9E4030B1DD2C9409A4001 /* HomeController.swift in Resources */,
+				87A9EF4F214A10B92C56C5D4 /* LoginController.swift in Resources */,
+				87A9E66022A06583B3779EA2 /* SearchController.swift in Resources */,
+				87A9E040A5B876F665AB498D /* PostListController.swift in Resources */,
+				87A9E63CA6834E11C4801B2D /* TweetListController.swift in Resources */,
+				87A9E5C26D4167BA2841CDB8 /* ProjectListController.swift in Resources */,
+				87A9EC314F05AD510B283AFB /* PublishPostController.swift in Resources */,
+				87A9E3ACF2EB8B11CD727465 /* TweetDetailController.swift in Resources */,
+				87A9E791FBED0E069A3DD070 /* PublishTweetController.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +318,15 @@
 			files = (
 				F5B325111BAFAAD900527D7D /* ViewController.swift in Sources */,
 				F5B3250F1BAFAAD900527D7D /* AppDelegate.swift in Sources */,
+				87A9EB5416B49CF4C4555C9C /* URLs.swift in Sources */,
+				87A9E9E9445EAA9B678D9E8B /* ApiClient.swift in Sources */,
+				87A9E38FB4DF26D4DFD6D14A /* Post.swift in Sources */,
+				87A9ED88F1A9A6BD6C73334C /* User.swift in Sources */,
+				87A9EA9FE4F7DE055E3C5A92 /* Tweet.swift in Sources */,
+				87A9E88D95438A6D1731B1D7 /* Comment.swift in Sources */,
+				87A9E42C9529452D198AAF6C /* Project.swift in Sources */,
+				87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */,
+				87A9E0280C3E86203AC5CF12 /* TempView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
