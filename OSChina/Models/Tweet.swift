@@ -34,14 +34,14 @@ class Account: Mappable {
 
     // Mappable
     func mapping(map: Map) {
-        id              <- ["id"]
-        pubDate         <- ["pubDate"]
-        body            <- ["body"]
-        author          <- ["author"]
-        authorid        <- ["authorid"]
-        imgSmall        <- ["imgSmall"]
-        imgBig          <- ["imgBig"]
-        commentCount    <- ["commentCount"]
-        portrait        <- ["portrait"]
+        id              <- map["id"]
+        pubDate         <- map["pubDate"]
+        body            <- map["body"]
+        author          <- map["author"]
+        authorid        <- map["authorid"]
+        imgSmall        <- map["imgSmall"]
+        imgBig          <- map["imgBig"]
+        commentCount    <- map["commentCount"]
+        portrait        <- map["portrait"]
     }
 }
