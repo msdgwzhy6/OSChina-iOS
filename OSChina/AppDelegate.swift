@@ -20,9 +20,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var homeController: HomeController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // 1.创建窗口
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        // 2.设置窗口的根控制器
+        self.homeController = HomeController(nibName: nil, bundle: nil)
+        self.window!.rootViewController = homeController
+        // 3.显示窗口
+        self.window!.makeKeyAndVisible()
         return true
     }
 
