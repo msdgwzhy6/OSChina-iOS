@@ -19,25 +19,36 @@ import UIKit
 class HomeController: UITabBarController {
 
     var tweetListController: TweetListController?
+    var newsListController: NewsListController?
+    var discoveryController: DiscoveryController?
     var myController: MyController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tweetListController = TweetListController(nibName: nil, bundle: nil)
-        self.myController = MyController(nibName: nil, bundle: nil)
-
-        // Tweet
-        let tweetNC: UINavigationController = UINavigationController.init(rootViewController: self.tweetListController!)
-        self.addChildViewController(tweetNC)
-        // My
-        let myNC: UINavigationController = UINavigationController.init(rootViewController: self.myController!)
-        self.addChildViewController(myNC)
+        self.newsListController  = NewsListController(nibName: nil, bundle: nil)
+        self.discoveryController = DiscoveryController(nibName: nil, bundle: nil)
+        self.myController        = MyController(nibName: nil, bundle: nil)
         
+        setupUINavigationController("动弹", controller: self.tweetListController)
+        setupUINavigationController("新闻", controller: self.newsListController)
+        setupUINavigationController("发现", controller: self.discoveryController)
+        setupUINavigationController("我的", controller: self.myController)
+        self.tabBar.tintColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func setupUINavigationController(title: String?, controller: UIViewController?) {
+        let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+        controller!.title = title
+        let navController: UINavigationController = UINavigationController.init(rootViewController: controller!)
+        navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        navController.navigationBar.barTintColor = tintColor
+        self.addChildViewController(navController)
     }
 
 }

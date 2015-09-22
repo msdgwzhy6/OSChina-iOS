@@ -17,16 +17,28 @@
 import UIKit
 
 class TweetListController: UITableViewController {
+    
+    var publishTweetController: PublishTweetController?
+
+    var btnPublishTweet: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "TWEET"
+        self.btnPublishTweet = UIBarButtonItem(title: "发表", style: .Plain, target: self, action: "clickPublishTweet:")
+        self.btnPublishTweet?.tintColor = UIColor.whiteColor()
+        
+        self.navigationItem.title = "动弹"
+        self.navigationItem.rightBarButtonItem = btnPublishTweet
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func clickPublishTweet(sender: UIBarButtonItem) {
+        self.publishTweetController = PublishTweetController(nibName: nil, bundle: nil)
+        self.presentViewController(publishTweetController!, animated: true, completion: nil)
     }
 
 }

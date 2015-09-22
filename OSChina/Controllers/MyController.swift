@@ -18,10 +18,18 @@ import UIKit
 
 class MyController: UITableViewController {
 
+    var settingsController: SettingsController?
+
+    var btnSettings: UIBarButtonItem?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "MY"
+        self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "clickSettings:")
+        self.btnSettings?.tintColor = UIColor.whiteColor()
+        
+        self.navigationItem.title = "我的主页"
+        self.navigationItem.rightBarButtonItem = btnSettings
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,4 +37,8 @@ class MyController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func clickSettings(sender: UIBarButtonItem) {
+        self.settingsController = SettingsController(nibName: nil, bundle: nil)
+        self.presentViewController(settingsController!, animated: true, completion: nil)
+    }
 }

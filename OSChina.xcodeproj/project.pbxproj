@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A3FFC7E2E6ED1524A980DB1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94731FA4CF476F5D5FA61F37 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		87A9E0280C3E86203AC5CF12 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4B91AE0289FF5B1D4BD /* TempView.swift */; };
+		87A9E14442B33020616E4317 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */; };
 		87A9E19255FD560F79CA6CAA /* ProjectListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */; };
 		87A9E2465A83D375BC5A1A63 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB10897F28C0C4D1976D /* SearchController.swift */; };
 		87A9E2CE951FB43F070D9249 /* TweetListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E49EA7270FFF88851184 /* TweetListController.swift */; };
@@ -27,7 +28,9 @@
 		87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */; };
 		87A9EB5416B49CF4C4555C9C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF8DC8ED99B74536371B /* URLs.swift */; };
 		87A9ED88F1A9A6BD6C73334C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E994427DB72A767B5A13 /* User.swift */; };
+		87A9EEEB262598037704AE21 /* NewsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDE99A4621D88917E54B /* NewsListController.swift */; };
 		87A9EEF04554F83F751A9682 /* PublishTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */; };
+		87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */; };
 		F5B3250F1BAFAAD900527D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */; };
 		F5B325161BAFAAD900527D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B325151BAFAAD900527D7D /* Assets.xcassets */; };
 		F5B325191BAFAAD900527D7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B325171BAFAAD900527D7D /* LaunchScreen.storyboard */; };
@@ -50,13 +53,17 @@
 		87A9E994427DB72A767B5A13 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishPostController.swift; sourceTree = "<group>"; };
 		87A9EB10897F28C0C4D1976D /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryController.swift; sourceTree = "<group>"; };
 		87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListController.swift; sourceTree = "<group>"; };
+		87A9EDE99A4621D88917E54B /* NewsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsListController.swift; sourceTree = "<group>"; };
 		87A9EDF4FE56CBFE87A8834E /* TweetDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailController.swift; sourceTree = "<group>"; };
 		87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		87A9EF67D18215742202A9A4 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		87A9EF8DC8ED99B74536371B /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		8B45D772AA858FD96316B5D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		94731FA4CF476F5D5FA61F37 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5556F0D1BB18F22006CEBB9 /* OSChina-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSChina-Bridging-Header.h"; sourceTree = "<group>"; };
 		F5B3250B1BAFAAD900527D7D /* OSChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B325151BAFAAD900527D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +104,9 @@
 				87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */,
 				87A9EDF4FE56CBFE87A8834E /* TweetDetailController.swift */,
 				87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */,
+				87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */,
+				87A9EDE99A4621D88917E54B /* NewsListController.swift */,
+				87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,6 +188,7 @@
 				87A9EFEBB9DD707FEA6898A9 /* Views */,
 				87A9E6ACAD2CFC1B10A2FCDF /* Controllers */,
 				87A9E2D9169FE938423AB934 /* Main.storyboard */,
+				F5556F0D1BB18F22006CEBB9 /* OSChina-Bridging-Header.h */,
 			);
 			path = OSChina;
 			sourceTree = "<group>";
@@ -211,11 +222,13 @@
 		F5B325031BAFAAD900527D7D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = LiJianying;
 				TargetAttributes = {
 					F5B3250A1BAFAAD900527D7D = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 8CBW3QTZNP;
 					};
 				};
 			};
@@ -323,6 +336,9 @@
 				87A9E434C9AF586523B3C605 /* PublishPostController.swift in Sources */,
 				87A9E44E89389CBEED874463 /* TweetDetailController.swift in Sources */,
 				87A9EEF04554F83F751A9682 /* PublishTweetController.swift in Sources */,
+				87A9E14442B33020616E4317 /* SettingsController.swift in Sources */,
+				87A9EEEB262598037704AE21 /* NewsListController.swift in Sources */,
+				87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,11 +450,15 @@
 			baseConfigurationReference = 8B45D772AA858FD96316B5D9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OSChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.blankapp.oschina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSChina/OSChina-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -448,11 +468,14 @@
 			baseConfigurationReference = 48987C2767CC1A53708D1488 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = OSChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.blankapp.oschina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSChina/OSChina-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
