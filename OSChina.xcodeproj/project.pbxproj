@@ -9,25 +9,25 @@
 /* Begin PBXBuildFile section */
 		1A3FFC7E2E6ED1524A980DB1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94731FA4CF476F5D5FA61F37 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		87A9E0280C3E86203AC5CF12 /* TempView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4B91AE0289FF5B1D4BD /* TempView.swift */; };
+		87A9E0C1F0A7D6592B5979DD /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E3E2267D0A3E085F3019 /* BaseNavigationController.swift */; };
 		87A9E14442B33020616E4317 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */; };
-		87A9E15E7177D17B44612AAF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E71BD30A4B92E10EADAF /* BaseViewController.swift */; };
 		87A9E19255FD560F79CA6CAA /* ProjectListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */; };
 		87A9E2465A83D375BC5A1A63 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB10897F28C0C4D1976D /* SearchController.swift */; };
 		87A9E2CE951FB43F070D9249 /* TweetListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E49EA7270FFF88851184 /* TweetListController.swift */; };
-		87A9E303127C44446B8DE006 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E7F200DCB20C367E8284 /* BaseTabBarController.swift */; };
 		87A9E38FB4DF26D4DFD6D14A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0455D0226EF612B424B /* Post.swift */; };
 		87A9E42C9529452D198AAF6C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E1EE2CEA64227AC5E16A /* Project.swift */; };
 		87A9E434C9AF586523B3C605 /* PublishPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */; };
 		87A9E44E89389CBEED874463 /* TweetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDF4FE56CBFE87A8834E /* TweetDetailController.swift */; };
 		87A9E4DA1C67C6F092D48B3D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF67D18215742202A9A4 /* HomeController.swift */; };
-		87A9E55E3EBB3FD6CDDD7679 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB147095D5F519042B97 /* BaseNavigationController.swift */; };
+		87A9E57D84AA159C4CED5241 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E271FB6E85566BE87F1E /* BaseViewController.swift */; };
 		87A9E701631A0B205C240070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E2D9169FE938423AB934 /* Main.storyboard */; };
+		87A9E76FEF5FC769B36408CC /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2E19F555AD56525B1D0 /* BaseTableViewController.swift */; };
 		87A9E849C5A1FA51422DF15D /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2DE446F30BC45849B27 /* MyController.swift */; };
 		87A9E88D95438A6D1731B1D7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4DF3312460B70364FDC /* Comment.swift */; };
-		87A9E8BEE9AF2268FE09CBA7 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E87C109CC3ABF51FF8FD /* BaseTableViewController.swift */; };
 		87A9E9C19B9E79B816EF551D /* PostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E8D5116570937EA5BE42 /* PostListController.swift */; };
 		87A9E9E9445EAA9B678D9E8B /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E5A30175DECC903540EB /* ApiClient.swift */; };
 		87A9EA2B2EDDEDACD89E9563 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E11982A56F87DA4BBF38 /* LoginController.swift */; };
+		87A9EA424D7898532C6D086D /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */; };
 		87A9EA9FE4F7DE055E3C5A92 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E05C7D9959451E999D9D /* Tweet.swift */; };
 		87A9EAC21F93366E37B24816 /* QAListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */; };
 		87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */; };
@@ -49,22 +49,22 @@
 		87A9E11982A56F87DA4BBF38 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTweetController.swift; sourceTree = "<group>"; };
 		87A9E1EE2CEA64227AC5E16A /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		87A9E271FB6E85566BE87F1E /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		87A9E2DE446F30BC45849B27 /* MyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyController.swift; sourceTree = "<group>"; };
+		87A9E2E19F555AD56525B1D0 /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		87A9E3E2267D0A3E085F3019 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		87A9E49EA7270FFF88851184 /* TweetListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetListController.swift; sourceTree = "<group>"; };
 		87A9E4B91AE0289FF5B1D4BD /* TempView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		87A9E4DF3312460B70364FDC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAListController.swift; sourceTree = "<group>"; };
 		87A9E5045D8DE0B37E65380C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87A9E5A30175DECC903540EB /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
-		87A9E71BD30A4B92E10EADAF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = BaseControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		87A9E73817E4648550091D69 /* PublishQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishQuestionController.swift; sourceTree = "<group>"; };
-		87A9E7F200DCB20C367E8284 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTabBarController.swift; path = BaseControllers/BaseTabBarController.swift; sourceTree = "<group>"; };
-		87A9E87C109CC3ABF51FF8FD /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = BaseControllers/BaseTableViewController.swift; sourceTree = "<group>"; };
+		87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		87A9E8D5116570937EA5BE42 /* PostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
 		87A9E994427DB72A767B5A13 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishPostController.swift; sourceTree = "<group>"; };
 		87A9EB10897F28C0C4D1976D /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		87A9EB147095D5F519042B97 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseNavigationController.swift; path = BaseControllers/BaseNavigationController.swift; sourceTree = "<group>"; };
 		87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryController.swift; sourceTree = "<group>"; };
 		87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListController.swift; sourceTree = "<group>"; };
@@ -121,10 +121,7 @@
 				87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */,
 				87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */,
 				87A9E73817E4648550091D69 /* PublishQuestionController.swift */,
-				87A9E7F200DCB20C367E8284 /* BaseTabBarController.swift */,
-				87A9E87C109CC3ABF51FF8FD /* BaseTableViewController.swift */,
-				87A9E71BD30A4B92E10EADAF /* BaseViewController.swift */,
-				87A9EB147095D5F519042B97 /* BaseNavigationController.swift */,
+				87A9EC424AB2BD3E902F95A7 /* BaseControllers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +153,17 @@
 				87A9E5A30175DECC903540EB /* ApiClient.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		87A9EC424AB2BD3E902F95A7 /* BaseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				87A9E271FB6E85566BE87F1E /* BaseViewController.swift */,
+				87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */,
+				87A9E2E19F555AD56525B1D0 /* BaseTableViewController.swift */,
+				87A9E3E2267D0A3E085F3019 /* BaseNavigationController.swift */,
+			);
+			path = BaseControllers;
 			sourceTree = "<group>";
 		};
 		87A9EFEBB9DD707FEA6898A9 /* Views */ = {
@@ -359,10 +367,10 @@
 				87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */,
 				87A9EAC21F93366E37B24816 /* QAListController.swift in Sources */,
 				87A9EC019DED9B24DAE31DDD /* PublishQuestionController.swift in Sources */,
-				87A9E303127C44446B8DE006 /* BaseTabBarController.swift in Sources */,
-				87A9E8BEE9AF2268FE09CBA7 /* BaseTableViewController.swift in Sources */,
-				87A9E15E7177D17B44612AAF /* BaseViewController.swift in Sources */,
-				87A9E55E3EBB3FD6CDDD7679 /* BaseNavigationController.swift in Sources */,
+				87A9E57D84AA159C4CED5241 /* BaseViewController.swift in Sources */,
+				87A9EA424D7898532C6D086D /* BaseTabBarController.swift in Sources */,
+				87A9E76FEF5FC769B36408CC /* BaseTableViewController.swift in Sources */,
+				87A9E0C1F0A7D6592B5979DD /* BaseNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

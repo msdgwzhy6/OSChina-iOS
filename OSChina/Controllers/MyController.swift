@@ -39,6 +39,7 @@ class MyController: UITableViewController {
 
     func clickSettings(sender: UIBarButtonItem) {
         self.settingsController = SettingsController(nibName: nil, bundle: nil)
-        self.presentViewController(settingsController!, animated: true, completion: nil)
+//        self.presentViewController(settingsController!, animated: true, completion: nil)
+        self.navigationController?.pushViewController(settingsController!, animated: true)
     }
 }

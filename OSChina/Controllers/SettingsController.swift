@@ -21,11 +21,23 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        setupUINavigationController("资讯")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    func setupUINavigationController(title: String?) {
+        let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+        let navController: UINavigationController = UINavigationController.init(rootViewController: self)
+        navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
+        navController.navigationBar.barTintColor = tintColor
+//        self.navigationController = navController
+//        self.addChildViewController(navController)
+    }
+
 
 }
