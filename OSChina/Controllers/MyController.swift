@@ -74,7 +74,6 @@ class MyController: UITableViewController {
 
         var title: String = "";
         var identifier: String    = "";
-        let cell = UITableViewCell()
         switch (indexPath.section) {
         case 1:
             switch (indexPath.row) {
@@ -111,8 +110,10 @@ class MyController: UITableViewController {
         default:
             break
         }
+        let cell = UITableViewCell()
         cell.textLabel?.text = title
         cell.restorationIdentifier = identifier
+        cell.accessoryType = .DisclosureIndicator
         return cell
     }
 
@@ -121,7 +122,7 @@ class MyController: UITableViewController {
 
         switch (cell.restorationIdentifier!) {
         case CELL_MY_TWEETS:
-            HUD.show(self.view, message: "我的动弹")
+            HUD.show(self.parentViewController!.view, message: "我的动弹")
             break
         case CELL_MY_BLOG:
             HUD.show(self.view, message: "我的博客")
@@ -136,7 +137,7 @@ class MyController: UITableViewController {
             HUD.show(self.view, message: "我的团队")
             break
         default:
-            break
+            return
         }
         cell.selected = false
     }
