@@ -16,17 +16,30 @@
 
 import UIKit
 
-class NewsListController: UITableViewController {
-
+class QAListController: UITableViewController {
+    
+    var publishQuestionController: PublishQuestionController?
+    
+    var btnPublishQuestion: UIBarButtonItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "资讯"
+        self.btnPublishQuestion = UIBarButtonItem(title: "提问", style: .Plain, target: self, action: "clickPublishQuestion:")
+        self.btnPublishQuestion?.tintColor = UIColor.whiteColor()
+        
+        self.navigationItem.title = "问题"
+        self.navigationItem.rightBarButtonItem = btnPublishQuestion
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func clickPublishQuestion(sender: UIBarButtonItem) {
+        self.publishQuestionController = PublishQuestionController(nibName: nil, bundle: nil)
+        self.presentViewController(publishQuestionController!, animated: true, completion: nil)
     }
 
 }
