@@ -14,7 +14,15 @@
  * limitations under the License.
  */
 
-// Use this file to import your target's public headers that you would like to expose to Swift.
-#import "MBProgressHUD/MBProgressHUD.h"
-#import "MJRefresh/MJRefresh.h"
-#import "XLPagerTabStrip/XLBarPagerTabStripViewController.h"
+import MBProgressHUD
+
+class HUD {
+
+    static func show(view: UIView, message: String) {
+        let hud :MBProgressHUD = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        hud.mode = MBProgressHUDMode.Text
+        hud.labelText = message
+        hud.show(true)
+        hud.hide(true, afterDelay: 1.5)
+    }
+}

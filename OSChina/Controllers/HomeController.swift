@@ -18,23 +18,23 @@ import UIKit
 
 class HomeController: UITabBarController {
     
-    var newsListController: NewsListController?     // 资讯
-    var qaListController: QAListController?         // 问题
-    var tweetListController: TweetListController?   // 动弹
+    var newsController: NewsController?             // 资讯
+    var qsnController: QuestionController?          // 问题
+    var tweetController: TweetController?           // 动弹
     var discoveryController: DiscoveryController?   // 发现
     var myController: MyController?                 // 我的
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.newsListController  = NewsListController(nibName: nil, bundle: nil)
-        self.qaListController    = QAListController(nibName: nil, bundle: nil)
-        self.tweetListController = TweetListController(nibName: nil, bundle: nil)
+        self.newsController      = NewsController(nibName: nil, bundle: nil)
+        self.qsnController       = QuestionController(nibName: nil, bundle: nil)
+        self.tweetController     = TweetController(nibName: nil, bundle: nil)
         self.discoveryController = DiscoveryController(nibName: nil, bundle: nil)
         self.myController        = MyController(nibName: nil, bundle: nil)
         
-        setupUINavigationController("资讯", controller: self.newsListController)
-        setupUINavigationController("问题", controller: self.qaListController)
-        setupUINavigationController("动弹", controller: self.tweetListController)
+        setupUINavigationController("资讯", controller: self.newsController)
+        setupUINavigationController("问题", controller: self.qsnController)
+        setupUINavigationController("动弹", controller: self.tweetController)
         setupUINavigationController("发现", controller: self.discoveryController)
         setupUINavigationController("我的", controller: self.myController)
         self.tabBar.tintColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
@@ -51,6 +51,7 @@ class HomeController: UITabBarController {
         let navController: UINavigationController = UINavigationController.init(rootViewController: controller!)
         navController.navigationBar.barStyle = UIBarStyle.BlackTranslucent
         navController.navigationBar.barTintColor = tintColor
+        navController.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
         self.addChildViewController(navController)
     }
 

@@ -15,17 +15,21 @@
  */
 
 import UIKit
+import XLPagerTabStrip
 
-class SettingsController: UITableViewController {
+class TweetController: XLBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
+        let viewCOntroller1 = UIViewController()
+        viewCOntroller1.view.backgroundColor = UIColor.redColor()
+        let viewCOntroller2 = UIViewController()
+        viewCOntroller2.view.backgroundColor = UIColor.grayColor()
+        let viewCOntroller3 = UIViewController()
+        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
+        return [viewCOntroller1, viewCOntroller2, viewCOntroller3]
     }
-
 }
