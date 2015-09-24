@@ -17,11 +17,18 @@
 import UIKit
 
 class DiscoveryController: BaseTableViewController {
+    // section 1
+    let CELL_ACTIVITIES         : String = "ID_CELL_ACTIVITIES"
+    let CELL_ACTIVITIES_GO      : String = "ID_CELL_ACTIVITIES_GO"
+    // section 2
+    let CELL_OPEN_SOURCE_PROJECT: String = "ID_CELL_OPEN_SOURCE_PROJECT"
+    let CELL_BLOG               : String = "ID_CELL_BLOG"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "发现"
+        // 设置TableView
+        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,10 +36,82 @@ class DiscoveryController: BaseTableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func refresh() {
-        delay(3, closure: {
-            () -> () in
-            self.tableView.header.endRefreshing()
-        })
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch(section) {
+        case 0:
+            return 2
+        case 1:
+            return 2
+        default:
+            return 0
+        }
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var title     : String = "";
+        var identifier: String    = "";
+        switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+            case 0:
+                title = "线下活动"
+                identifier = CELL_ACTIVITIES
+                break
+            case 1:
+                title = "线下活动GO"
+                identifier = CELL_ACTIVITIES
+                break
+            default:
+                break
+            }
+            break
+        case 1:
+            switch (indexPath.row) {
+            case 0:
+                title = "开源项目"
+                identifier = CELL_OPEN_SOURCE_PROJECT
+                break
+            case 1:
+                title = "技术博客"
+                identifier = CELL_BLOG
+                break
+            default:
+                break
+            }
+            break
+        default:
+            break
+        }
+        let cell = UITableViewCell()
+        cell.textLabel?.text = title
+        cell.restorationIdentifier = identifier
+        cell.accessoryType = .DisclosureIndicator
+        return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+
+        switch (cell.restorationIdentifier!) {
+        case CELL_ACTIVITIES:
+            HUD.show(self.parentViewController!.view, message: "线下活动")
+            break
+        case CELL_ACTIVITIES_GO:
+            HUD.show(self.view, message: "线下活动GO")
+            break
+        case CELL_OPEN_SOURCE_PROJECT:
+            HUD.show(self.view, message: "开源项目")
+            break
+        case CELL_BLOG:
+            HUD.show(self.view, message: "技术博客")
+            break
+        default:
+            return
+        }
+        cell.selected = false
     }
 }

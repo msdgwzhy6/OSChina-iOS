@@ -16,7 +16,7 @@
 
 import UIKit
 
-class MyController: UITableViewController {
+class MyController: BaseTableViewController {
     // header
     let CELL_MY_PROFILE  : String = "ID_CELL_PROFILE"
     let CELL_MY_FOLLOWERS: String = "ID_CELL_MY_FOLLOWERS"

@@ -27,7 +27,7 @@ class BaseTableViewController: UITableViewController {
     }
 
     func refresh() {
-        delay(3, closure: {
+        delay(1, closure: {
             () -> () in
             self.tableView.header.endRefreshing()
         })
