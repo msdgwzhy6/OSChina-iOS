@@ -18,11 +18,11 @@ import UIKit
 
 class HomeController: UITabBarController {
     
-    var newsController: NewsController?             // 资讯
-    var qsnController: QuestionController?          // 问题
-    var tweetController: TweetController?           // 动弹
+    var newsController     : NewsController?        // 资讯
+    var qsnController      : QuestionController?    // 问题
+    var tweetController    : TweetController?       // 动弹
     var discoveryController: DiscoveryController?   // 发现
-    var myController: MyController?                 // 我的
+    var myController       : MyController?          // 我的
 
     override func viewDidLoad() {
         super.viewDidLoad()

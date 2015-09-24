@@ -15,8 +15,9 @@
  */
 
 import UIKit
+import XLPagerTabStrip
 
-class TweetListController: BaseTableViewController {
+class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     
     var publishTweetController: PublishTweetController?
 
@@ -40,5 +41,11 @@ class TweetListController: BaseTableViewController {
         self.publishTweetController = PublishTweetController(nibName: nil, bundle: nil)
         self.presentViewController(publishTweetController!, animated: true, completion: nil)
     }
+    
+    // MARK: - XLPagerTabStripChildItem
+    func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+        return "avx"
+    }
+
 
 }

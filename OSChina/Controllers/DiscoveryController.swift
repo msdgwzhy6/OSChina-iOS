@@ -114,4 +114,18 @@ class DiscoveryController: BaseTableViewController {
         }
         cell.selected = false
     }
+
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0) {
+            return CGFloat.min
+        }
+        return super.tableView(tableView, heightForHeaderInSection: section)
+    }
+
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (section == 0) {
+            return nil
+        }
+        return super.tableView(tableView, viewForHeaderInSection: section)
+    }
 }

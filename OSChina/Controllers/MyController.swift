@@ -18,16 +18,16 @@ import UIKit
 
 class MyController: BaseTableViewController {
     // header
-    let CELL_MY_PROFILE  : String = "ID_CELL_PROFILE"
+    let CELL_MY_PROFILE: String = "ID_CELL_PROFILE"
     let CELL_MY_FOLLOWERS: String = "ID_CELL_MY_FOLLOWERS"
-    let CELL_MY_FANS     : String = "ID_CELL_MY_FANS"
+    let CELL_MY_FANS: String = "ID_CELL_MY_FANS"
     // section 1
-    let CELL_MY_TWEETS   : String = "ID_CELL_MY_TWEETS"
-    let CELL_MY_BLOG     : String = "ID_CELL_MY_BLOG"
+    let CELL_MY_TWEETS: String = "ID_CELL_MY_TWEETS"
+    let CELL_MY_BLOG: String = "ID_CELL_MY_BLOG"
     let CELL_MY_FAVORITES: String = "ID_CELL_MY_FAVORITES"
     // section 2
-    let CELL_MY_PROJECTS : String = "ID_CELL_MY_PROJECTS"
-    let CELL_MY_TEAMS    : String = "ID_CELL_MY_TEAMS"
+    let CELL_MY_PROJECTS: String = "ID_CELL_MY_PROJECTS"
+    let CELL_MY_TEAMS: String = "ID_CELL_MY_TEAMS"
 
     var settingsController: SettingsController?
 
@@ -44,6 +44,11 @@ class MyController: BaseTableViewController {
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
 
         self.tableView.registerClass(MyProfileCell.self, forCellReuseIdentifier: CELL_MY_PROFILE)
+        let px = 1 / UIScreen.mainScreen().scale
+        let frame = CGRectMake(0, 0, self.tableView.frame.size.width, px)
+        let line: UIView = UIView(frame: frame)
+        self.tableView.tableHeaderView = line
+        line.backgroundColor = self.tableView.separatorColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +61,7 @@ class MyController: BaseTableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch(section) {
+        switch (section) {
         case 0:
             return 1
         case 1:
@@ -67,16 +72,18 @@ class MyController: BaseTableViewController {
             return 0
         }
     }
+    
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            var profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
+            let profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
+            profile.backgroundColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
             profile.name.text = "痕迹"
             return profile
         }
 
         var title: String = "";
-        var identifier: String    = "";
+        var identifier: String = "";
         switch (indexPath.section) {
         case 1:
             switch (indexPath.row) {
@@ -144,10 +151,31 @@ class MyController: BaseTableViewController {
         }
         cell.selected = false
     }
+    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        if (indexPath.section == 0) {
+//            return 100;
+//        }
+//        return self.tableView(tableView, heightForRowAtIndexPath: indexPath)
+//    }
+
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if (section == 0) {
+            return CGFloat.min
+        }
+        return super.tableView(tableView, heightForHeaderInSection: section)
+    }
+
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if (section == 0) {
+            return nil
+        }
+        return super.tableView(tableView, viewForHeaderInSection: section)
+    }
 
     func clickSettings(sender: UIBarButtonItem) {
         self.settingsController = SettingsController(nibName: nil, bundle: nil)
-//        self.presentViewController(settingsController!, animated: true, completion: nil)
+        self.settingsController!.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingsController!, animated: true)
     }
 }
