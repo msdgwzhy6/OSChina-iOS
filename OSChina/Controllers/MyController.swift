@@ -18,6 +18,7 @@ import UIKit
 
 class MyController: UITableViewController {
     // header
+    let CELL_MY_PROFILE  : String = "ID_CELL_PROFILE"
     let CELL_MY_FOLLOWERS: String = "ID_CELL_MY_FOLLOWERS"
     let CELL_MY_FANS     : String = "ID_CELL_MY_FANS"
     // section 1
@@ -41,7 +42,8 @@ class MyController: UITableViewController {
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
-//        self.tableView.sectionHeaderHeight = 0
+
+        self.tableView.registerClass(MyProfileCell.self, forCellReuseIdentifier: CELL_MY_PROFILE)
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,14 +67,12 @@ class MyController: UITableViewController {
             return 0
         }
     }
-//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 5
-//    }
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
-            let header = UITableViewCell()
-            header.textLabel?.text = "n/a"
-            return header
+            var profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
+            profile.name.text = "痕迹"
+            return profile
         }
 
         var title: String = "";
