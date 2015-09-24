@@ -41,6 +41,7 @@ class MyController: UITableViewController {
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
+//        self.tableView.sectionHeaderHeight = 0
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +65,9 @@ class MyController: UITableViewController {
             return 0
         }
     }
-
+//    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 5
+//    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             let header = UITableViewCell()
