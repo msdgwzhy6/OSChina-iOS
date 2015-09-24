@@ -16,7 +16,7 @@
 
 import UIKit
 
-class TweetListController: UITableViewController {
+class TweetListController: BaseTableViewController {
     
     var publishTweetController: PublishTweetController?
 

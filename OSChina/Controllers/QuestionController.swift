@@ -25,11 +25,11 @@ class QuestionController: XLBarPagerTabStripViewController {
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-        let viewCOntroller1 = QAListController()
+        let viewCOntroller1 = QuestionListController()
 //        viewCOntroller1.view.backgroundColor = UIColor.redColor()
-        let viewCOntroller2 = QAListController()
+        let viewCOntroller2 = QuestionListController()
 //        viewCOntroller2.view.backgroundColor = UIColor.grayColor()
-        let viewCOntroller3 = QAListController()
+        let viewCOntroller3 = QuestionListController()
 //        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
         return [viewCOntroller1,viewCOntroller2,viewCOntroller3]
     }

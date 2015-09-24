@@ -15,40 +15,24 @@
  */
 
 import UIKit
-import MJRefresh
 
-class DiscoveryController: UITableViewController {
+class DiscoveryController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.navigationItem.title = "发现"
-        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refreshTable")
-        header.lastUpdatedTimeLabel!.hidden = true
-//        header.setTitle("Pull down to refresh", forState: MJRefreshStateIdle)
-//        header.setTitle("Release to refresh", forState: MJRefreshStatePulling)
-//        header.setTitle("Loading ...", forState: MJRefreshStateRefreshing)
-        self.tableView.header = header
-        self.tableView.header.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func refreshTable() {
-        delay(1, closure: { () -> () in
+
+    override func refresh() {
+        delay(3, closure: {
+            () -> () in
             self.tableView.header.endRefreshing()
-            self.tableView.reloadData()
         })
-    }
-    func delay(delay:Double, closure:()->()) {
-        dispatch_after(
-            dispatch_time(
-                DISPATCH_TIME_NOW,
-                Int64(delay * Double(NSEC_PER_SEC))
-            ),
-            dispatch_get_main_queue(), closure)
     }
 }

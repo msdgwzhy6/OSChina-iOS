@@ -16,7 +16,7 @@
 
 import UIKit
 
-class QAListController: UITableViewController {
+class QuestionListController: BaseTableViewController {
     
     var publishQuestionController: PublishQuestionController?
     

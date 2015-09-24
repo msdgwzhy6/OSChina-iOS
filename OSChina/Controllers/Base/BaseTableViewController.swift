@@ -15,6 +15,21 @@
  */
 
 import UIKit
+import MJRefresh
 
 class BaseTableViewController: UITableViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: "refresh")
+        header.lastUpdatedTimeLabel!.hidden = true
+        self.tableView.header = header
+    }
+
+    func refresh() {
+        delay(3, closure: {
+            () -> () in
+            self.tableView.header.endRefreshing()
+        })
+    }
 }

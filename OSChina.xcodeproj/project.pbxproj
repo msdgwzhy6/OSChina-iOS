@@ -21,6 +21,7 @@
 		87A9E44E89389CBEED874463 /* TweetDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDF4FE56CBFE87A8834E /* TweetDetailController.swift */; };
 		87A9E4DA1C67C6F092D48B3D /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF67D18215742202A9A4 /* HomeController.swift */; };
 		87A9E57D84AA159C4CED5241 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E271FB6E85566BE87F1E /* BaseViewController.swift */; };
+		87A9E65A29440A9B214DCD90 /* Delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E685AAFA6C9A9D77A39C /* Delay.swift */; };
 		87A9E701631A0B205C240070 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E2D9169FE938423AB934 /* Main.storyboard */; };
 		87A9E76FEF5FC769B36408CC /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2E19F555AD56525B1D0 /* BaseTableViewController.swift */; };
 		87A9E849C5A1FA51422DF15D /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2DE446F30BC45849B27 /* MyController.swift */; };
@@ -31,7 +32,7 @@
 		87A9EA2B2EDDEDACD89E9563 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E11982A56F87DA4BBF38 /* LoginController.swift */; };
 		87A9EA424D7898532C6D086D /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */; };
 		87A9EA9FE4F7DE055E3C5A92 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E05C7D9959451E999D9D /* Tweet.swift */; };
-		87A9EAC21F93366E37B24816 /* QAListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */; };
+		87A9EAC21F93366E37B24816 /* QuestionListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4FAB3B7D9093B7E55B6 /* QuestionListController.swift */; };
 		87A9EAD48FF8B507DC932C27 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDDF367273A27B5E1F5D /* TweetCell.swift */; };
 		87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */; };
 		87A9EB5416B49CF4C4555C9C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF8DC8ED99B74536371B /* URLs.swift */; };
@@ -63,11 +64,12 @@
 		87A9E49EA7270FFF88851184 /* TweetListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetListController.swift; sourceTree = "<group>"; };
 		87A9E4B91AE0289FF5B1D4BD /* TempView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempView.swift; sourceTree = "<group>"; };
 		87A9E4DF3312460B70364FDC /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QAListController.swift; sourceTree = "<group>"; };
+		87A9E4FAB3B7D9093B7E55B6 /* QuestionListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionListController.swift; sourceTree = "<group>"; };
 		87A9E5045D8DE0B37E65380C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87A9E5882EEB50E12EF16F35 /* MyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileCell.swift; sourceTree = "<group>"; };
 		87A9E5A30175DECC903540EB /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		87A9E5A511C4888744544D80 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
+		87A9E685AAFA6C9A9D77A39C /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
 		87A9E73817E4648550091D69 /* PublishQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishQuestionController.swift; sourceTree = "<group>"; };
 		87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		87A9E8D5116570937EA5BE42 /* PostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 				87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */,
 				87A9EDE99A4621D88917E54B /* NewsListController.swift */,
 				87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */,
-				87A9E4FAB3B7D9093B7E55B6 /* QAListController.swift */,
+				87A9E4FAB3B7D9093B7E55B6 /* QuestionListController.swift */,
 				87A9E73817E4648550091D69 /* PublishQuestionController.swift */,
 				87A9EC424AB2BD3E902F95A7 /* Base */,
 				87A9E3A55B43E188ADBB9BCB /* NewsController.swift */,
@@ -159,6 +161,7 @@
 			children = (
 				87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */,
 				87A9EA8B1F939B0FF11C5D1F /* HUD.swift */,
+				87A9E685AAFA6C9A9D77A39C /* Delay.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -391,7 +394,7 @@
 				87A9E14442B33020616E4317 /* SettingsController.swift in Sources */,
 				87A9EEEB262598037704AE21 /* NewsListController.swift in Sources */,
 				87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */,
-				87A9EAC21F93366E37B24816 /* QAListController.swift in Sources */,
+				87A9EAC21F93366E37B24816 /* QuestionListController.swift in Sources */,
 				87A9EC019DED9B24DAE31DDD /* PublishQuestionController.swift in Sources */,
 				87A9E57D84AA159C4CED5241 /* BaseViewController.swift in Sources */,
 				87A9EA424D7898532C6D086D /* BaseTabBarController.swift in Sources */,
@@ -403,6 +406,7 @@
 				87A9EDE078F5A7D28EA7FCA2 /* HUD.swift in Sources */,
 				87A9EAD48FF8B507DC932C27 /* TweetCell.swift in Sources */,
 				87A9E3BC0617CC0BA89ABED3 /* MyProfileCell.swift in Sources */,
+				87A9E65A29440A9B214DCD90 /* Delay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
