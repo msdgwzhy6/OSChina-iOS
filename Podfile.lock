@@ -5,6 +5,7 @@ PODS:
   - ObjectMapper (0.17)
   - Ono (1.2.2)
   - SwiftyJSON (2.3.0)
+  - TTTAttributedLabel (1.13.4)
   - XLPagerTabStrip (2.0.0)
 
 DEPENDENCIES:
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 0.17)
   - Ono
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
+  - TTTAttributedLabel
   - XLPagerTabStrip (~> 2.0)
 
 EXTERNAL SOURCES:
@@ -32,6 +34,7 @@ SPEC CHECKSUMS:
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 
 COCOAPODS: 0.38.2
