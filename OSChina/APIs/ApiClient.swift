@@ -15,6 +15,8 @@
  */
 
 import Alamofire
+import SwiftyJSON
+import Ono
 
 class ApiClient {
     static func login(username: String, password: String) {
@@ -24,9 +26,19 @@ class ApiClient {
             "keep_login": 1
         ]
         Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
-        .responseXMLDocument {
-            response in
-            print(response)
+        .responseXMLDocument { (request, response, result) -> Void in
+            let document: ONOXMLDocument = result.value!
+//            print(document)
+            var user = document.rootElement.firstChildWithTag("user") as! ONOXMLElement
+            
+            print(user.attributes)
+            var data = document.rootElement.tag
+            print(data)
+            //append items
+            var jsonObj = JSON(data)
+            
+            print(jsonObj)
+            print(jsonObj[0])
         }
     }
 }

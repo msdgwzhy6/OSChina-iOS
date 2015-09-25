@@ -15,6 +15,7 @@
  */
 
 import UIKit
+import SwiftyJSON
 
 class MyController: BaseTableViewController {
     // header

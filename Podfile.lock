@@ -1,4 +1,5 @@
 PODS:
+  - 1PasswordExtension (1.6.1)
   - Alamofire (2.0.2)
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.11)
@@ -9,6 +10,7 @@ PODS:
   - XLPagerTabStrip (2.0.0)
 
 DEPENDENCIES:
+  - 1PasswordExtension (~> 1.6.1)
   - Alamofire (~> 2.0)
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
@@ -28,6 +30,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 42b79b7ac6d8e7468b22b7a651fc0b445bcdbd3e
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: b327947f35ab3eb16ca42646b26f7347e6aa7186
