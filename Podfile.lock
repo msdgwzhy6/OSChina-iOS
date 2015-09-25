@@ -3,6 +3,7 @@ PODS:
   - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.11)
   - ObjectMapper (0.17)
+  - Ono (1.2.2)
   - SwiftyJSON (2.3.0)
   - XLPagerTabStrip (2.0.0)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh
   - ObjectMapper (~> 0.17)
+  - Ono
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - XLPagerTabStrip (~> 2.0)
 
@@ -28,6 +30,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: b327947f35ab3eb16ca42646b26f7347e6aa7186
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
+  Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 

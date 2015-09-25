@@ -16,4 +16,6 @@
 
 struct URLs {
     static let baseURL: String = "http://www.oschina.net"
+    
+    static let LOGIN: String = baseURL + "/action/api/login_validate"
 }

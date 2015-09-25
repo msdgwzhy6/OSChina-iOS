@@ -42,13 +42,13 @@ class MyController: BaseTableViewController {
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
-
+        
         self.tableView.registerClass(MyProfileCell.self, forCellReuseIdentifier: CELL_MY_PROFILE)
-        let px = 1 / UIScreen.mainScreen().scale
-        let frame = CGRectMake(0, 0, self.tableView.frame.size.width, px)
-        let line: UIView = UIView(frame: frame)
-        self.tableView.tableHeaderView = line
-        line.backgroundColor = self.tableView.separatorColor
+//        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        
+        navigationController?.navigationBar.shadowImage = UIImage();
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +79,7 @@ class MyController: BaseTableViewController {
             let profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
             profile.backgroundColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
             profile.name.text = "痕迹"
+            profile.separatorInset = UIEdgeInsetsMake(0, 0, 0, profile.bounds.size.width);
             return profile
         }
 
@@ -145,6 +146,8 @@ class MyController: BaseTableViewController {
             break
         case CELL_MY_TEAMS:
             HUD.show(self.view, message: "我的团队")
+
+            ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv")
             break
         default:
             return

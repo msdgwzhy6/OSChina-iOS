@@ -17,10 +17,24 @@
 import UIKit
 import XLPagerTabStrip
 
-class TweetController: XLBarPagerTabStripViewController {
+class TweetController: XLButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.isProgressiveIndicator = true;
+        // Do any additional setup after loading the view.
+        
+        self.buttonBarView.backgroundColor = UIColor.clearColor();
+        self.buttonBarView.selectedBar.backgroundColor=UIColor.orangeColor();
+        self.navigationController!.navigationBar.addSubview(self.buttonBarView);
+        
+        
+        buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        //add tab strip
+//        navigationController!.navigationBar.addSubview(btnFavorites)
+//        navigationController!.navigationBar.insertSubview(buttonBarView, belowSubview: btnFavorites)
+
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {

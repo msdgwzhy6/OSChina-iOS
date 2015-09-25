@@ -13,3 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import Alamofire
+
+class ApiClient {
+    static func login(username: String, password: String) {
+        let parameters: [String:AnyObject] = [
+            "username": username,
+            "pwd": password,
+            "keep_login": 1
+        ]
+        Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
+        .responseXMLDocument {
+            response in
+            print(response)
+        }
+    }
+}

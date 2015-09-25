@@ -14,8 +14,5 @@
  * limitations under the License.
  */
 
-// Use this file to import your target's public headers that you would like to expose to Swift.
-#import "MBProgressHUD/MBProgressHUD.h"
-#import "MJRefresh/MJRefresh.h"
-#import "XLPagerTabStrip/XLBarPagerTabStripViewController.h"
-#import "Ono/Ono.h"
+class Notice {
+}

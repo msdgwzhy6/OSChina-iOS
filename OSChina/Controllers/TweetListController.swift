@@ -42,9 +42,12 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         self.presentViewController(publishTweetController!, animated: true, completion: nil)
     }
     
-    // MARK: - XLPagerTabStripChildItem
     func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-        return "avx"
+        return "test"
+    }
+
+    func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
+            return UIColor.redColor()
     }
 
 
