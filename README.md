@@ -1,8 +1,5 @@
 # OSChina-iOS
 
-# About the Author
-
-
 # License
 
     Copyright (C) 2015 JianyingLi
