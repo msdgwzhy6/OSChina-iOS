@@ -1,5 +1,7 @@
 # OSChina-iOS
 
+开源中国
+
 # License
 
     Copyright (C) 2015 JianyingLi
