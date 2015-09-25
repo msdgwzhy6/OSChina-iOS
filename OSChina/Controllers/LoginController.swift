@@ -16,7 +16,7 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

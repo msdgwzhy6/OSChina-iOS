@@ -15,18 +15,28 @@
  */
 
 import UIKit
+import XLPagerTabStrip
 
-class NewsListController: BaseTableViewController {
-
+class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.title = "资讯"
+        var inset: UIEdgeInsets  = UIEdgeInsetsMake(50, 0, 0, 0);
+        self.tableView.contentInset = inset
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+        return "新闻"
+    }
+    
+    func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
+        return UIColor.whiteColor()
     }
 
 }

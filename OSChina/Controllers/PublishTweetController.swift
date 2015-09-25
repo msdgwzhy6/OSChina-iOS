@@ -21,6 +21,17 @@ class PublishTweetController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+//
+//            let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+//
+//            let navController: UINavigationController = UINavigationController.init(rootViewController: self)
+//            navController.navigationBar.barStyle = UIBarStyle.Black
+//            navController.navigationBar.translucent = false
+//            navController.navigationBar.barTintColor = tintColor
+//            navController.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+//            navController.navigationBar.shadowImage = nil
+//            self.addChildViewController(navController)
     }
     
     override func didReceiveMemoryWarning() {

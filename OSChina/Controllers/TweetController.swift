@@ -17,20 +17,32 @@
 import UIKit
 import XLPagerTabStrip
 
-class TweetController: XLButtonBarPagerTabStripViewController {
+class TweetController: XLTwitterPagerTabStripViewController {
+    
+    
+    var publishTweetController: PublishTweetController?
+    
+    var btnPublishTweet: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.isProgressiveIndicator = true;
+        
+        self.navigationView.backgroundColor = UIColor.blueColor()
+        self.btnPublishTweet = UIBarButtonItem(title: "发表", style: .Plain, target: self, action: "clickPublishTweet:")
+        self.btnPublishTweet?.tintColor = UIColor.whiteColor()
+        
+        //        self.navigationItem.title = "动弹"
+        self.navigationItem.rightBarButtonItem = btnPublishTweet
         // Do any additional setup after loading the view.
         
-        self.buttonBarView.backgroundColor = UIColor.clearColor();
-        self.buttonBarView.selectedBar.backgroundColor=UIColor.orangeColor();
-        self.navigationController!.navigationBar.addSubview(self.buttonBarView);
+//        self.buttonBarView.backgroundColor = UIColor.clearColor();
+//        self.buttonBarView.selectedBar.backgroundColor=UIColor.orangeColor();
+//        self.navigationController!.navigationBar.addSubview(self.buttonBarView);
+//        self.view.addSubview(self.buttonBarView)
         
-        
-        buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+//        buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         //add tab strip
 //        navigationController!.navigationBar.addSubview(btnFavorites)
 //        navigationController!.navigationBar.insertSubview(buttonBarView, belowSubview: btnFavorites)
@@ -46,4 +58,22 @@ class TweetController: XLButtonBarPagerTabStripViewController {
 //        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
         return [viewCOntroller1, viewCOntroller2, viewCOntroller3]
     }
+    
+    
+    
+    func clickPublishTweet(sender: UIBarButtonItem) {
+        self.publishTweetController = PublishTweetController(nibName: nil, bundle: nil)
+        
+        let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+        
+        let navController: UINavigationController = UINavigationController.init(rootViewController: publishTweetController!)
+        navController.navigationBar.barStyle = UIBarStyle.Black
+        navController.navigationBar.translucent = false
+        navController.navigationBar.barTintColor = tintColor
+        navController.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        navController.navigationBar.shadowImage = nil
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+    }
+    
 }

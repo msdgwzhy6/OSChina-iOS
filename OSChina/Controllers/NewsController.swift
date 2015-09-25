@@ -17,10 +17,16 @@
 import UIKit
 import XLPagerTabStrip
 
-class NewsController: XLBarPagerTabStripViewController {
+class NewsController: XLButtonBarPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.buttonBarView.backgroundColor = UIColor.whiteColor()
+        self.buttonBarView.selectedBar.backgroundColor=UIColor.orangeColor()
+        self.view.addSubview(self.buttonBarView);
+
+        buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
