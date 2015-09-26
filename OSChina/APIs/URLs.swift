@@ -16,6 +16,13 @@
 
 struct URLs {
     static let baseURL: String = "http://www.oschina.net"
-    
+    // user
     static let LOGIN: String = baseURL + "/action/api/login_validate"
+    // news
+    static let NEWS_LIST: String = baseURL + "/action/api/news_list"
+    // tweet
+    static let TWEET_LIST: String = baseURL + "/action/api/tweet_list"
+    static let TWEET_TOPIC_LIST: String = baseURL + "/action/api/tweet_topic_list"
+
+    //
 }

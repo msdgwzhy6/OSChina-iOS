@@ -6,6 +6,9 @@
 "TITLE_TWEET" = "动弹";
 "TITLE_DISCOVERY" = "发现";
 "TITLE_MY" = "我的";
+"TITLE_MESSAGES" = "消息";
+"TITLE_SETTINGS" = "设置";
+"TITLE_LOGIN" = "登录";
 
 // TabBar
 "TAB_NEWS" = "新闻";
@@ -16,6 +19,9 @@
 
 // Action
 "ACTION_CLOSE" = "关闭";
+"ACTION_MESSAGES" = "消息";
 "ACTION_SETTINGS" = "设置";
 "ACTION_PUBLISH_TWEET" = "弹一弹";
 "ACTION_PUBLISH_QUESTION" = "提问";
+"ACTION_SCAN_QRCODE" = "扫一扫";
+"ACTION_LOGIN" = "登录";

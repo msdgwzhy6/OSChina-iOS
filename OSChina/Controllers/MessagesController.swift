@@ -15,38 +15,16 @@
  */
 
 import UIKit
-import XLPagerTabStrip
 
-class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
+class MessagesController: BaseTableViewController {
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "TITLE_MESSAGES".localized
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-        return "问题"
-    }
-
-    func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
-            return UIColor.whiteColor()
-    }
-
-    override func refresh() {
-        ApiClient.tweetListHot(1,
-            success: {
-                (data) -> Void in
-                self.endRefreshing()
-            },
-            failure: {
-                (code, message) -> Void in
-                self.endRefreshing()
-            }
-        )
     }
 }

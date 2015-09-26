@@ -21,7 +21,6 @@ class PublishTweetController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
-//        btnClose.tintColor = UIColor.whiteColor()
         
         self.navigationItem.leftBarButtonItem = btnClose
     }

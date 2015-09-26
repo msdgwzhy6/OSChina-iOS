@@ -30,6 +30,8 @@ class User: Mappable {
     var lastLoginTime: String?  // 最近登录时间
     var portrait: String?       // 头像
 
+    init() { }
+
     required init?(_ map: Map){
 
     }

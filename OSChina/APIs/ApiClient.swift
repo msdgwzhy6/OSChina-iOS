@@ -19,14 +19,17 @@ import SwiftyJSON
 import Ono
 
 class ApiClient {
-    static func login(username: String, password: String) {
+    static let PAGE_SIZE: Int = 20
+
+    static func login(username: String, password: String, success: (data:User) -> Void, failure: (code:Int, message:String) -> Void) {
         let parameters: [String:AnyObject] = [
-            "username": username,
-            "pwd": password,
-            "keep_login": 1
+                "username": username,
+                "pwd": password,
+                "keep_login": 1
         ]
         Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
-        .responseXMLDocument { (request, response, result) -> Void in
+        .responseXMLDocument {
+            (request, response, result) -> Void in
             let document: ONOXMLDocument = result.value!
             document.dictionary()
 //            print(document)
@@ -36,9 +39,38 @@ class ApiClient {
             print(data)
             //append items
             var jsonObj = JSON(data)
-            
+
             print(jsonObj)
             print(jsonObj[0])
+            success(data: User())
+        }
+    }
+
+    static func tweetListHot(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        let parameters: [String:AnyObject] = [
+                "pageIndex": page,
+                "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.POST, URLs.TWEET_TOPIC_LIST, parameters: parameters)
+        .responseXMLDocument {
+            (request, response, result) -> Void in
+            let document: ONOXMLDocument = result.value!
+            print(document)
+            success(data: [])
+        }
+    }
+
+    static func tweetListLatest(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        let parameters: [String:AnyObject] = [
+                "pageIndex": page,
+                "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.POST, URLs.TWEET_LIST, parameters: parameters)
+        .responseXMLDocument {
+            (request, response, result) -> Void in
+            let document: ONOXMLDocument = result.value!
+            print(document)
+            success(data: [])
         }
     }
 }

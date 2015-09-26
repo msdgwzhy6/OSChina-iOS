@@ -27,6 +27,7 @@ class NewsController: XLButtonBarPagerTabStripViewController {
         self.view.addSubview(self.buttonBarView);
 
         buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+        buttonBarView.leftRightMargin = 0
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {

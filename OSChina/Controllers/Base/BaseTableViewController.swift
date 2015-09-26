@@ -29,7 +29,11 @@ class BaseTableViewController: UITableViewController {
     func refresh() {
         delay(1, closure: {
             () -> () in
-            self.tableView.header.endRefreshing()
+            self.endRefreshing()
         })
+    }
+    
+    func endRefreshing() {
+        self.tableView.header.endRefreshing()
     }
 }

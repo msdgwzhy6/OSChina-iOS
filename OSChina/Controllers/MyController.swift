@@ -31,25 +31,24 @@ class MyController: BaseTableViewController {
     let CELL_MY_PROJECTS: String = "ID_CELL_MY_PROJECTS"
     let CELL_MY_TEAMS: String = "ID_CELL_MY_TEAMS"
 
-    var settingsController: SettingsController?
-
+    var btnMessages: UIBarButtonItem?
     var btnSettings: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_MY".localized
         
-        self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "settings:")
-
+        self.btnMessages = UIBarButtonItem(title: "ACTION_MESSAGES".localized, style: .Plain, target: self, action: "messages:")
+        self.btnSettings = UIBarButtonItem(title: "ACTION_SETTINGS".localized, style: .Plain, target: self, action: "settings:")
+        self.navigationItem.leftBarButtonItem = btnMessages
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         self.tableView.registerClass(MyProfileCell.self, forCellReuseIdentifier: CELL_MY_PROFILE)
-//        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         
-        navigationController?.navigationBar.shadowImage = UIImage();
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+//        navigationController?.navigationBar.shadowImage = UIImage();
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
 
     }
 
@@ -77,17 +76,23 @@ class MyController: BaseTableViewController {
     
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if (indexPath.section == 0) {
-            let profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
-            profile.backgroundColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
-            profile.name.text = "痕迹"
-            profile.separatorInset = UIEdgeInsetsMake(0, 0, 0, profile.bounds.size.width);
-            return profile
-        }
+//        if (indexPath.section == 0) {
+//            let profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
+//            profile.backgroundColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+//            profile.name.text = "痕迹"
+//            profile.separatorInset = UIEdgeInsetsMake(0, 0, 0, profile.bounds.size.width);
+//            return profile
+//        }
 
         var title: String = "";
         var identifier: String = "";
         switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0) {
+                title = "登录"
+                identifier = CELL_MY_PROFILE
+            }
+            break;
         case 1:
             switch (indexPath.row) {
             case 0:
@@ -134,6 +139,10 @@ class MyController: BaseTableViewController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
 
         switch (cell.restorationIdentifier!) {
+        case CELL_MY_PROFILE:
+            let controller: LoginController = LoginController(nibName: nil, bundle: nil)
+            self.presentViewController(controller, animated: true)
+            break;
         case CELL_MY_TWEETS:
 //            HUD.show(self.parentViewController!.view, message: "我的动弹")
             var data: [String: AnyObject] = [: ]
@@ -155,7 +164,14 @@ class MyController: BaseTableViewController {
         case CELL_MY_TEAMS:
             HUD.show(self.view, message: "我的团队")
 
-            ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv")
+            ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv",
+                success: {
+                    (data) -> Void in
+                },
+                failure: {
+                    (code, message) -> Void in
+                }
+            )
             break
         default:
             return
@@ -183,10 +199,16 @@ class MyController: BaseTableViewController {
         }
         return super.tableView(tableView, viewForHeaderInSection: section)
     }
+    
+    func messages(sender: UIBarButtonItem) {
+        let controller: MessagesController = MessagesController(nibName: nil, bundle: nil)
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 
     func settings(sender: UIBarButtonItem) {
-        self.settingsController = SettingsController(nibName: nil, bundle: nil)
-        self.settingsController!.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(settingsController!, animated: true)
+        let controller: SettingsController = SettingsController(nibName: nil, bundle: nil)
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

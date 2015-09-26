@@ -24,10 +24,15 @@ class DiscoveryController: BaseTableViewController {
     // section 2
     let CELL_OPEN_SOURCE_PROJECT: String = "ID_CELL_OPEN_SOURCE_PROJECT"
     let CELL_BLOG               : String = "ID_CELL_BLOG"
+    
+    var btnScanQRCode: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "TITLE_DISCOVERY".localized
+        self.title = "TITLE_DISCOVERY".localized
+        self.btnScanQRCode = UIBarButtonItem(title: "ACTION_SCAN_QRCODE".localized, style: .Plain, target: self, action: "scanQRCode:")
+        self.navigationItem.rightBarButtonItem = btnScanQRCode
+
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
     }
@@ -128,5 +133,8 @@ class DiscoveryController: BaseTableViewController {
             return nil
         }
         return super.tableView(tableView, viewForHeaderInSection: section)
+    }
+    
+    func scanQRCode(sender: UIBarButtonItem) {
     }
 }

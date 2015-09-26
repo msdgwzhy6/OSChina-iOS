@@ -20,7 +20,12 @@ class LoginController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "TITLE_LOGIN".localized
+        let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
+        let btnLogin: UIBarButtonItem = UIBarButtonItem(title: "ACTION_LOGIN".localized, style: .Plain, target: self, action: "login:")
+        
+        self.navigationItem.leftBarButtonItem = btnClose
+        self.navigationItem.rightBarButtonItem = btnLogin
     }
     
     override func didReceiveMemoryWarning() {
@@ -28,4 +33,21 @@ class LoginController: BaseTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func login(sender: UIBarButtonItem) {
+        ApiClient.login("", password: "",
+            success: {
+                (data) -> Void in
+                //
+            },
+            failure: {
+                (code, message) -> Void in
+                //
+            }
+        )
+    }
+    
+    func close(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
 }

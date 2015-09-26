@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A3FFC7E2E6ED1524A980DB1 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94731FA4CF476F5D5FA61F37 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		87A9E080F9EAAC1C6CAF97C0 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E8FB649FE203E80EB371 /* MessagesController.swift */; };
 		87A9E0C1F0A7D6592B5979DD /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E3E2267D0A3E085F3019 /* BaseNavigationController.swift */; };
 		87A9E14442B33020616E4317 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */; };
 		87A9E19255FD560F79CA6CAA /* ProjectListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */; };
@@ -83,6 +84,7 @@
 		87A9E73817E4648550091D69 /* PublishQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishQuestionController.swift; sourceTree = "<group>"; };
 		87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		87A9E8D5116570937EA5BE42 /* PostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostListController.swift; sourceTree = "<group>"; };
+		87A9E8FB649FE203E80EB371 /* MessagesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		87A9E994427DB72A767B5A13 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishPostController.swift; sourceTree = "<group>"; };
 		87A9EA8B1F939B0FF11C5D1F /* HUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				87A9E3A55B43E188ADBB9BCB /* NewsController.swift */,
 				87A9E5A511C4888744544D80 /* QuestionController.swift */,
 				87A9EF7D22AA21379BCD1122 /* TweetController.swift */,
+				87A9E8FB649FE203E80EB371 /* MessagesController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				87A9E367FF9416FEB959688C /* StringExtension.swift in Sources */,
 				87A9E2763C8C4EF01EA6FAF0 /* UIViewControllerExtension.swift in Sources */,
 				87A9E89C1F2A834AAB11B54F /* UIColorExtension.swift in Sources */,
+				87A9E080F9EAAC1C6CAF97C0 /* MessagesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

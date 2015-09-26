@@ -6,6 +6,9 @@
 "TITLE_TWEET" = "Tweet";
 "TITLE_DISCOVERY" = "Discovery";
 "TITLE_MY" = "My";
+"TITLE_MESSAGES" = "Messages";
+"TITLE_SETTINGS" = "Settings";
+"TITLE_LOGIN" = "Login";
 
 // TabBar
 "TAB_NEWS" = "News";
@@ -16,6 +19,9 @@
 
 // Action
 "ACTION_CLOSE" = "Close";
+"ACTION_MESSAGES" = "Messages";
 "ACTION_SETTINGS" = "Settings";
 "ACTION_PUBLISH_TWEET" = "弹一弹";
 "ACTION_PUBLISH_QUESTION" = "提问";
+"ACTION_SCAN_QRCODE" = "Scan";
+"ACTION_LOGIN" = "Login";

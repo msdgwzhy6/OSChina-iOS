@@ -20,20 +20,9 @@ class SettingsController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-//        self.navigationController?.navigationItem.backBarButtonItem?.tintColor = UIColor.whiteColor()
-//        self.navigationController?.navigationItem.backBarButtonItem?.title = "返回"
-//        self.navigationItem.backBarButtonItem!.title = "fdsfdsf"
-//        self.navigationItem.title = "ABC"
-//        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.title = "back"
-        
-//        let backBarButtonItem: UIBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: "sss")
-//        self.navigationItem.backBarButtonItem = backBarButtonItem
-        self.title = "设置"
-//        self.navigationItem.backBarButtonItem?.title = "返回"
-//        self.navigationController?.navigationBar.backItem?.title = "返回"
-//        self.navigationController?.navigationItem.backBarButtonItem?.title = "返回"
-//        self.navigationController?.navigationBar.topItem?.title = "返回"
+        self.title = "TITLE_SETTINGS".localized
+
+        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
     }
 
     override func didReceiveMemoryWarning() {

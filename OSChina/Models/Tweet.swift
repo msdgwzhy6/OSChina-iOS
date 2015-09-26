@@ -17,7 +17,7 @@
 import Foundation
 import ObjectMapper
 
-class Account: Mappable {
+class Tweet: Mappable {
     var id: Int?            // 动弹ID
     var pubDate: String?    // 动弹时间
     var body: String?       // 动弹内容
