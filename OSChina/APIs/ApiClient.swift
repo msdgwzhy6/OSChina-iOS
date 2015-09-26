@@ -28,9 +28,9 @@ class ApiClient {
         Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
         .responseXMLDocument { (request, response, result) -> Void in
             let document: ONOXMLDocument = result.value!
+            document.dictionary()
 //            print(document)
             var user = document.rootElement.firstChildWithTag("user") as! ONOXMLElement
-            
             print(user.attributes)
             var data = document.rootElement.tag
             print(data)

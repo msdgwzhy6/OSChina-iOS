@@ -16,6 +16,7 @@
 
 import UIKit
 import SwiftyJSON
+import ObjectMapper
 
 class MyController: BaseTableViewController {
     // header
@@ -39,7 +40,7 @@ class MyController: BaseTableViewController {
         self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "clickSettings:")
         self.btnSettings?.tintColor = UIColor.whiteColor()
         // 设置NavigationBar
-        self.navigationItem.title = NSLocalizedString("KEY", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+        self.navigationItem.title = "TITLE_CONTROLLER_NEWS".localized
 
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
@@ -135,7 +136,13 @@ class MyController: BaseTableViewController {
 
         switch (cell.restorationIdentifier!) {
         case CELL_MY_TWEETS:
-            HUD.show(self.parentViewController!.view, message: "我的动弹")
+//            HUD.show(self.parentViewController!.view, message: "我的动弹")
+            var data: [String: AnyObject] = [: ]
+            data.updateValue(8, forKey: "uid")
+            data.updateValue("痕迹", forKey: "name")
+            data.updateValue("1", forKey: "gender")
+            let user = Mapper<User>().map(data)
+            print(user)
             break
         case CELL_MY_BLOG:
             HUD.show(self.view, message: "我的博客")
