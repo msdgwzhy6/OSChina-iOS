@@ -39,7 +39,8 @@ class MyController: BaseTableViewController {
         self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "clickSettings:")
         self.btnSettings?.tintColor = UIColor.whiteColor()
         // 设置NavigationBar
-        self.navigationItem.title = "我的主页"
+        self.navigationItem.title = NSLocalizedString("KEY", tableName: nil, bundle: NSBundle.mainBundle(), value: "", comment: "")
+
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
