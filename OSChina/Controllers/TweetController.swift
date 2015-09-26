@@ -29,7 +29,6 @@ class TweetController: XLTwitterPagerTabStripViewController {
         
         self.isProgressiveIndicator = true;
         
-        self.navigationView.backgroundColor = UIColor.blueColor()
         self.btnPublishTweet = UIBarButtonItem(title: "发表", style: .Plain, target: self, action: "clickPublishTweet:")
         self.btnPublishTweet?.tintColor = UIColor.whiteColor()
         

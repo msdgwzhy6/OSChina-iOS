@@ -27,15 +27,13 @@ class NewsController: XLButtonBarPagerTabStripViewController {
         self.view.addSubview(self.buttonBarView);
 
         buttonBarView.registerNib(UINib(nibName: "NavTabButtonCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
+//        buttonBarView.registerClass(MyProfileCell.self, forCellWithReuseIdentifier: "Cell")
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
         let viewCOntroller1 = NewsListController()
-//        viewCOntroller1.view.backgroundColor = UIColor.redColor()
         let viewCOntroller2 = NewsListController()
-//        viewCOntroller2.view.backgroundColor = UIColor.grayColor()
         let viewCOntroller3 = NewsListController()
-//        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
         return [viewCOntroller1,viewCOntroller2,viewCOntroller3]
     }
 }

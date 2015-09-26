@@ -17,6 +17,7 @@
 import UIKit
 
 class DiscoveryController: BaseTableViewController {
+
     // section 1
     let CELL_ACTIVITIES         : String = "ID_CELL_ACTIVITIES"
     let CELL_ACTIVITIES_GO      : String = "ID_CELL_ACTIVITIES_GO"
@@ -26,7 +27,7 @@ class DiscoveryController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "发现"
+        self.navigationItem.title = "TITLE_DISCOVERY".localized
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
     }

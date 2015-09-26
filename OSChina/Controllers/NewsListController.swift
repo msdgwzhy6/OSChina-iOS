@@ -22,8 +22,6 @@ class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var inset: UIEdgeInsets  = UIEdgeInsetsMake(50, 0, 0, 0);
-        self.tableView.contentInset = inset
     }
     
     override func didReceiveMemoryWarning() {

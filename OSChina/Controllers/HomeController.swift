@@ -16,7 +16,7 @@
 
 import UIKit
 
-class HomeController: UITabBarController {
+class HomeController: BaseTabBarController {
     
     var newsController     : NewsController?        // 资讯
     var qsnController      : QuestionController?    // 问题
@@ -32,31 +32,17 @@ class HomeController: UITabBarController {
         self.discoveryController = DiscoveryController(nibName: nil, bundle: nil)
         self.myController        = MyController(nibName: nil, bundle: nil)
         
-        setupUINavigationController("资讯", controller: self.newsController)
-        setupUINavigationController("问题", controller: self.qsnController)
-        setupUINavigationController("动弹", controller: self.tweetController)
-        setupUINavigationController("发现", controller: self.discoveryController)
-        setupUINavigationController("我的", controller: self.myController)
-        self.tabBar.tintColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+        // 增加Tab
+        self.addTab("TAB_NEWS".localized, controller: self.newsController)
+        self.addTab("TAB_QUESTION".localized, controller: self.qsnController)
+        self.addTab("TAB_TWEET".localized, controller: self.tweetController)
+        self.addTab("TAB_DISCOVERY".localized, controller: self.discoveryController)
+        self.addTab("TAB_MY".localized, controller: self.myController)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func setupUINavigationController(title: String?, controller: UIViewController?) {
-        let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
-        controller!.title = title
-        let navController: UINavigationController = UINavigationController.init(rootViewController: controller!)
-        navController.navigationBar.tintColor = UIColor.whiteColor()
-        navController.navigationBar.backItem?.title = "返回"
-        navController.navigationBar.barStyle = UIBarStyle.Black
-        navController.navigationBar.translucent = false
-        navController.navigationBar.barTintColor = tintColor
-        navController.navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
-        navController.navigationBar.shadowImage = nil
-        self.addChildViewController(navController)
     }
 
 }

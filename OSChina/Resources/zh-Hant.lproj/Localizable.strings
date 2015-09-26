@@ -2,7 +2,14 @@
 
 //Controller标题
 "TITLE_NEWS" = "新聞";
-"TITLE_QUESTIOIN" = "問題";
+"TITLE_QUESTION" = "問題";
 "TITLE_TWEET" = "動彈";
 "TITLE_DISCOVERY" = "發現";
 "TITLE_MY" = "我的";
+
+// TabBar标题
+"TAB_NEWS" = "新聞";
+"TAB_QUESTION" = "問題";
+"TAB_TWEET" = "動彈";
+"TAB_DISCOVERY" = "發現";
+"TAB_MY" = "我的";

@@ -2,7 +2,14 @@
 
 //Controller标题
 "TITLE_NEWS" = "News";
-"TITLE_QUESTIOIN" = "Question";
+"TITLE_QUESTION" = "Question";
 "TITLE_TWEET" = "Tweet";
 "TITLE_DISCOVERY" = "Discovery";
 "TITLE_MY" = "My";
+
+// TabBar标题
+"TAB_NEWS" = "News";
+"TAB_QUESTION" = "Question";
+"TAB_TWEET" = "Tweet";
+"TAB_DISCOVERY" = "Discovery";
+"TAB_MY" = "My";

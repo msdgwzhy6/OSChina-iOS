@@ -28,6 +28,7 @@
 		87A9E76FEF5FC769B36408CC /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2E19F555AD56525B1D0 /* BaseTableViewController.swift */; };
 		87A9E849C5A1FA51422DF15D /* MyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E2DE446F30BC45849B27 /* MyController.swift */; };
 		87A9E88D95438A6D1731B1D7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4DF3312460B70364FDC /* Comment.swift */; };
+		87A9E89C1F2A834AAB11B54F /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9ED1693192A5B77AD40DB /* UIColorExtension.swift */; };
 		87A9E8B821281630F8D47CF8 /* TweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EF7D22AA21379BCD1122 /* TweetController.swift */; };
 		87A9E99B7E3DE3D606568598 /* ResponseOno.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EE0F57D085F16CC296D7 /* ResponseOno.swift */; };
 		87A9E9C19B9E79B816EF551D /* PostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E8D5116570937EA5BE42 /* PostListController.swift */; };
@@ -89,6 +90,7 @@
 		87A9EB38A370DCC4ADEDE8D5 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		87A9EBA318C704B64DEF9EF6 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoveryController.swift; sourceTree = "<group>"; };
+		87A9ED1693192A5B77AD40DB /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		87A9ED9DB70EFD5BA1051D6D /* ProjectListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListController.swift; sourceTree = "<group>"; };
 		87A9EDB2516DF0851C3DA6E1 /* NavTabButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavTabButtonCell.xib; sourceTree = "<group>"; };
 		87A9EDDF367273A27B5E1F5D /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				87A9E47392D9EDCD435BBB18 /* ONOXMLDocumentExtension.swift */,
 				87A9E666961D5CB48079067C /* StringExtension.swift */,
 				87A9E4C311FE40B5E3689CAA /* UIViewControllerExtension.swift */,
+				87A9ED1693192A5B77AD40DB /* UIColorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				87A9EE17B48FDAFE4B27243B /* ONOXMLDocumentExtension.swift in Sources */,
 				87A9E367FF9416FEB959688C /* StringExtension.swift in Sources */,
 				87A9E2763C8C4EF01EA6FAF0 /* UIViewControllerExtension.swift in Sources */,
+				87A9E89C1F2A834AAB11B54F /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
