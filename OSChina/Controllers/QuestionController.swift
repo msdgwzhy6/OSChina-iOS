@@ -18,10 +18,15 @@ import UIKit
 import XLPagerTabStrip
 
 class QuestionController: XLBarPagerTabStripViewController {
-
+    
+    var btnPublishQuestion: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "TITLE_QUESTION".localized
+
+        self.btnPublishQuestion = UIBarButtonItem(title: "ACTION_PUBLISH_QUESTION".localized, style: .Plain, target: self, action: "publishQuestion:")
+        self.navigationItem.rightBarButtonItem = btnPublishQuestion
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
@@ -32,5 +37,10 @@ class QuestionController: XLBarPagerTabStripViewController {
         let viewCOntroller3 = QuestionListController()
 //        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
         return [viewCOntroller1,viewCOntroller2,viewCOntroller3]
+    }
+    
+    func publishQuestion(sender: UIBarButtonItem) {
+        let controller: PublishQuestionController = PublishQuestionController(nibName: nil, bundle: nil)
+        self.presentViewController(controller, animated: true)
     }
 }

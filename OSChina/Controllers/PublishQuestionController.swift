@@ -16,7 +16,7 @@
 
 import UIKit
 
-class PublishQuestionController: UITableViewController {
+class PublishQuestionController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

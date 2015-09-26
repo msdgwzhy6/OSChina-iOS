@@ -1,15 +1,21 @@
 "APP_NAME" = "OSChina";
 
-//Controller标题
+// Controller
 "TITLE_NEWS" = "News";
 "TITLE_QUESTION" = "Question";
 "TITLE_TWEET" = "Tweet";
 "TITLE_DISCOVERY" = "Discovery";
 "TITLE_MY" = "My";
 
-// TabBar标题
+// TabBar
 "TAB_NEWS" = "News";
 "TAB_QUESTION" = "Question";
 "TAB_TWEET" = "Tweet";
 "TAB_DISCOVERY" = "Discovery";
 "TAB_MY" = "My";
+
+// Action
+"ACTION_CLOSE" = "Close";
+"ACTION_SETTINGS" = "Settings";
+"ACTION_PUBLISH_TWEET" = "弹一弹";
+"ACTION_PUBLISH_QUESTION" = "提问";

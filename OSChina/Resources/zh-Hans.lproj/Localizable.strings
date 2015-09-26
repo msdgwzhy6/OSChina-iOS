@@ -1,15 +1,21 @@
 "APP_NAME" = "开源中国";
 
-//Controller标题
+// Controller
 "TITLE_NEWS" = "新闻";
 "TITLE_QUESTION" = "问题";
 "TITLE_TWEET" = "动弹";
 "TITLE_DISCOVERY" = "发现";
 "TITLE_MY" = "我的";
 
-// TabBar标题
+// TabBar
 "TAB_NEWS" = "新闻";
 "TAB_QUESTION" = "问题";
 "TAB_TWEET" = "动弹";
 "TAB_DISCOVERY" = "发现";
 "TAB_MY" = "我的";
+
+// Action
+"ACTION_CLOSE" = "关闭";
+"ACTION_SETTINGS" = "设置";
+"ACTION_PUBLISH_TWEET" = "弹一弹";
+"ACTION_PUBLISH_QUESTION" = "提问";

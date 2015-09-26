@@ -37,10 +37,9 @@ class MyController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "clickSettings:")
-        self.btnSettings?.tintColor = UIColor.whiteColor()
-        // 设置NavigationBar
-        self.navigationItem.title = "TITLE_NEWS".localized
+        self.title = "TITLE_MY".localized
+        
+        self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "settings:")
 
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
@@ -185,7 +184,7 @@ class MyController: BaseTableViewController {
         return super.tableView(tableView, viewForHeaderInSection: section)
     }
 
-    func clickSettings(sender: UIBarButtonItem) {
+    func settings(sender: UIBarButtonItem) {
         self.settingsController = SettingsController(nibName: nil, bundle: nil)
         self.settingsController!.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingsController!, animated: true)

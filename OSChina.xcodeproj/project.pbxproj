@@ -112,7 +112,6 @@
 		F5FC45E31BB667FF0071CFCE /* MyProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileCell.xib; sourceTree = "<group>"; };
 		F5FC45EE1BB66FF50071CFCE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		F5FC45F01BB66FFD0071CFCE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		F5FC45F11BB670160071CFCE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -470,7 +469,6 @@
 			children = (
 				F5FC45EE1BB66FF50071CFCE /* zh-Hans */,
 				F5FC45F01BB66FFD0071CFCE /* en */,
-				F5FC45F11BB670160071CFCE /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
