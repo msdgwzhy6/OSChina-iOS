@@ -40,7 +40,7 @@ class MyController: BaseTableViewController {
         self.btnSettings = UIBarButtonItem(title: "设置", style: .Plain, target: self, action: "clickSettings:")
         self.btnSettings?.tintColor = UIColor.whiteColor()
         // 设置NavigationBar
-        self.navigationItem.title = "TITLE_CONTROLLER_NEWS".localized
+        self.navigationItem.title = "TITLE_NEWS".localized
 
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView

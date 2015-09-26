@@ -1,8 +1,8 @@
 "APP_NAME" = "开源中国";
 
 //Controller标题
-"TITLE_CONTROLLER_NEWS" = "新闻";
-"TITLE_CONTROLLER_QUESTIOIN" = "问题";
-"TITLE_CONTROLLER_TWEET" = "动弹";
-"TITLE_CONTROLLER_DISCOVERY" = "发现";
-"TITLE_CONTROLLER_MY" = "我的";
+"TITLE_NEWS" = "新闻";
+"TITLE_QUESTIOIN" = "问题";
+"TITLE_TWEET" = "动弹";
+"TITLE_DISCOVERY" = "发现";
+"TITLE_MY" = "我的";

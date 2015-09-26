@@ -1,8 +1,8 @@
 "APP_NAME" = "OSChina";
 
 //Controller标题
-"TITLE_CONTROLLER_NEWS" = "News";
-"TITLE_CONTROLLER_QUESTIOIN" = "Question";
-"TITLE_CONTROLLER_TWEET" = "Tweet";
-"TITLE_CONTROLLER_DISCOVERY" = "Discovery";
-"TITLE_CONTROLLER_MY" = "My";
+"TITLE_NEWS" = "News";
+"TITLE_QUESTIOIN" = "Question";
+"TITLE_TWEET" = "Tweet";
+"TITLE_DISCOVERY" = "Discovery";
+"TITLE_MY" = "My";
