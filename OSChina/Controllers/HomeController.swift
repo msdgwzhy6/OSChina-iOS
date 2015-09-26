@@ -49,6 +49,8 @@ class HomeController: UITabBarController {
         let tintColor: UIColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
         controller!.title = title
         let navController: UINavigationController = UINavigationController.init(rootViewController: controller!)
+        navController.navigationBar.tintColor = UIColor.whiteColor()
+        navController.navigationBar.backItem?.title = "返回"
         navController.navigationBar.barStyle = UIBarStyle.Black
         navController.navigationBar.translucent = false
         navController.navigationBar.barTintColor = tintColor

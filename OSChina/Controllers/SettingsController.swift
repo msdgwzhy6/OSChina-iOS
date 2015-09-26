@@ -16,7 +16,7 @@
 
 import UIKit
 
-class SettingsController: UITableViewController {
+class SettingsController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +27,19 @@ class SettingsController: UITableViewController {
 //        self.navigationItem.title = "ABC"
 //        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.title = "back"
         
-        let backBarButtonItem: UIBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: "sss")
-        self.navigationItem.backBarButtonItem = backBarButtonItem
+//        let backBarButtonItem: UIBarButtonItem = UIBarButtonItem(title: "返回", style: UIBarButtonItemStyle.Plain, target: nil, action: "sss")
+//        self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.title = "设置"
+//        self.navigationItem.backBarButtonItem?.title = "返回"
+//        self.navigationController?.navigationBar.backItem?.title = "返回"
+//        self.navigationController?.navigationItem.backBarButtonItem?.title = "返回"
+//        self.navigationController?.navigationBar.topItem?.title = "返回"
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+
     }
 
 }
