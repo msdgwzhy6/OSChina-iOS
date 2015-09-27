@@ -26,3 +26,9 @@
 "ACTION_PUBLISH_QUESTION" = "提问";
 "ACTION_SCAN_QRCODE" = "扫一扫";
 "ACTION_LOGIN" = "登录";
+
+
+// TweetList
+"TAB_TWEET_LIST_LATEST" = "最新";
+"TAB_TWEET_LIST_HOT" = "热门";
+"TAB_TWEET_LIST_MY" = "我的动弹";

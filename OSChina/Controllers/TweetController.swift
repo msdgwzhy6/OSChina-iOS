@@ -25,18 +25,17 @@ class TweetController: BaseButtonBarPagerTabStripViewController {
         super.viewDidLoad()
         self.title = "TITLE_TWEET".localized
         
-        self.isProgressiveIndicator = true;
-        
         self.btnPublishTweet = UIBarButtonItem(title: "ACTION_PUBLISH_TWEET".localized, style: .Plain, target: self, action: "publishTweet:")
         self.navigationItem.rightBarButtonItem = btnPublishTweet
 
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-        let viewCOntroller1 = TweetListController()
-        let viewCOntroller2 = TweetListController()
-        let viewCOntroller3 = TweetListController()
-        return [viewCOntroller1, viewCOntroller2, viewCOntroller3]
+        let controller1 = TweetListController(flag: TweetListFlag.Latest)
+        let controller2 = TweetListController(flag: TweetListFlag.Hot)
+        controller1.tableView.contentInset = self.buttonBarViewTop()
+        controller2.tableView.contentInset = self.buttonBarViewTop()
+        return [controller1, controller2]
     }
 
     func publishTweet(sender: UIBarButtonItem) {

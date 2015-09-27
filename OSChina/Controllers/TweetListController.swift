@@ -17,8 +17,24 @@
 import UIKit
 import XLPagerTabStrip
 
+enum TweetListFlag {
+    case Latest
+    case Hot
+    case My
+}
+
 class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     
+    var flag: TweetListFlag = TweetListFlag.Latest
+    
+    init(flag: TweetListFlag) {
+        self.flag = flag
+        super.init(style: .Plain)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +46,15 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     }
     
     func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-        return "问题"
+        switch (flag) {
+        case .Latest:
+            return "TAB_TWEET_LIST_LATEST".localized
+        case .Hot:
+            return "TAB_TWEET_LIST_HOT".localized
+        case .My:
+            return "TAB_TWEET_LIST_MY".localized
+        }
+        return " "
     }
 
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
