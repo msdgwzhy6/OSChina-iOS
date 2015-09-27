@@ -37,19 +37,12 @@ class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    var publishQuestionController: PublishQuestionController?
     
     var btnPublishQuestion: UIBarButtonItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.btnPublishQuestion = UIBarButtonItem(title: "提问", style: .Plain, target: self, action: "clickPublishQuestion:")
-        self.btnPublishQuestion?.tintColor = UIColor.whiteColor()
-        
-        self.navigationItem.title = "问题"
-        self.navigationItem.rightBarButtonItem = btnPublishQuestion
-        
+        self.btnPublishQuestion = UIBarButtonItem(title: "提问", style: .Plain, target: self, action: "publishQuestion:")
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,9 +64,9 @@ class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem 
         return " "
     }
     
-    func clickPublishQuestion(sender: UIBarButtonItem) {
-        self.publishQuestionController = PublishQuestionController(nibName: nil, bundle: nil)
-        self.presentViewController(publishQuestionController!, animated: true, completion: nil)
+    func publishQuestion(sender: UIBarButtonItem) {
+        let controller: PublishQuestionController = PublishQuestionController(nibName: nil, bundle: nil)
+        self.presentViewController(controller, animated: true)
     }
 
 }

@@ -12,9 +12,41 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+*/
 
-class OSCResult {
-    var errorCode: Int?
-    var errorMessage: String?
+import ObjectMapper
+import Ono
+
+class Result_ {
+    
+    func isSuccess() -> Bool {
+        return errorCode == 1
+    }
+    
+    var errorCode: Int? = 1
+    var errorMessage: String? = ""
+    
+    init() { }
+    
+    required init?(_ map: Map){
+        
+    }
+    
+    // Mappable
+    func mapping(map: Map) {
+        errorCode            <- map["errorCode"]
+        errorMessage         <- map["errorMessage"]
+    }
+
+    static func parse(element: ONOXMLElement?) -> Result_ {
+        if (element == nil) {
+            return Result_()
+        }
+        let parser: XmlParser = XmlParser(element: element!)
+        let data: Result_ = Result_()
+        
+        data.errorCode    = parser.integerValue("errorCode")
+        data.errorMessage = parser.stringValue("errorMessage")
+        return data
+    }
 }

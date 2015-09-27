@@ -19,7 +19,7 @@ import MBProgressHUD
 class HUD {
 
     static func show(view: UIView, message: String) {
-        let hud :MBProgressHUD = MBProgressHUD.showHUDAddedTo(view, animated: true)
+        let hud: MBProgressHUD = MBProgressHUD.showHUDAddedTo(view, animated: true)
         hud.mode = MBProgressHUDMode.Text
         hud.labelText = message
         hud.show(true)

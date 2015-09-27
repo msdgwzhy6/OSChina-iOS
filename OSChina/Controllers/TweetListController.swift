@@ -35,6 +35,8 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    var dataSource: [Tweet] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +64,34 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     }
 
     override func refresh() {
-        ApiClient.tweetListHot(1,
-            success: {
-                (data) -> Void in
-                self.endRefreshing()
-            },
-            failure: {
-                (code, message) -> Void in
-                self.endRefreshing()
-            }
-        )
+        let success = {
+            (data: [Tweet]) -> Void in
+            self.endRefreshing()
+            self.dataSource += data
+            self.tableView.reloadData()
+        };
+        let failure = {
+            (code: Int, message: String) -> Void in
+            self.endRefreshing()
+        };
+        
+        ApiClient.tweetListLatest(1, success: success, failure: failure)
+    }
+
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        let tweet: Tweet = self.dataSource[indexPath.row] as Tweet
+        cell.textLabel!.text = tweet.body
+        return cell
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
     }
 }

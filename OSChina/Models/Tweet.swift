@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import Foundation
 import ObjectMapper
+import Ono
 
 class Tweet: Mappable {
     var id: Int?            // 动弹ID
@@ -27,6 +27,8 @@ class Tweet: Mappable {
     var imgBig: String?     // 动弹大图
     var commentCount: Int?  // 评论数
     var portrait: String?   // 发帖人用户头像地址
+    
+    init() { }
 
     required init?(_ map: Map){
 
@@ -43,5 +45,38 @@ class Tweet: Mappable {
         imgBig          <- map["imgBig"]
         commentCount    <- map["commentCount"]
         portrait        <- map["portrait"]
+    }
+    
+    
+    static func parse(element: ONOXMLElement?) -> Tweet? {
+        if (element == nil) {
+            return nil
+        }
+        let parser: XmlParser = XmlParser(element: element!)
+        let data: Tweet = Tweet()
+        
+        data.id           = parser.integerValue("id")
+        data.pubDate      = parser.stringValue("pubDate")
+        data.body         = parser.stringValue("body")
+        data.author       = parser.stringValue("author")
+        data.authorid     = parser.integerValue("authorid")
+        data.imgSmall     = parser.stringValue("imgSmall")
+        data.imgBig       = parser.stringValue("imgBig")
+        data.commentCount = parser.integerValue("commentCount")
+        data.portrait     = parser.stringValue("portrait")
+        
+        return data
+    }
+    
+    static func parseArray(element: ONOXMLElement?) -> [Tweet]? {
+        if (element == nil) {
+            return []
+        }
+        var list: [Tweet] = []
+        for children in element!.children {
+            print(children)
+            list.append(parse(children as! ONOXMLElement)!)
+        }
+        return list
     }
 }

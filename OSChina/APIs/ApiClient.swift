@@ -21,7 +21,7 @@ import Ono
 class ApiClient {
     static let PAGE_SIZE: Int = 20
 
-    static func login(username: String, password: String, success: (data:User) -> Void, failure: (code:Int, message:String) -> Void) {
+    static func login(username: String, password: String, success: (data: User) -> Void, failure: (code: Int, message: String) -> Void) {
         let parameters: [String:AnyObject] = [
                 "username": username,
                 "pwd": password,
@@ -30,32 +30,31 @@ class ApiClient {
         Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
-            let document: ONOXMLDocument = result.value!
-//            print(document)
-//            var user = document.rootElement.firstChildWithTag("user") as! ONOXMLElement
-//            print(user.attributes)
-//            var data = document.rootElement.tag
-//            print(data)
-            //append items
-//            var jsonObj = JSON(data)
-
-//            print(jsonObj)
-//            print(jsonObj[0])
-            success(data: User())
+            let rootElement: ONOXMLElement = result.value!.rootElement
+            let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+            if (ret.isSuccess()) {
+                success(data: User.parse(rootElement.firstChildWithTag("user")))
+            } else {
+                failure(code: ret.errorCode!, message: ret.errorMessage!)
+            }
         }
     }
 
     static func tweetListHot(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
-        let parameters: [String:AnyObject] = [
+        let parameters: [String: AnyObject] = [
                 "pageIndex": page,
                 "pageSize": PAGE_SIZE
         ]
         Alamofire.request(.POST, URLs.TWEET_TOPIC_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
-            let document: ONOXMLDocument = result.value!
-            print(document)
-            success(data: [])
+            let rootElement: ONOXMLElement = result.value!.rootElement
+            let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+            if (ret.isSuccess()) {
+                success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
+            } else {
+                failure(code: ret.errorCode!, message: ret.errorMessage!)
+            }
         }
     }
 
@@ -67,9 +66,13 @@ class ApiClient {
         Alamofire.request(.POST, URLs.TWEET_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
-            let document: ONOXMLDocument = result.value!
-            print(document)
-            success(data: [])
+            let rootElement: ONOXMLElement = result.value!.rootElement
+            let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+            if (ret.isSuccess()) {
+                success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
+            } else {
+                failure(code: ret.errorCode!, message: ret.errorMessage!)
+            }
         }
     }
 }

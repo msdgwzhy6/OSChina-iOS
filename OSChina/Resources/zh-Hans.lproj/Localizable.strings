@@ -19,7 +19,10 @@
 "TAB_MY" = "我的";
 
 // Action
+"ACTION_CANCEL" = "取消";
 "ACTION_CLOSE" = "关闭";
+"ACTION_DONE" = "完成";
+"ACTION_SAVE" = "保存";
 "ACTION_MESSAGES" = "消息";
 "ACTION_SETTINGS" = "设置";
 "ACTION_PUBLISH_TWEET" = "弹一弹";

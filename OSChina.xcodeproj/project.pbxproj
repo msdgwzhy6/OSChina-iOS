@@ -16,6 +16,7 @@
 		87A9E26DEC7A6181716E4BBC /* ButtonBarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87A9E11BE0D7A42782EA48A0 /* ButtonBarViewCell.xib */; };
 		87A9E2763C8C4EF01EA6FAF0 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4C311FE40B5E3689CAA /* UIViewControllerExtension.swift */; };
 		87A9E2CE951FB43F070D9249 /* TweetListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E49EA7270FFF88851184 /* TweetListController.swift */; };
+		87A9E315B7BB18AF3DC96484 /* XmlParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E6F2793F6CB8BA5CE3BE /* XmlParser.swift */; };
 		87A9E318DF8D2AA142899B69 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E5DEF9C17FC53A1051B6 /* Notice.swift */; };
 		87A9E367FF9416FEB959688C /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E666961D5CB48079067C /* StringExtension.swift */; };
 		87A9E38FB4DF26D4DFD6D14A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0455D0226EF612B424B /* Post.swift */; };
@@ -86,6 +87,7 @@
 		87A9E5DEF9C17FC53A1051B6 /* Notice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 		87A9E666961D5CB48079067C /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		87A9E685AAFA6C9A9D77A39C /* Delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Delay.swift; sourceTree = "<group>"; };
+		87A9E6F2793F6CB8BA5CE3BE /* XmlParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XmlParser.swift; sourceTree = "<group>"; };
 		87A9E73817E4648550091D69 /* PublishQuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishQuestionController.swift; sourceTree = "<group>"; };
 		87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		87A9E84A96E0CC0DDD0179C7 /* AboutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				87A9EF2E9800761A6E6BB4FF /* FileUtils.swift */,
 				87A9EA8B1F939B0FF11C5D1F /* HUD.swift */,
 				87A9E685AAFA6C9A9D77A39C /* Delay.swift */,
+				87A9E6F2793F6CB8BA5CE3BE /* XmlParser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				87A9E3DFD755957F99D8EA41 /* AboutController.swift in Sources */,
 				87A9E42563C42CF9CCBA4AD0 /* BaseButtonBarPagerTabStripViewController.swift in Sources */,
 				87A9E41BB45F6E581E1CAD22 /* ButtonBarViewCell.swift in Sources */,
+				87A9E315B7BB18AF3DC96484 /* XmlParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

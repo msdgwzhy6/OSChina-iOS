@@ -15,6 +15,7 @@
  */
 
 import ObjectMapper
+import Ono
 
 class User: Mappable {
     var uid: Int?               // 用户id
@@ -50,5 +51,25 @@ class User: Mappable {
         joinTime        <- map["joinTime"]
         lastLoginTime   <- map["lastLoginTime"]
         portrait        <- map["portrait"]
+    }
+    
+    static func parse(element: ONOXMLElement) -> User {
+        let parser: XmlParser = XmlParser(element: element)
+        let data: User = User()
+
+        data.uid            = parser.integerValue("uid")
+        data.name           = parser.stringValue("name")
+        data.ident          = parser.stringValue("ident")
+        data.gender         = parser.integerValue("gender")
+        data.relation       = parser.integerValue("relation")
+        data.province       = parser.stringValue("province")
+        data.city           = parser.stringValue("city")
+//        data.platforms      = element.firstChildWithTag("platforms").stringValue()
+//        data.expertise      = element.firstChildWithTag("expertise").stringValue()
+        data.joinTime       = parser.stringValue("joinTime")
+        data.lastLoginTime  = parser.stringValue("lastLoginTime")
+        data.portrait       = parser.stringValue("portrait")
+        
+        return data
     }
 }

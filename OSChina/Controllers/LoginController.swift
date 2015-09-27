@@ -24,9 +24,9 @@ class LoginController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
-        let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
+        let btnCancel: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CANCEL".localized, style: .Plain, target: self, action: "close:")
         
-        self.navigationItem.leftBarButtonItem = btnClose
+        self.navigationItem.leftBarButtonItem = btnCancel
         
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
@@ -91,14 +91,16 @@ class LoginController: BaseTableViewController {
     }
     
     func login() {
-        ApiClient.login("", password: "",
+        ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv",
             success: {
-                (data) -> Void in
+                (data: User) -> Void in
                 //
+                HUD.show(self.view, message: "欢迎" + data.name!)
             },
             failure: {
-                (code, message) -> Void in
+                (code: Int, message: String) -> Void in
                 //
+                HUD.show(self.view, message: ("code:" + "\nmessage:" + message))
             }
         )
     }
