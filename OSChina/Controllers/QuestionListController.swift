@@ -15,8 +15,9 @@
  */
 
 import UIKit
+import XLPagerTabStrip
 
-class QuestionListController: BaseTableViewController {
+class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem  {
     
     var publishQuestionController: PublishQuestionController?
     
@@ -35,6 +36,10 @@ class QuestionListController: BaseTableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+        return "问题"
     }
     
     func clickPublishQuestion(sender: UIBarButtonItem) {

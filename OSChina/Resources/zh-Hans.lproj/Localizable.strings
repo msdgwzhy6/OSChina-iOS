@@ -9,6 +9,7 @@
 "TITLE_MESSAGES" = "消息";
 "TITLE_SETTINGS" = "设置";
 "TITLE_LOGIN" = "登录";
+"TITLE_ABOUT" = "关于";
 
 // TabBar
 "TAB_NEWS" = "新闻";

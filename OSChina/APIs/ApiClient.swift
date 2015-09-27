@@ -31,17 +31,16 @@ class ApiClient {
         .responseXMLDocument {
             (request, response, result) -> Void in
             let document: ONOXMLDocument = result.value!
-            document.dictionary()
 //            print(document)
-            var user = document.rootElement.firstChildWithTag("user") as! ONOXMLElement
-            print(user.attributes)
-            var data = document.rootElement.tag
-            print(data)
+//            var user = document.rootElement.firstChildWithTag("user") as! ONOXMLElement
+//            print(user.attributes)
+//            var data = document.rootElement.tag
+//            print(data)
             //append items
-            var jsonObj = JSON(data)
+//            var jsonObj = JSON(data)
 
-            print(jsonObj)
-            print(jsonObj[0])
+//            print(jsonObj)
+//            print(jsonObj[0])
             success(data: User())
         }
     }

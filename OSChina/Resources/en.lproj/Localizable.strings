@@ -9,6 +9,7 @@
 "TITLE_MESSAGES" = "Messages";
 "TITLE_SETTINGS" = "Settings";
 "TITLE_LOGIN" = "Login";
+"TITLE_ABOUT" = "About";
 
 // TabBar
 "TAB_NEWS" = "News";

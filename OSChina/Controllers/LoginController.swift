@@ -17,15 +17,20 @@
 import UIKit
 
 class LoginController: BaseTableViewController {
+    let CELL_USERNAME: String = "CELL_USERNAME"
+    let CELL_PASSWORD: String = "CELL_PASSWORD"
+    let CELL_LOGIN   : String = "CELL_LOGIN"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
         let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
-        let btnLogin: UIBarButtonItem = UIBarButtonItem(title: "ACTION_LOGIN".localized, style: .Plain, target: self, action: "login:")
         
         self.navigationItem.leftBarButtonItem = btnClose
-        self.navigationItem.rightBarButtonItem = btnLogin
+        
+        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
+        
+        self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,7 +38,59 @@ class LoginController: BaseTableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func login(sender: UIBarButtonItem) {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch (section) {
+        case 0:
+            return 2
+        case 1:
+            return 1
+        default:
+            return 0
+        }
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+            case 0:
+                let cell = TextFieldCell(reuseIdentifier: CELL_USERNAME)
+                cell.textField.placeholder = "用户名"
+                return cell
+            case 1:
+                let cell = TextFieldCell(reuseIdentifier: CELL_PASSWORD)
+                cell.textField.placeholder = "密码"
+                cell.textField.secureTextEntry = true
+                return cell
+            default:
+                break
+            }
+            break
+        case 1:
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGIN)
+            cell.textLabel?.text = "登录"
+            cell.textLabel?.textAlignment = .Center
+            cell.textLabel?.textColor = UIColor.redColor()
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell(style: .Default, reuseIdentifier: CELL_IDENTIFIER)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        cell.selected = false
+        if (cell.reuseIdentifier == CELL_LOGIN) {
+            login()
+        }
+    }
+    
+    func login() {
         ApiClient.login("", password: "",
             success: {
                 (data) -> Void in

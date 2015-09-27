@@ -18,6 +18,7 @@ import UIKit
 import MJRefresh
 
 class BaseTableViewController: UITableViewController {
+    let CELL_IDENTIFIER: String = "CELL"
 
     override func viewDidLoad() {
         super.viewDidLoad()

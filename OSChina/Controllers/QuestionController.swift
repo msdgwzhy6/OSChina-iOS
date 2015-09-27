@@ -17,7 +17,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class QuestionController: XLBarPagerTabStripViewController {
+class QuestionController: BaseButtonBarPagerTabStripViewController {
     
     var btnPublishQuestion: UIBarButtonItem?
 

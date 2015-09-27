@@ -17,7 +17,7 @@
 import UIKit
 import XLPagerTabStrip
 
-class TweetController: XLTwitterPagerTabStripViewController {
+class TweetController: BaseButtonBarPagerTabStripViewController {
 
     var btnPublishTweet: UIBarButtonItem?
 
