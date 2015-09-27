@@ -26,6 +26,7 @@ class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewCont
         self.isProgressiveIndicator = true;
         self.buttonBarView.backgroundColor = UIColor.primaryButtonBarColor()
         self.buttonBarView.selectedBar.backgroundColor = UIColor.primaryColor()
+        self.buttonBarView.selectedBarHeight = CGFloat(2)
         self.buttonBarView.registerNib(UINib(nibName: "ButtonBarViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         self.view.addSubview(self.buttonBarView);
     }
