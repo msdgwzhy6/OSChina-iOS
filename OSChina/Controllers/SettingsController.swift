@@ -17,6 +17,7 @@
 import UIKit
 
 class SettingsController: BaseTableViewController {
+    let CELL_LOGOUT: String = "CELL_LOGOUT"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class SettingsController: BaseTableViewController {
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 2 + (User.isLogged() ? 1 : 0)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,6 +42,8 @@ class SettingsController: BaseTableViewController {
         case 0:
             return 2
         case 1:
+            return 3
+        case 2:
             return 1
         default:
             return 0
@@ -48,8 +51,35 @@ class SettingsController: BaseTableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        return cell
+        switch (indexPath.section) {
+        case 0:
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
+            return cell
+        case 1:
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
+            return cell
+        case 2:
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
+            cell.textLabel?.text = "CELL_TEXT_LOGOUT".localized
+            cell.textLabel?.textAlignment = .Center
+            cell.textLabel?.textColor = UIColor.redColor()
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell(style: .Default, reuseIdentifier: CELL_IDENTIFIER)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        cell.selected = false
+        if (cell.reuseIdentifier == CELL_LOGOUT) {
+            logout()
+        }
+    }
+    
+    func logout() {
+        User.currentUser(nil)
     }
 
 }

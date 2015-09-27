@@ -81,8 +81,7 @@ class User: Mappable {
     static func currentUser() -> User? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let jsonString = userDefaults.stringForKey("__current_user")
-//        print(jsonString)
-        if (jsonString != nil) {
+        if (jsonString != nil && jsonString != "") {
             let user: User? = Mapper<User>().map(jsonString!)
             return user
         }
@@ -91,7 +90,7 @@ class User: Mappable {
     
     static func currentUser(user: User?) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        let jsonString = Mapper<User>().toJSONString(user!, prettyPrint: false)
+        let jsonString = user == nil ? "" : Mapper<User>().toJSONString(user!, prettyPrint: false)
         userDefaults.setValue(jsonString, forKey: "__current_user")
     }
     
