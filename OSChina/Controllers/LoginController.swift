@@ -91,10 +91,10 @@ class LoginController: BaseTableViewController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         cell.selected = false
         if (cell.reuseIdentifier == CELL_LOGIN) {
+            tfUsername.text = "lijy91@foxmail.com"
+            tfPassword.text = "w3DXHZ2MTWDmPv"
             login()
         }
-        tfUsername.text = "lijy91@foxmail.com"
-        tfPassword.text = "w3DXHZ2MTWDmPv"
     }
     
     func login() {

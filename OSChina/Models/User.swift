@@ -16,6 +16,7 @@
 
 import ObjectMapper
 import Ono
+import SwiftyJSON
 
 class User: Mappable {
     var uid: Int?               // 用户id
@@ -25,16 +26,20 @@ class User: Mappable {
     var relation: Int?          // 关注情况：1-已关注（对方未关注我）2-相互关注 3-未关注
     var province: String?       // 省份
     var city: String!           // 城市
-    var platforms: [String]?    // 开发平台
-    var expertise: [String]?    // 专长领域
+//    var platforms: [String]?    // 开发平台
+//    var expertise: [String]?    // 专长领域
     var joinTime: String?       // 加入时间
     var lastLoginTime: String?  // 最近登录时间
     var portrait: String?       // 头像
-
-    init() { }
+    
+    init() {
+//        super.init()
+        print("init")
+    }
 
     required init?(_ map: Map){
-
+        
+        print("init")
     }
 
     // Mappable
@@ -46,8 +51,8 @@ class User: Mappable {
         relation        <- map["relation"]
         province        <- map["province"]
         city            <- map["city"]
-        platforms       <- map["platforms"]
-        expertise       <- map["expertise"]
+//        platforms       <- map["platforms"]
+//        expertise       <- map["expertise"]
         joinTime        <- map["joinTime"]
         lastLoginTime   <- map["lastLoginTime"]
         portrait        <- map["portrait"]
@@ -71,5 +76,30 @@ class User: Mappable {
         data.portrait       = parser.stringValue("portrait")
         
         return data
+    }
+    
+    static func currentUser() -> User? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let jsonString = userDefaults.stringForKey("__current_user")
+//        print(jsonString)
+        if (jsonString != nil) {
+            let user: User? = Mapper<User>().map(jsonString!)
+            return user
+        }
+        return nil
+    }
+    
+    static func currentUser(user: User?) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let jsonString = Mapper<User>().toJSONString(user!, prettyPrint: false)
+        userDefaults.setValue(jsonString, forKey: "__current_user")
+    }
+    
+    static func isLogged() -> Bool {
+        let user: User? = currentUser()
+        if (user != nil) {
+            return true
+        }
+        return false;
     }
 }

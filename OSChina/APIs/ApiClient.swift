@@ -34,7 +34,9 @@ class ApiClient {
             print(rootElement)
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
             if (ret.isSuccess()) {
-                success(data: User.parse(rootElement.firstChildWithTag("user")))
+                let user: User = User.parse(rootElement.firstChildWithTag("user"))
+                User.currentUser(user)
+                success(data: user)
             } else {
                 failure(code: ret.errorCode!, message: ret.errorMessage!)
             }

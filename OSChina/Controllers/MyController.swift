@@ -40,7 +40,6 @@ class MyController: BaseTableViewController {
         
         self.btnMessages = UIBarButtonItem(title: "ACTION_MESSAGES".localized, style: .Plain, target: self, action: "messages:")
         self.btnSettings = UIBarButtonItem(title: "ACTION_SETTINGS".localized, style: .Plain, target: self, action: "settings:")
-        self.navigationItem.leftBarButtonItem = btnMessages
         self.navigationItem.rightBarButtonItem = btnSettings
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
@@ -50,6 +49,15 @@ class MyController: BaseTableViewController {
 //        navigationController?.navigationBar.shadowImage = UIImage();
 //        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (User.isLogged()) {
+            self.navigationItem.leftBarButtonItem = btnMessages
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
     }
 
     override func didReceiveMemoryWarning() {
