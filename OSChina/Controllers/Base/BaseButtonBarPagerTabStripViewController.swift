@@ -18,7 +18,9 @@ import UIKit
 import XLPagerTabStrip
 
 class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewController {
-    
+
+    let mainScreen: UIScreen = UIScreen()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isProgressiveIndicator = true;
@@ -27,7 +29,20 @@ class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewCont
         self.buttonBarView.registerNib(UINib(nibName: "ButtonBarViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         self.view.addSubview(self.buttonBarView);
     }
-    
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let width = self.view.frame.width / CGFloat(self.pagerTabStripChildViewControllers.count)
+        return CGSize(width: width, height: self.buttonBarView.frame.height)
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 0, 0, 0)
+    }
+
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+
     func contentInset() -> UIEdgeInsets {
         return UIEdgeInsetsMake(self.buttonBarView.frame.height, 0, (self.tabBarController?.tabBar.frame.height)!, 0)
     }

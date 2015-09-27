@@ -23,7 +23,6 @@
 		87A9E38FB4DF26D4DFD6D14A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0455D0226EF612B424B /* Post.swift */; };
 		87A9E39927FC94D577A52A5A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EBA318C704B64DEF9EF6 /* Result.swift */; };
 		87A9E3DFD755957F99D8EA41 /* AboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E84A96E0CC0DDD0179C7 /* AboutController.swift */; };
-		87A9E41BB45F6E581E1CAD22 /* ButtonBarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0D3FBC9CA52DCFD9FE8 /* ButtonBarViewCell.swift */; };
 		87A9E42563C42CF9CCBA4AD0 /* BaseButtonBarPagerTabStripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E0C4AA6A2C3F4EE6959B /* BaseButtonBarPagerTabStripViewController.swift */; };
 		87A9E42C9529452D198AAF6C /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E1EE2CEA64227AC5E16A /* Project.swift */; };
 		87A9E434C9AF586523B3C605 /* PublishPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E9C73BD7FB9EDB7354CC /* PublishPostController.swift */; };
@@ -69,7 +68,6 @@
 		87A9E04A981D3A529F084B2E /* RequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestExtension.swift; sourceTree = "<group>"; };
 		87A9E05C7D9959451E999D9D /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		87A9E0C4AA6A2C3F4EE6959B /* BaseButtonBarPagerTabStripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseButtonBarPagerTabStripViewController.swift; sourceTree = "<group>"; };
-		87A9E0D3FBC9CA52DCFD9FE8 /* ButtonBarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBarViewCell.swift; sourceTree = "<group>"; };
 		87A9E11982A56F87DA4BBF38 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		87A9E11BE0D7A42782EA48A0 /* ButtonBarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonBarViewCell.xib; sourceTree = "<group>"; };
 		87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTweetController.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				87A9E1BB06DE0E656A6E6345 /* MyProfileCell.swift */,
 				F5FC45E31BB667FF0071CFCE /* MyProfileCell.xib */,
 				87A9ED6A726EDCFEE10E326D /* TextFieldCell.swift */,
-				87A9E0D3FBC9CA52DCFD9FE8 /* ButtonBarViewCell.swift */,
 				87A9E11BE0D7A42782EA48A0 /* ButtonBarViewCell.xib */,
 			);
 			path = Views;
@@ -470,7 +467,6 @@
 				87A9E8B536A1A38B18C8AD2E /* TextFieldCell.swift in Sources */,
 				87A9E3DFD755957F99D8EA41 /* AboutController.swift in Sources */,
 				87A9E42563C42CF9CCBA4AD0 /* BaseButtonBarPagerTabStripViewController.swift in Sources */,
-				87A9E41BB45F6E581E1CAD22 /* ButtonBarViewCell.swift in Sources */,
 				87A9E315B7BB18AF3DC96484 /* XmlParser.swift in Sources */,
 				87A9ECC102CDB4E4DD0B4E77 /* OSChina.swift in Sources */,
 				87A9E0BBFDF6CC39DA5C4F91 /* RequestExtension.swift in Sources */,
