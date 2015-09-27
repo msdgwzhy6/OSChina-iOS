@@ -17,8 +17,24 @@
 import UIKit
 import XLPagerTabStrip
 
+enum NewsListFlag {
+    case All        // 全部
+    case Industry   // 行业
+    case Project    // 软件
+}
+
 class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
     
+    var flag: NewsListFlag = NewsListFlag.All
+    
+    init(flag: NewsListFlag) {
+        self.flag = flag
+        super.init(style: .Plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +46,15 @@ class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
     }
     
     func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-        return "新闻"
+        switch (flag) {
+        case .All:
+            return "TAB_NEWS_LIST_ALL".localized
+        case .Industry:
+            return "TAB_NEWS_LIST_INDUSTRY".localized
+        case .Project:
+            return "TAB_NEWS_LIST_PROJECT".localized
+        }
+        return " "
     }
     
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {

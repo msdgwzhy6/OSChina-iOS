@@ -26,12 +26,12 @@ class NewsController: BaseButtonBarPagerTabStripViewController {
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
 
-        let viewCOntroller1 = NewsListController()
-        viewCOntroller1.tableView.contentInset = self.buttonBarViewTop()
-        let viewCOntroller2 = NewsListController()
-        viewCOntroller2.tableView.contentInset = self.buttonBarViewTop()
-        let viewCOntroller3 = NewsListController()
-        viewCOntroller3.tableView.contentInset = self.buttonBarViewTop()
-        return [viewCOntroller1,viewCOntroller2,viewCOntroller3]
+        let controller1 = NewsListController(flag: NewsListFlag.All)
+        let controller2 = NewsListController(flag: NewsListFlag.Industry)
+        let controller3 = NewsListController(flag: NewsListFlag.Project)
+        controller1.tableView.contentInset = self.buttonBarViewTop()
+        controller2.tableView.contentInset = self.buttonBarViewTop()
+        controller3.tableView.contentInset = self.buttonBarViewTop()
+        return [controller1, controller2, controller3]
     }
 }
