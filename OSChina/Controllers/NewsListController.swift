@@ -54,7 +54,6 @@ class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
         case .Project:
             return "TAB_NEWS_LIST_PROJECT".localized
         }
-        return " "
     }
     
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {

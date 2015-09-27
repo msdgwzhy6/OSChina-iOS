@@ -40,6 +40,7 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.header.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +57,6 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         case .My:
             return "TAB_TWEET_LIST_MY".localized
         }
-        return " "
     }
 
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
@@ -75,7 +75,17 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
             self.endRefreshing()
         };
         
-        ApiClient.tweetListLatest(1, success: success, failure: failure)
+        switch (flag) {
+        case .Latest:
+            ApiClient.tweetListLatest(0, success: success, failure: failure)
+            break
+        case .Hot:
+            ApiClient.tweetListHot(0, success: success, failure: failure)
+            break
+        case .My:
+            ApiClient.tweetListLatest(0, success: success, failure: failure)
+            break
+        }
     }
 
 

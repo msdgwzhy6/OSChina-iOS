@@ -31,6 +31,7 @@ class ApiClient {
         .responseXMLDocument {
             (request, response, result) -> Void in
             let rootElement: ONOXMLElement = result.value!.rootElement
+            print(rootElement)
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
             if (ret.isSuccess()) {
                 success(data: User.parse(rootElement.firstChildWithTag("user")))

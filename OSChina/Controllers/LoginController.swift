@@ -21,6 +21,9 @@ class LoginController: BaseTableViewController {
     let CELL_PASSWORD: String = "CELL_PASSWORD"
     let CELL_LOGIN   : String = "CELL_LOGIN"
     
+    var tfUsername: UITextField = UITextField()
+    var tfPassword: UITextField = UITextField()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
@@ -60,11 +63,13 @@ class LoginController: BaseTableViewController {
             case 0:
                 let cell = TextFieldCell(reuseIdentifier: CELL_USERNAME)
                 cell.textField.placeholder = "用户名"
+                tfUsername = cell.textField
                 return cell
             case 1:
                 let cell = TextFieldCell(reuseIdentifier: CELL_PASSWORD)
                 cell.textField.placeholder = "密码"
                 cell.textField.secureTextEntry = true
+                tfPassword = cell.textField
                 return cell
             default:
                 break
@@ -88,10 +93,14 @@ class LoginController: BaseTableViewController {
         if (cell.reuseIdentifier == CELL_LOGIN) {
             login()
         }
+        tfUsername.text = "lijy91@foxmail.com"
+        tfPassword.text = "w3DXHZ2MTWDmPv"
     }
     
     func login() {
-        ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv",
+        let username: String = tfUsername.text!
+        let password: String = tfPassword.text!
+        ApiClient.login(username, password: password,
             success: {
                 (data: User) -> Void in
                 //
@@ -100,7 +109,7 @@ class LoginController: BaseTableViewController {
             failure: {
                 (code: Int, message: String) -> Void in
                 //
-                HUD.show(self.view, message: ("code:" + "\nmessage:" + message))
+                HUD.show(self.view, message: message)
             }
         )
     }

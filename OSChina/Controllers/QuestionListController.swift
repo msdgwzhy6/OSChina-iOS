@@ -61,7 +61,6 @@ class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem 
         case ._4:
             return "TAB_QUESTION_LIST_4".localized
         }
-        return " "
     }
     
     func publishQuestion(sender: UIBarButtonItem) {

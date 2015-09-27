@@ -74,9 +74,10 @@ class Tweet: Mappable {
         }
         var list: [Tweet] = []
         for children in element!.children {
-            print(children)
-            list.append(parse(children as! ONOXMLElement)!)
+//            print(children)
+            list.append(parse(children as? ONOXMLElement)!)
         }
+        list.sortInPlace({ $0.pubDate > $1.pubDate })
         return list
     }
 }
