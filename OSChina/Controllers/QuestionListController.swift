@@ -17,8 +17,27 @@
 import UIKit
 import XLPagerTabStrip
 
+enum QuestionListFlag {
+    case _1
+    case _2
+    case _3
+    case _4
+}
+
 class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem  {
     
+    
+    var flag: QuestionListFlag = QuestionListFlag._1
+    
+    init(flag: QuestionListFlag) {
+        self.flag = flag
+        super.init(style: .Plain)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     var publishQuestionController: PublishQuestionController?
     
     var btnPublishQuestion: UIBarButtonItem?
@@ -39,7 +58,17 @@ class QuestionListController: BaseTableViewController, XLPagerTabStripChildItem 
     }
     
     func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
-        return "问题"
+        switch (flag) {
+        case ._1:
+            return "TAB_QUESTION_LIST_1".localized
+        case ._2:
+            return "TAB_QUESTION_LIST_2".localized
+        case ._3:
+            return "TAB_QUESTION_LIST_3".localized
+        case ._4:
+            return "TAB_QUESTION_LIST_4".localized
+        }
+        return " "
     }
     
     func clickPublishQuestion(sender: UIBarButtonItem) {

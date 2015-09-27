@@ -32,6 +32,12 @@
 "TAB_NEWS_LIST_INDUSTRY" = "行业";
 "TAB_NEWS_LIST_PROJECT" = "软件";
 
+// QuestionList
+"TAB_QUESTION_LIST_1" = "1";
+"TAB_QUESTION_LIST_2" = "2";
+"TAB_QUESTION_LIST_3" = "3";
+"TAB_QUESTION_LIST_4" = "4";
+
 // TweetList
 "TAB_TWEET_LIST_LATEST" = "最新";
 "TAB_TWEET_LIST_HOT" = "热门";

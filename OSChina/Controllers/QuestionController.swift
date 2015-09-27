@@ -30,13 +30,11 @@ class QuestionController: BaseButtonBarPagerTabStripViewController {
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-        let viewCOntroller1 = QuestionListController()
-//        viewCOntroller1.view.backgroundColor = UIColor.redColor()
-        let viewCOntroller2 = QuestionListController()
-//        viewCOntroller2.view.backgroundColor = UIColor.grayColor()
-        let viewCOntroller3 = QuestionListController()
-//        viewCOntroller3.view.backgroundColor = UIColor.purpleColor()
-        return [viewCOntroller1,viewCOntroller2,viewCOntroller3]
+        let controller1 = QuestionListController(flag: QuestionListFlag._1)
+        let controller2 = QuestionListController(flag: QuestionListFlag._2)
+        let controller3 = QuestionListController(flag: QuestionListFlag._3)
+        let controller4 = QuestionListController(flag: QuestionListFlag._4)
+        return [controller1, controller2, controller3, controller4]
     }
     
     func publishQuestion(sender: UIBarButtonItem) {
