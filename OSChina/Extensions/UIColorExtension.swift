@@ -17,7 +17,8 @@
 extension UIColor {
 
     class func primaryColor() -> UIColor {
-        return UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
+    	// #41ab54
+        return UIColor(red: 0.25, green: 0.67, blue: 0.33, alpha: 1.0)
     }
     
     class func primaryTextColor() -> UIColor {
