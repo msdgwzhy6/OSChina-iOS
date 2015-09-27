@@ -14,5 +14,41 @@
  * limitations under the License.
  */
 
-class Notice {
+import ObjectMapper
+import Ono
+
+class Notice: Mappable {
+    var replyCount: Int? = 0 // 未读评论数
+    var msgCount: Int? = 0   // 未读私信数
+    var fansCount: Int? = 0  // 新增粉丝数
+    var referCount: Int? = 0 // 未读@我数
+    
+    
+    init() { }
+    
+    required init?(_ map: Map){
+        
+    }
+    
+    // Mappable
+    func mapping(map: Map) {
+        replyCount       <- map["replyCount"]
+        msgCount         <- map["msgCount"]
+        fansCount        <- map["fansCount"]
+        referCount       <- map["referCount"]
+    }
+    
+    static func parse(element: ONOXMLElement?) -> Notice {
+        if (element == nil) {
+            return Notice()
+        }
+        let parser: XmlParser = XmlParser(element: element!)
+        let data: Notice = Notice()
+        
+        data.replyCount  = parser.integerValue("replyCount")
+        data.msgCount    = parser.integerValue("msgCount")
+        data.fansCount   = parser.integerValue("fansCount")
+        data.referCount  = parser.integerValue("referCount")
+        return data
+    }
 }
