@@ -33,8 +33,10 @@ class TweetController: BaseButtonBarPagerTabStripViewController {
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
         let controller1 = TweetListController(flag: TweetListFlag.Latest)
         let controller2 = TweetListController(flag: TweetListFlag.Hot)
-        controller1.tableView.contentInset = self.buttonBarViewTop()
-        controller2.tableView.contentInset = self.buttonBarViewTop()
+        controller1.tableView.contentInset = self.contentInset()
+        controller2.tableView.contentInset = self.contentInset()
+        controller1.tableView.scrollIndicatorInsets = self.contentInset()
+        controller2.tableView.scrollIndicatorInsets = self.contentInset()
         return [controller1, controller2]
     }
 

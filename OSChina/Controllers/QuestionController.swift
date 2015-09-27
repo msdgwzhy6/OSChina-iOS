@@ -34,6 +34,14 @@ class QuestionController: BaseButtonBarPagerTabStripViewController {
         let controller2 = QuestionListController(flag: QuestionListFlag._2)
         let controller3 = QuestionListController(flag: QuestionListFlag._3)
         let controller4 = QuestionListController(flag: QuestionListFlag._4)
+        controller1.tableView.contentInset = self.contentInset()
+        controller2.tableView.contentInset = self.contentInset()
+        controller3.tableView.contentInset = self.contentInset()
+        controller4.tableView.contentInset = self.contentInset()
+        controller1.tableView.scrollIndicatorInsets = self.contentInset()
+        controller2.tableView.scrollIndicatorInsets = self.contentInset()
+        controller3.tableView.scrollIndicatorInsets = self.contentInset()
+        controller4.tableView.scrollIndicatorInsets = self.contentInset()
         return [controller1, controller2, controller3, controller4]
     }
     

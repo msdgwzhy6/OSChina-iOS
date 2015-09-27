@@ -28,7 +28,7 @@ class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewCont
         self.view.addSubview(self.buttonBarView);
     }
     
-    func buttonBarViewTop() -> UIEdgeInsets {
-        return UIEdgeInsetsMake(self.buttonBarView.frame.height, 0, 0, 0)
+    func contentInset() -> UIEdgeInsets {
+        return UIEdgeInsetsMake(self.buttonBarView.frame.height, 0, (self.tabBarController?.tabBar.frame.height)!, 0)
     }
 }

@@ -29,9 +29,12 @@ class NewsController: BaseButtonBarPagerTabStripViewController {
         let controller1 = NewsListController(flag: NewsListFlag.All)
         let controller2 = NewsListController(flag: NewsListFlag.Industry)
         let controller3 = NewsListController(flag: NewsListFlag.Project)
-        controller1.tableView.contentInset = self.buttonBarViewTop()
-        controller2.tableView.contentInset = self.buttonBarViewTop()
-        controller3.tableView.contentInset = self.buttonBarViewTop()
+        controller1.tableView.contentInset = self.contentInset()
+        controller2.tableView.contentInset = self.contentInset()
+        controller3.tableView.contentInset = self.contentInset()
+        controller1.tableView.scrollIndicatorInsets = self.contentInset()
+        controller2.tableView.scrollIndicatorInsets = self.contentInset()
+        controller3.tableView.scrollIndicatorInsets = self.contentInset()
         return [controller1, controller2, controller3]
     }
 }
