@@ -84,12 +84,14 @@ class LoginController: BaseTableViewController {
                 let cell = TextFieldCell(reuseIdentifier: CELL_USERNAME)
                 cell.textField.placeholder = "用户名"
                 tfUsername = cell.textField
+                tfUsername.returnKeyType = .Next
                 return cell
             case 1:
                 let cell = TextFieldCell(reuseIdentifier: CELL_PASSWORD)
                 cell.textField.placeholder = "密码"
                 cell.textField.secureTextEntry = true
                 tfPassword = cell.textField
+                tfPassword.returnKeyType = .Send
                 return cell
             default:
                 break

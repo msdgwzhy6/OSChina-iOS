@@ -15,6 +15,7 @@
  */
 
 import UIKit
+import SnapKit
 
 class TextFieldCell: UITableViewCell {
     
@@ -33,10 +34,21 @@ class TextFieldCell: UITableViewCell {
         self.textField.frame = self.frame
         self.textField.contentMode = UIViewContentMode.ScaleAspectFit
         self.selectionStyle = .None
-        self.accessoryView = textField
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.addSubview(textField)
+        // 设置text属性后即可获取到textLabel的宽高等位置属性
+        self.textLabel?.text = " "
+        self.textField.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(self.textLabel!)
+            make.height.equalTo(self.textLabel!)
+            make.left.equalTo(self.textLabel!)
+        }
     }
 }
