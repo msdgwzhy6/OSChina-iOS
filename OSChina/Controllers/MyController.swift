@@ -48,9 +48,10 @@ class MyController: BaseTableViewController {
         self.tableView.contentInset = UIEdgeInsetsMake(-600, 0, 0, 0)
         // 设置事件
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("clickUsername"))
-        self.mpvInfo.avatar.addGestureRecognizer(gestureRecognizer)
-        self.mpvInfo.name.addGestureRecognizer(gestureRecognizer)
+        let tapAvatar = UITapGestureRecognizer(target: self, action: Selector("tapAvatarOrName"))
+        let tapName = UITapGestureRecognizer(target: self, action: Selector("tapAvatarOrName"))
+        self.mpvInfo.avatar.addGestureRecognizer(tapAvatar)
+        self.mpvInfo.name.addGestureRecognizer(tapName)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -166,7 +167,7 @@ class MyController: BaseTableViewController {
         return super.tableView(tableView, viewForHeaderInSection: section)
     }
     
-    func clickUsername() {
+    func tapAvatarOrName() {
         if (!User.isLogged()) {
             let controller: LoginController = LoginController(nibName: nil, bundle: nil)
             self.presentViewController(controller, animated: true)

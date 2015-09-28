@@ -30,6 +30,7 @@ class MyProfileCell: UITableViewCell {
 //        self.container.backgroundColor = UIColor.grayColor()
         // 头像
         self.avatar.backgroundColor = UIColor.blueColor()
+        self.avatar.multipleTouchEnabled = true
         self.avatar.userInteractionEnabled = true
         // 名字
         self.name.textColor = UIColor.whiteColor()
