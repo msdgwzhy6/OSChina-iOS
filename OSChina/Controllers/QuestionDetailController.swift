@@ -16,7 +16,7 @@
 
 import UIKit
 
-class ProjectListController: BaseTableViewController {
+class QuestionDetailController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
