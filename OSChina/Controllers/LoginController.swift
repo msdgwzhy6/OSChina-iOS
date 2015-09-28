@@ -28,10 +28,10 @@ class LoginController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
-        let btnCancel: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CANCEL".localized, style: .Plain, target: self, action: "close:")
+//        let btnCancel: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CANCEL".localized, style: .Plain, target: self, action: "close:")
         let btnOnePassword: UIBarButtonItem = UIBarButtonItem(title: "ACTION_ONEPASSWORD".localized, style: .Plain, target: self, action: "onepassword:")
         
-        self.navigationItem.leftBarButtonItem = btnCancel
+//        self.navigationItem.leftBarButtonItem = btnCancel
         
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
@@ -134,10 +134,10 @@ class LoginController: BaseTableViewController {
         )
     }
     
-    func close(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
+//    func close(sender: UIBarButtonItem) {
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//        self.navigationController?.popToRootViewControllerAnimated(true)
+//    }
     
     func onepassword(sender: UIBarButtonItem) {
         OnePasswordExtension.sharedExtension().findLoginForURLString(URLs.baseURL, forViewController: self, sender: sender, completion: { (loginDictionary, error) -> Void in

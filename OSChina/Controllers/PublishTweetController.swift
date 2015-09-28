@@ -20,9 +20,9 @@ class PublishTweetController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
+//        let btnClose: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CLOSE".localized, style: .Plain, target: self, action: "close:")
         
-        self.navigationItem.leftBarButtonItem = btnClose
+//        self.navigationItem.leftBarButtonItem = btnClose
     }
     
     override func didReceiveMemoryWarning() {

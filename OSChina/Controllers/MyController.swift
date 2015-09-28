@@ -15,8 +15,6 @@
  */
 
 import UIKit
-import SwiftyJSON
-import ObjectMapper
 import SDWebImage
 
 class MyController: BaseTableViewController {
@@ -176,7 +174,7 @@ class MyController: BaseTableViewController {
     func tapAvatarOrName() {
         if (!User.isLogged()) {
             let controller: LoginController = LoginController(nibName: nil, bundle: nil)
-            self.presentViewController(controller, animated: true)
+            self.presentViewController(controller, animated: true, leftButtonType: .Cancel)
         }
     }
     

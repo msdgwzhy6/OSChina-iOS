@@ -136,6 +136,12 @@ class DiscoveryController: BaseTableViewController {
         return super.tableView(tableView, viewForHeaderInSection: section)
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
+    }
+    
     func scanQRCode(sender: UIBarButtonItem) {
+        let controller: ScanQRCodeController = ScanQRCodeController(nibName: nil, bundle: nil)
+        self.presentViewController(controller, animated: true)
     }
 }

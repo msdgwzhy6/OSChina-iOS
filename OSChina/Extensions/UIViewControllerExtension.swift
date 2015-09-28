@@ -18,12 +18,21 @@ import UIKit
 
 extension UIViewController {
     public func presentViewController(viewControllerToPresent: UIViewController, animated: Bool) {
-        let navigationController: UINavigationController = UINavigationController.init(rootViewController: viewControllerToPresent)
+        self.presentViewController(viewControllerToPresent, animated: animated, completion: nil, leftButtonType: LeftButtonType.Close)
+    }
+    
+    public func presentViewController(viewControllerToPresent: UIViewController, animated: Bool, leftButtonType: LeftButtonType) {
+        self.presentViewController(viewControllerToPresent, animated: animated, completion: nil, leftButtonType: leftButtonType)
+    }
+
+    public func presentViewController(viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?, leftButtonType: LeftButtonType) {
+        let navigationController: UINavigationController = BaseNavigationController.init(rootViewController: viewControllerToPresent, leftButtonType: leftButtonType)
+        navigationController.addChildViewController(viewControllerToPresent)
         navigationController.navigationBar.tintColor = UIColor.whiteColor()
         navigationController.navigationBar.barStyle = UIBarStyle.Black
         navigationController.navigationBar.translucent = false
         navigationController.navigationBar.barTintColor = UIColor.primaryColor()
         navigationController.navigationBar.shadowImage = nil
-        self.presentViewController(navigationController, animated: animated, completion: nil)
+        self.presentViewController(navigationController, animated: animated, completion: completion)
     }
 }
