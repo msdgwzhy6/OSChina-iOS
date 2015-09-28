@@ -28,10 +28,8 @@ class LoginController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
-//        let btnCancel: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CANCEL".localized, style: .Plain, target: self, action: "close:")
+
         let btnOnePassword: UIBarButtonItem = UIBarButtonItem(title: "ACTION_ONEPASSWORD".localized, style: .Plain, target: self, action: "onepassword:")
-        
-//        self.navigationItem.leftBarButtonItem = btnCancel
         
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         

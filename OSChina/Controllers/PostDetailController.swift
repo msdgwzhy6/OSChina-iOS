@@ -20,7 +20,7 @@ class PostDetailController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "TITLE_POST_DETAIL".localized
     }
     
     override func didReceiveMemoryWarning() {

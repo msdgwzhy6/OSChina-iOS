@@ -20,7 +20,7 @@ class QuestionDetailController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "TITLE_QUESTION_DETAIL".localized
     }
     
     override func didReceiveMemoryWarning() {

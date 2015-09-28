@@ -88,7 +88,6 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         }
     }
 
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
@@ -103,5 +102,9 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selected = false
+        
+        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

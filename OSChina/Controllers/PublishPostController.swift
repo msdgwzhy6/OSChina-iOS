@@ -20,7 +20,7 @@ class PublishPostController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "TITLE_PUBLISH_POST".localized
     }
     
     override func didReceiveMemoryWarning() {
