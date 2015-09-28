@@ -17,6 +17,7 @@
 import UIKit
 import SwiftyJSON
 import ObjectMapper
+import SDWebImage
 
 class MyController: BaseTableViewController {
     // section 1
@@ -60,9 +61,11 @@ class MyController: BaseTableViewController {
             let user: User = User.current()!
             self.navigationItem.leftBarButtonItem = btnMessages
             mpvInfo.name.text = user.name
+            mpvInfo.avatar.sd_setImageWithURL(NSURL(string: user.portrait!))
         } else {
             self.navigationItem.leftBarButtonItem = nil
             mpvInfo.name.text = "登录/注册"
+            mpvInfo.avatar.sd_setImageWithURL(nil)
         }
     }
 
