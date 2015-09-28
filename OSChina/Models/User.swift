@@ -32,14 +32,9 @@ class User: Mappable {
     var lastLoginTime: String?  // 最近登录时间
     var portrait: String?       // 头像
     
-    init() {
-//        super.init()
-        print("init")
-    }
+    init() { }
 
     required init?(_ map: Map){
-        
-        print("init")
     }
 
     // Mappable
@@ -78,7 +73,7 @@ class User: Mappable {
         return data
     }
     
-    static func currentUser() -> User? {
+    static func current() -> User? {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let jsonString = userDefaults.stringForKey("__current_user")
         if (jsonString != nil && jsonString != "") {
@@ -88,14 +83,14 @@ class User: Mappable {
         return nil
     }
     
-    static func currentUser(user: User?) {
+    static func current(user: User?) {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         let jsonString = user == nil ? "" : Mapper<User>().toJSONString(user!, prettyPrint: false)
         userDefaults.setValue(jsonString, forKey: "__current_user")
     }
     
     static func isLogged() -> Bool {
-        let user: User? = currentUser()
+        let user: User? = current()
         if (user != nil) {
             return true
         }

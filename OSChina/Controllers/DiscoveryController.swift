@@ -92,8 +92,9 @@ class DiscoveryController: BaseTableViewController {
         default:
             break
         }
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
         cell.textLabel?.text = title
+        cell.detailTextLabel?.text = title
         cell.restorationIdentifier = identifier
         cell.accessoryType = .DisclosureIndicator
         return cell

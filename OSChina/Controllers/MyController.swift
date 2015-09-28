@@ -19,20 +19,17 @@ import SwiftyJSON
 import ObjectMapper
 
 class MyController: BaseTableViewController {
-    // header
-    let CELL_MY_PROFILE: String = "ID_CELL_PROFILE"
-    let CELL_MY_FOLLOWERS: String = "ID_CELL_MY_FOLLOWERS"
-    let CELL_MY_FANS: String = "ID_CELL_MY_FANS"
     // section 1
-    let CELL_MY_TWEETS: String = "ID_CELL_MY_TWEETS"
-    let CELL_MY_BLOG: String = "ID_CELL_MY_BLOG"
+    let CELL_MY_TWEETS   : String = "ID_CELL_MY_TWEETS"
+    let CELL_MY_BLOG     : String = "ID_CELL_MY_BLOG"
     let CELL_MY_FAVORITES: String = "ID_CELL_MY_FAVORITES"
     // section 2
-    let CELL_MY_PROJECTS: String = "ID_CELL_MY_PROJECTS"
-    let CELL_MY_TEAMS: String = "ID_CELL_MY_TEAMS"
+    let CELL_MY_PROJECTS : String = "ID_CELL_MY_PROJECTS"
+    let CELL_MY_TEAMS    : String = "ID_CELL_MY_TEAMS"
 
     var btnMessages: UIBarButtonItem?
     var btnSettings: UIBarButtonItem?
+    var mpvInfo: MyProfileCell = MyProfileCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +41,27 @@ class MyController: BaseTableViewController {
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
-        self.tableView.registerClass(MyProfileCell.self, forCellReuseIdentifier: CELL_MY_PROFILE)
+        self.navigationController?.navigationBar.shadowImage = UIImage();
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        // 设置 headerView
+        self.tableView.tableHeaderView = mpvInfo
+        self.tableView.contentInset = UIEdgeInsetsMake(-600, 0, 0, 0)
+        // 设置事件
         
-//        navigationController?.navigationBar.shadowImage = UIImage();
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("clickUsername"))
+        self.mpvInfo.avatar.addGestureRecognizer(gestureRecognizer)
+        self.mpvInfo.name.addGestureRecognizer(gestureRecognizer)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         if (User.isLogged()) {
+            let user: User = User.current()!
             self.navigationItem.leftBarButtonItem = btnMessages
+            mpvInfo.name.text = user.name
         } else {
             self.navigationItem.leftBarButtonItem = nil
+            mpvInfo.name.text = "登录/注册"
         }
     }
 
@@ -72,36 +77,19 @@ class MyController: BaseTableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            return 1
-        case 1:
             return 3
-        case 2:
+        case 1:
             return 2
         default:
             return 0
         }
     }
-    
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        if (indexPath.section == 0) {
-//            let profile: MyProfileCell = self.tableView.dequeueReusableCellWithIdentifier(CELL_MY_PROFILE) as! MyProfileCell
-//            profile.backgroundColor = UIColor(red: 0.255, green: 0.671, blue: 0.329, alpha: 1)
-//            profile.name.text = "痕迹"
-//            profile.separatorInset = UIEdgeInsetsMake(0, 0, 0, profile.bounds.size.width);
-//            return profile
-//        }
-
         var title: String = "";
         var identifier: String = "";
         switch (indexPath.section) {
         case 0:
-            if (indexPath.row == 0) {
-                title = "登录"
-                identifier = CELL_MY_PROFILE
-            }
-            break;
-        case 1:
             switch (indexPath.row) {
             case 0:
                 title = "我的动弹"
@@ -119,7 +107,7 @@ class MyController: BaseTableViewController {
                 break
             }
             break
-        case 2:
+        case 1:
             switch (indexPath.row) {
             case 0:
                 title = "我的项目"
@@ -145,58 +133,28 @@ class MyController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
-
         switch (cell.restorationIdentifier!) {
-        case CELL_MY_PROFILE:
-            let controller: LoginController = LoginController(nibName: nil, bundle: nil)
-            self.presentViewController(controller, animated: true)
-            break;
-        case CELL_MY_TWEETS:
-//            HUD.show(self.parentViewController!.view, message: "我的动弹")
-            var data: [String: AnyObject] = [: ]
-            data.updateValue(8, forKey: "uid")
-            data.updateValue("痕迹", forKey: "name")
-            data.updateValue("1", forKey: "gender")
-            let user = Mapper<User>().map(data)
-            print(user)
-            break
         case CELL_MY_BLOG:
-            HUD.show(self.view, message: "我的博客")
+            HUD.show(self.parentViewController!.view, message: "我的博客")
             break
         case CELL_MY_FAVORITES:
-            HUD.show(self.view, message: "我的关注")
+            HUD.show(self.parentViewController!.view, message: "我的关注")
             break
         case CELL_MY_PROJECTS:
-            HUD.show(self.view, message: "我的项目")
+            HUD.show(self.parentViewController!.view, message: "我的项目")
             break
         case CELL_MY_TEAMS:
-            HUD.show(self.view, message: "我的团队")
-
-            ApiClient.login("lijy91@foxmail.com", password: "w3DXHZ2MTWDmPv",
-                success: {
-                    (data) -> Void in
-                },
-                failure: {
-                    (code, message) -> Void in
-                }
-            )
+            HUD.show(self.parentViewController!.view, message: "我的团队")
             break
         default:
             return
         }
         cell.selected = false
     }
-    
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        if (indexPath.section == 0) {
-//            return 100;
-//        }
-//        return self.tableView(tableView, heightForRowAtIndexPath: indexPath)
-//    }
 
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0) {
-            return CGFloat.min
+            return CGFloat(30)
         }
         return super.tableView(tableView, heightForHeaderInSection: section)
     }
@@ -206,6 +164,13 @@ class MyController: BaseTableViewController {
             return nil
         }
         return super.tableView(tableView, viewForHeaderInSection: section)
+    }
+    
+    func clickUsername() {
+        if (!User.isLogged()) {
+            let controller: LoginController = LoginController(nibName: nil, bundle: nil)
+            self.presentViewController(controller, animated: true)
+        }
     }
     
     func messages(sender: UIBarButtonItem) {

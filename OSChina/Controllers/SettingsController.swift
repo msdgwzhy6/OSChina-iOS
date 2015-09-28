@@ -79,7 +79,7 @@ class SettingsController: BaseTableViewController {
     }
     
     func logout() {
-        User.currentUser(nil)
+        User.current(nil)
     }
 
 }

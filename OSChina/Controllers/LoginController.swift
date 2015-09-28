@@ -34,6 +34,11 @@ class LoginController: BaseTableViewController {
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
+        
+        let f: UIView = UIView()
+        f.frame = CGRectMake(0, 0, 100, 100)
+        f.backgroundColor = UIColor.primaryColor()
+        self.tableView.tableFooterView = f
     }
     
     override func didReceiveMemoryWarning() {
