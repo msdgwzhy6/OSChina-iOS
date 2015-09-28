@@ -135,6 +135,9 @@ class MyController: BaseTableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         switch (cell.restorationIdentifier!) {
+        case CELL_MY_TWEETS:
+            HUD.show(self.parentViewController!.view, message: "我的动弹")
+            break
         case CELL_MY_BLOG:
             HUD.show(self.parentViewController!.view, message: "我的博客")
             break
