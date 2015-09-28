@@ -26,6 +26,12 @@
 "TITLE_SETTINGS" = "设置";
 "TITLE_LOGIN" = "登录";
 "TITLE_ABOUT" = "关于";
+"TITLE_SCAN_QRCODE" = "二维码/条码";
+"TITLE_PUBLISH_TWEET" = "弹一弹";
+"TITLE_PUBLISH_QUESTION" = "提问";
+"TITLE_POST_DETAIL" = "文章详情";
+"TITLE_TWEET_DETAIL" = "动弹详情";
+"TITLE_QUESTION_DETAIL" = "问题详情";
 
 // TabBar
 "TAB_NEWS" = "新闻";

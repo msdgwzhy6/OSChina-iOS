@@ -40,8 +40,19 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.estimatedRowHeight = 88; // 设置为一个接近“平均”行高的值
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.header.beginRefreshing()
+        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -93,9 +104,15 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        let cell = TweetCell()
         let tweet: Tweet = self.dataSource[indexPath.row] as Tweet
-        cell.textLabel!.text = tweet.body
+        
+        cell.name.text = tweet.author
+        cell.avatar.sd_setImageWithURL(NSURL(string: tweet.portrait!))
+        cell.date.text = tweet.pubDate
+        cell.content.text = tweet.body
+        cell.imageSmall.sd_setImageWithURL(NSURL(string: tweet.imgSmall!))
+        cell.commentCount.text = "\tweet.commentCount\""
         return cell
     }
 
@@ -107,4 +124,12 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 100
+    }
+
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
 }
