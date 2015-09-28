@@ -15,6 +15,7 @@
  */
 
 import UIKit
+import OnePasswordExtension
 
 class LoginController: BaseTableViewController {
     let CELL_USERNAME: String = "CELL_USERNAME"
@@ -28,6 +29,7 @@ class LoginController: BaseTableViewController {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
         let btnCancel: UIBarButtonItem = UIBarButtonItem(title: "ACTION_CANCEL".localized, style: .Plain, target: self, action: "close:")
+        let btnOnePassword: UIBarButtonItem = UIBarButtonItem(title: "ACTION_ONEPASSWORD".localized, style: .Plain, target: self, action: "onepassword:")
         
         self.navigationItem.leftBarButtonItem = btnCancel
         
@@ -35,10 +37,25 @@ class LoginController: BaseTableViewController {
         
         self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
         
-        let f: UIView = UIView()
-        f.frame = CGRectMake(0, 0, 100, 100)
-        f.backgroundColor = UIColor.primaryColor()
-        self.tableView.tableFooterView = f
+        if (OnePasswordExtension.sharedExtension().isAppExtensionAvailable()) {
+            self.navigationItem.rightBarButtonItem = btnOnePassword
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() == false {
+            let alertController = UIAlertController(title: "1Password is not installed", message: "Get 1Password from the App Store", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "Get 1Password", style: .Default) { (action) in UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/app/1password-password-manager/id568903335")!)
+            }
+            
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,8 +113,6 @@ class LoginController: BaseTableViewController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         cell.selected = false
         if (cell.reuseIdentifier == CELL_LOGIN) {
-            tfUsername.text = "lijy91@foxmail.com"
-            tfPassword.text = "w3DXHZ2MTWDmPv"
             login()
         }
     }
@@ -122,5 +137,19 @@ class LoginController: BaseTableViewController {
     func close(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func onepassword(sender: UIBarButtonItem) {
+        OnePasswordExtension.sharedExtension().findLoginForURLString(URLs.baseURL, forViewController: self, sender: sender, completion: { (loginDictionary, error) -> Void in
+            if loginDictionary == nil {
+                if error!.code != Int(AppExtensionErrorCodeCancelledByUser) {
+                    print("Error invoking 1Password App Extension for find login: \(error)")
+                }
+                return
+            }
+            
+            self.tfUsername.text = loginDictionary?[AppExtensionUsernameKey] as? String
+            self.tfPassword.text = loginDictionary?[AppExtensionPasswordKey] as? String
+        })
     }
 }

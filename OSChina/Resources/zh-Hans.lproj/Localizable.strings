@@ -62,6 +62,9 @@
 "TAB_TWEET_LIST_HOT" = "热门";
 "TAB_TWEET_LIST_MY" = "我的动弹";
 
+// Login
+"ACTION_ONEPASSWORD" = "1Password";
+
 // Settings
 "CELL_TEXT_ABOUT" = "关于";
 "CELL_TEXT_FEEDBACK" = "反馈与吐槽";
