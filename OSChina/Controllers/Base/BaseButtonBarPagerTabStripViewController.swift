@@ -30,6 +30,13 @@ class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewCont
         self.buttonBarView.selectedBarHeight = CGFloat(2)
         self.buttonBarView.registerNib(UINib(nibName: "ButtonBarViewCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         self.view.addSubview(self.buttonBarView);
+        self.view.backgroundColor = UIColor.whiteColor()
+
+        self.changeCurrentIndexProgressiveBlock = {
+            (oldCell: XLButtonBarViewCell?, newCell: XLButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) in Void.self            
+            oldCell?.label.highlighted = false
+            newCell?.label.highlighted = true
+        }
     }
 
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
