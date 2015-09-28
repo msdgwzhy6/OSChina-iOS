@@ -5,6 +5,9 @@ PODS:
   - MJRefresh (2.4.11)
   - ObjectMapper (0.17)
   - Ono (1.2.2)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.0)
   - TTTAttributedLabel (1.13.4)
@@ -17,6 +20,7 @@ DEPENDENCIES:
   - MJRefresh
   - ObjectMapper (~> 0.17)
   - Ono
+  - SDWebImage (~> 3.7)
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TTTAttributedLabel
@@ -38,6 +42,7 @@ SPEC CHECKSUMS:
   MJRefresh: b327947f35ab3eb16ca42646b26f7347e6aa7186
   ObjectMapper: fa286b7cb5a398f1b0d8d64d0dd33fd1b307022c
   Ono: 80b1c686777d3f6d5d5ce6fcac8a74afef4ca197
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
