@@ -33,10 +33,9 @@ class HomeController: BaseTabBarController {
         self.myController        = MyController(nibName: nil, bundle: nil)
         
         // 增加Tab
-        self.addTab("TAB_TWEET".localized, controller: self.tweetController)
         self.addTab("TAB_NEWS".localized, controller: self.newsController)
         self.addTab("TAB_QUESTION".localized, controller: self.qsnController)
-//        self.addTab("TAB_TWEET".localized, controller: self.tweetController)
+        self.addTab("TAB_TWEET".localized, controller: self.tweetController)
         self.addTab("TAB_DISCOVERY".localized, controller: self.discoveryController)
         self.addTab("TAB_MY".localized, controller: self.myController)
     }

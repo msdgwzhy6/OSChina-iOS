@@ -20,7 +20,7 @@ class DiscoveryController: BaseTableViewController {
 
     // section 1
     let CELL_ACTIVITIES         : String = "ID_CELL_ACTIVITIES"
-    let CELL_ACTIVITIES_GO      : String = "ID_CELL_ACTIVITIES_GO"
+    let CELL_ACTIVITIES_LATEST  : String = "ID_CELL_ACTIVITIES_LATEST"
     // section 2
     let CELL_OPEN_SOURCE_PROJECT: String = "ID_CELL_OPEN_SOURCE_PROJECT"
     let CELL_BLOG               : String = "ID_CELL_BLOG"
@@ -35,6 +35,9 @@ class DiscoveryController: BaseTableViewController {
 
         // 设置TableView
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
+        
+        self.tableView.estimatedRowHeight = 88;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,8 +71,10 @@ class DiscoveryController: BaseTableViewController {
                 identifier = CELL_ACTIVITIES
                 break
             case 1:
-                title = "线下活动GO"
-                identifier = CELL_ACTIVITIES
+                let cell = ActivitiesLatestView()
+                cell.restorationIdentifier = CELL_ACTIVITIES_LATEST
+                cell.layoutIfNeeded()
+                return cell
                 break
             default:
                 break
@@ -107,7 +112,7 @@ class DiscoveryController: BaseTableViewController {
         case CELL_ACTIVITIES:
             HUD.show(self.parentViewController!.view, message: "线下活动")
             break
-        case CELL_ACTIVITIES_GO:
+        case CELL_ACTIVITIES_LATEST:
             HUD.show(self.view, message: "线下活动GO")
             break
         case CELL_OPEN_SOURCE_PROJECT:
@@ -128,16 +133,9 @@ class DiscoveryController: BaseTableViewController {
         }
         return super.tableView(tableView, heightForHeaderInSection: section)
     }
-
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if (section == 0) {
-            return nil
-        }
-        return super.tableView(tableView, viewForHeaderInSection: section)
-    }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func scanQRCode(sender: UIBarButtonItem) {
