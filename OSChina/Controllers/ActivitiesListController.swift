@@ -14,9 +14,15 @@
  * limitations under the License.
  */
 
-import UIKit
-import MJRefresh
-
-class BaseTableViewController: UITableViewController {
-    let CELL_IDENTIFIER: String = "Cell"
+class ActivitiesListController: BaseTableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "TITLE_ACTIVITIES_LIST".localized
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }

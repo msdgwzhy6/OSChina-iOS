@@ -53,6 +53,10 @@ class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewCont
     }
 
     func contentInset() -> UIEdgeInsets {
+        return UIEdgeInsetsMake(self.buttonBarView.frame.height, 0, self.buttonBarView.frame.height + (self.tabBarController?.tabBar.frame.height)!, 0)
+    }
+    
+    func scrollIndicatorInsets() -> UIEdgeInsets {
         return UIEdgeInsetsMake(self.buttonBarView.frame.height, 0, (self.tabBarController?.tabBar.frame.height)!, 0)
     }
 }

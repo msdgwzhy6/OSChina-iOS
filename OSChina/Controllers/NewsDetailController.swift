@@ -15,8 +15,17 @@
  */
 
 import UIKit
-import MJRefresh
 
-class BaseTableViewController: UITableViewController {
-    let CELL_IDENTIFIER: String = "Cell"
+class NewsDetailController: BaseTableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "TITLE_NEWS_DETAIL".localized
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }

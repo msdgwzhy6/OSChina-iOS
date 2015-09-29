@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-import Foundation
-
 class AboutController: BaseTableViewController {
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

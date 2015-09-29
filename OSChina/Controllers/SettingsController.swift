@@ -19,7 +19,7 @@ import UIKit
 class SettingsController: BaseTableViewController {
     let CELL_LOGOUT: String = "CELL_LOGOUT"
 
-    var dataSource: [Int:[Int:[String:String]]] = [:]
+    var dataSource_: [Int:[Int:[String:String]]] = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class SettingsController: BaseTableViewController {
         if (User.isLogged()) {
             addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
         }
-        print(dataSource)
+        print(dataSource_)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,15 +50,15 @@ class SettingsController: BaseTableViewController {
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return dataSource.count
+        return dataSource_.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource[section]!.count
+        return dataSource_[section]!.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let section:[Int:[String:String]] = dataSource[indexPath.section]!
+        let section:[Int:[String:String]] = dataSource_[indexPath.section]!
         let row:[String:String] = section[indexPath.row]!
         
         // 退出登录
@@ -88,10 +88,10 @@ class SettingsController: BaseTableViewController {
     }
 
     func addCell(section: Int, row: Int, title: String, reuseIdentifier: String) {
-        if (dataSource[section] == nil) {
-            dataSource.updateValue([:], forKey: section)
+        if (dataSource_[section] == nil) {
+            dataSource_.updateValue([:], forKey: section)
         }
         let row_ = ["title": title, "reuseIdentifier": reuseIdentifier]
-        dataSource[section]?.updateValue(row_, forKey: row)
+        dataSource_[section]?.updateValue(row_, forKey: row)
     }
 }

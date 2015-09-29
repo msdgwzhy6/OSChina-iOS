@@ -11,6 +11,7 @@ PODS:
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.0)
   - TTTAttributedLabel (1.13.4)
+  - UITableView+FDTemplateLayoutCell (1.4.beta)
   - XLPagerTabStrip (2.0.0)
 
 DEPENDENCIES:
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TTTAttributedLabel
+  - UITableView+FDTemplateLayoutCell (~> 1.4.beta)
   - XLPagerTabStrip (~> 2.0)
 
 EXTERNAL SOURCES:
@@ -46,6 +48,7 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  UITableView+FDTemplateLayoutCell: 9d20bf0518f3c01e42ae614243b97f1161063d27
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 
 COCOAPODS: 0.38.2

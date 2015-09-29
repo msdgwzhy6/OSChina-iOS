@@ -42,19 +42,41 @@ class ApiClient {
             }
         }
     }
-
+    
+    
+    
     static func tweetListHot(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
         let parameters: [String: AnyObject] = [
+            "pageIndex": page,
+            "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.POST, URLs.TWEET_TOPIC_LIST, parameters: parameters)
+            .responseXMLDocument {
+                (request, response, result) -> Void in
+                let rootElement: ONOXMLElement = result.value!.rootElement
+                let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+                if (ret.isSuccess()) {
+                    success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
+                } else {
+                    failure(code: ret.errorCode!, message: ret.errorMessage!)
+                }
+        }
+    }
+
+    static func newsList(page: Int, catalog: Int, success: (data:[News]) -> Void, failure: (code:Int, message:String) -> Void) {
+        
+        let parameters: [String: AnyObject] = [
+                "catalog": catalog,
                 "pageIndex": page,
                 "pageSize": PAGE_SIZE
         ]
-        Alamofire.request(.POST, URLs.TWEET_TOPIC_LIST, parameters: parameters)
+        Alamofire.request(.POST, URLs.NEWS_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
             let rootElement: ONOXMLElement = result.value!.rootElement
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
             if (ret.isSuccess()) {
-                success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
+                success(data: News.parseArray(rootElement.firstChildWithTag("newslist"))!)
             } else {
                 failure(code: ret.errorCode!, message: ret.errorMessage!)
             }

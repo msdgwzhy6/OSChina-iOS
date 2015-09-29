@@ -32,9 +32,9 @@ class NewsController: BaseButtonBarPagerTabStripViewController {
         controller1.tableView.contentInset = self.contentInset()
         controller2.tableView.contentInset = self.contentInset()
         controller3.tableView.contentInset = self.contentInset()
-        controller1.tableView.scrollIndicatorInsets = self.contentInset()
-        controller2.tableView.scrollIndicatorInsets = self.contentInset()
-        controller3.tableView.scrollIndicatorInsets = self.contentInset()
+        controller1.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
+        controller2.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
+        controller3.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
         return [controller1, controller2, controller3]
     }
 }

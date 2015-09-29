@@ -35,8 +35,8 @@ class TweetController: BaseButtonBarPagerTabStripViewController {
         let controller2 = TweetListController(flag: TweetListFlag.Hot)
         controller1.tableView.contentInset = self.contentInset()
         controller2.tableView.contentInset = self.contentInset()
-        controller1.tableView.scrollIndicatorInsets = self.contentInset()
-        controller2.tableView.scrollIndicatorInsets = self.contentInset()
+        controller1.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
+        controller2.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
         return [controller1, controller2]
     }
 

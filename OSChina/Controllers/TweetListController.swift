@@ -23,7 +23,7 @@ enum TweetListFlag {
     case My
 }
 
-class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
+class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChildItem {
     
     var flag: TweetListFlag = TweetListFlag.Latest
     
@@ -31,28 +31,23 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         self.flag = flag
         super.init(style: .Plain)
     }
+    
+    var dataSource: [Tweet] = []
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    var dataSource: [Tweet] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.tableView.header.beginRefreshing()
         
         self.tableView.estimatedRowHeight = 88;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.registerClass(TweetCell.self, forCellReuseIdentifier: "Cell")
+        
+        self.beginRefreshing()
 
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -74,12 +69,20 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
             return UIColor.whiteColor()
     }
 
-    override func refresh() {
+    override func loadData(page: Int) {
         let success = {
             (data: [Tweet]) -> Void in
             self.endRefreshing()
+            // 下拉刷新时清空数据源
+            if (page == 0) {
+                self.dataSource = []
+            }
             self.dataSource += data
             self.tableView.reloadData()
+            // 没有更多数据
+            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0) {
+                self.tableView.footer.noticeNoMoreData()
+            }
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -88,13 +91,13 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         
         switch (flag) {
         case .Latest:
-            ApiClient.tweetListLatest(0, success: success, failure: failure)
+            ApiClient.tweetListLatest(page, success: success, failure: failure)
             break
         case .Hot:
-            ApiClient.tweetListHot(0, success: success, failure: failure)
+            ApiClient.tweetListHot(page, success: success, failure: failure)
             break
         case .My:
-            ApiClient.tweetListLatest(0, success: success, failure: failure)
+            ApiClient.tweetListLatest(page, success: success, failure: failure)
             break
         }
     }
@@ -104,16 +107,14 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = TweetCell()
-        let tweet: Tweet = self.dataSource[indexPath.row] as Tweet
-        
-        cell.name.text = tweet.author
-        cell.avatar.sd_setImageWithURL(NSURL(string: tweet.portrait!))
-        cell.date.text = tweet.pubDate
-        cell.content.text = tweet.body
-        cell.imageSmall.sd_setImageWithURL(NSURL(string: tweet.imgSmall!))
-        cell.commentCount.text = "\tweet.commentCount\""
-        cell.layoutIfNeeded()
+        let cell: TweetCell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TweetCell
+//        if (cell == nil) {
+//            print("new cell")
+//            print(indexPath)
+//            cell = TweetCell()
+//        }
+        let tweet: Tweet = self.dataSource[indexPath.row]
+        cell.bind(tweet)
         return cell
     }
 
@@ -125,6 +126,16 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
+//
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let height = tableView.fd_heightForCellWithIdentifier("Cell", configuration: { (make) -> Void in
+////            let cell = TweetCell()
+////            let tweet: Tweet = self.dataSource[indexPath.row]
+////            cell.bind(tweet)
+////            cell.layoutIfNeeded()
+//        })
+//        return height
+//    }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension

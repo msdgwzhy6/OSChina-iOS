@@ -110,7 +110,9 @@ class DiscoveryController: BaseTableViewController {
 
         switch (cell.restorationIdentifier!) {
         case CELL_ACTIVITIES:
-            HUD.show(self.parentViewController!.view, message: "线下活动")
+            let controller = ActivitiesListController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_ACTIVITIES_LATEST:
             HUD.show(self.view, message: "线下活动GO")

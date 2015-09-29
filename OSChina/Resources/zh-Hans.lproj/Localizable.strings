@@ -17,7 +17,7 @@
 "APP_NAME" = "开源中国";
 
 // Controller
-"TITLE_NEWS" = "新闻";
+"TITLE_NEWS" = "资讯";
 "TITLE_QUESTION" = "问题";
 "TITLE_TWEET" = "动弹";
 "TITLE_DISCOVERY" = "发现";
@@ -30,11 +30,13 @@
 "TITLE_PUBLISH_TWEET" = "弹一弹";
 "TITLE_PUBLISH_QUESTION" = "提问";
 "TITLE_POST_DETAIL" = "文章详情";
+"TITLE_NEWS_DETAIL" = "资讯详情";
 "TITLE_TWEET_DETAIL" = "动弹详情";
 "TITLE_QUESTION_DETAIL" = "问题详情";
+"TITLE_ACTIVITIES_LIST" = "线下活动";
 
 // TabBar
-"TAB_NEWS" = "新闻";
+"TAB_NEWS" = "资讯";
 "TAB_QUESTION" = "问题";
 "TAB_TWEET" = "动弹";
 "TAB_DISCOVERY" = "发现";

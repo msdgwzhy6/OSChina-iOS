@@ -23,7 +23,7 @@ enum NewsListFlag {
     case Project    // 软件
 }
 
-class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
+class NewsListController: BaseMJRefreshTableViewController , XLPagerTabStripChildItem {
     
     var flag: NewsListFlag = NewsListFlag.All
     
@@ -36,8 +36,17 @@ class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var dataSource: [News] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.estimatedRowHeight = 88;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.registerClass(NewsCell.self, forCellReuseIdentifier: "Cell")
+        
+        self.beginRefreshing()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,6 +67,67 @@ class NewsListController: BaseTableViewController , XLPagerTabStripChildItem {
     
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
         return UIColor.whiteColor()
+    }
+    
+    override func loadData(page: Int) {
+        let success = {
+            (data: [News]) -> Void in
+            self.endRefreshing()
+            // 下拉刷新时清空数据源
+            if (page == 0) {
+                self.dataSource = []
+            }
+            self.dataSource += data
+            self.tableView.reloadData()
+        };
+        let failure = {
+            (code: Int, message: String) -> Void in
+            self.endRefreshing()
+        };
+        // 1-所有|2-综合新闻|3-软件更新
+        switch (flag) {
+        case .All:
+            ApiClient.newsList(page, catalog: 1, success: success, failure: failure)
+            break
+        case .Industry:
+            ApiClient.newsList(page, catalog: 2,success: success, failure: failure)
+            break
+        case .Project:
+            ApiClient.newsList(page, catalog: 3,success: success, failure: failure)
+            break
+        }
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: NewsCell? = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? NewsCell
+        if (cell == nil) {
+            cell = NewsCell()
+        }
+        let news: News = self.dataSource[indexPath.row]
+        
+        cell!.bind(news)
+        return cell!
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
+        
+        let controller: NewsDetailController = NewsDetailController(nibName: nil, bundle: nil)
+        controller.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
 }
