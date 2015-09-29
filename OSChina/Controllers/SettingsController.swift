@@ -38,7 +38,7 @@ class SettingsController: BaseTableViewController {
         addCell(2,row: 0,title: "a",reuseIdentifier: "b")
         addCell(2,row: 1,title: "a",reuseIdentifier: "b")
         if (User.isLogged()) {
-            addCell(3,row: 3,title: "a",reuseIdentifier: "b")
+            addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
         }
         print(dataSource)
     }
@@ -67,12 +67,12 @@ class SettingsController: BaseTableViewController {
             cell.textLabel?.text = "CELL_TEXT_LOGOUT".localized
             cell.textLabel?.textAlignment = .Center
             cell.textLabel?.textColor = UIColor.redColor()
+            return cell
         } else {
             let cell = UITableViewCell(style: .Default, reuseIdentifier: row["reuseIdentifier"])
             cell.textLabel?.text = row["title"]
             return cell
         }
-        return UITableViewCell(style: .Default, reuseIdentifier: "Cell")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
