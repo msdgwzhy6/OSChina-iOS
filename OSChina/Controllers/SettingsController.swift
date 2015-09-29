@@ -19,55 +19,60 @@ import UIKit
 class SettingsController: BaseTableViewController {
     let CELL_LOGOUT: String = "CELL_LOGOUT"
 
+    var dataSource: [Int:[Int:[String:String]]] = [:]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_SETTINGS".localized
 
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
+        
+        // section1
+        addCell(0,row: 0,title: "a",reuseIdentifier: "b")
+        addCell(0,row: 1,title: "a",reuseIdentifier: "b")
+        // section2
+        addCell(1,row: 0,title: "a",reuseIdentifier: "b")
+        addCell(1,row: 1,title: "a",reuseIdentifier: "b")
+        addCell(1,row: 2,title: "a",reuseIdentifier: "b")
+        // section3
+        addCell(2,row: 0,title: "a",reuseIdentifier: "b")
+        addCell(2,row: 1,title: "a",reuseIdentifier: "b")
+        if (User.isLogged()) {
+            addCell(3,row: 3,title: "a",reuseIdentifier: "b")
+        }
+        print(dataSource)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-
     }
     
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2 + (User.isLogged() ? 1 : 0)
+        return dataSource.count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch (section) {
-        case 0:
-            return 2
-        case 1:
-            return 3
-        case 2:
-            return 1
-        default:
-            return 0
-        }
+        return dataSource[section]!.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch (indexPath.section) {
-        case 0:
-            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
-            return cell
-        case 1:
-            let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
-            return cell
-        case 2:
+        let section:[Int:[String:String]] = dataSource[indexPath.section]!
+        let row:[String:String] = section[indexPath.row]!
+        
+        // 退出登录
+        if (indexPath.section == 3) {
             let cell = UITableViewCell(style: .Default, reuseIdentifier: CELL_LOGOUT)
             cell.textLabel?.text = "CELL_TEXT_LOGOUT".localized
             cell.textLabel?.textAlignment = .Center
             cell.textLabel?.textColor = UIColor.redColor()
+        } else {
+            let cell = UITableViewCell(style: .Default, reuseIdentifier: row["reuseIdentifier"])
+            cell.textLabel?.text = row["title"]
             return cell
-        default:
-            break
         }
-        return UITableViewCell(style: .Default, reuseIdentifier: CELL_IDENTIFIER)
+        return UITableViewCell(style: .Default, reuseIdentifier: "Cell")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -82,4 +87,11 @@ class SettingsController: BaseTableViewController {
         User.current(nil)
     }
 
+    func addCell(section: Int, row: Int, title: String, reuseIdentifier: String) {
+        if (dataSource[section] == nil) {
+            dataSource.updateValue([:], forKey: section)
+        }
+        let row_ = ["title": title, "reuseIdentifier": reuseIdentifier]
+        dataSource[section]?.updateValue(row_, forKey: row)
+    }
 }
