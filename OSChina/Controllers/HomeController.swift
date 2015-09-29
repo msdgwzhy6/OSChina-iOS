@@ -26,11 +26,11 @@ class HomeController: BaseTabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.newsController      = NewsController(nibName: nil, bundle: nil)
-        self.qsnController       = QuestionController(nibName: nil, bundle: nil)
-        self.tweetController     = TweetController(nibName: nil, bundle: nil)
-        self.discoveryController = DiscoveryController(nibName: nil, bundle: nil)
-        self.myController        = MyController(nibName: nil, bundle: nil)
+        self.newsController      = NewsController()
+        self.qsnController       = QuestionController()
+        self.tweetController     = TweetController()
+        self.discoveryController = DiscoveryController()
+        self.myController        = MyController()
         
         // 增加Tab
         self.addTab("TAB_NEWS".localized, controller: self.newsController)
