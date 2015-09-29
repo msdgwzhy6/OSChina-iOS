@@ -100,6 +100,7 @@ class DiscoveryController: BaseTableViewController {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = title
+        cell.detailTextLabel?.textColor = UIColor.grayColor()
         cell.restorationIdentifier = identifier
         cell.accessoryType = .DisclosureIndicator
         return cell
@@ -134,6 +135,13 @@ class DiscoveryController: BaseTableViewController {
             return CGFloat.min
         }
         return super.tableView(tableView, heightForHeaderInSection: section)
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if (indexPath.section == 0 && indexPath.row == 1) {
+            return UITableViewAutomaticDimension
+        }
+        return 60
     }
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
