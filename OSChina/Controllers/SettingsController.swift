@@ -28,15 +28,13 @@ class SettingsController: BaseTableViewController {
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         // section1
-        addCell(0,row: 0,title: "a",reuseIdentifier: "b")
-        addCell(0,row: 1,title: "a",reuseIdentifier: "b")
+        addCell(0,row: 0,title: "消息通知",reuseIdentifier: "Cell")
         // section2
-        addCell(1,row: 0,title: "a",reuseIdentifier: "b")
-        addCell(1,row: 1,title: "a",reuseIdentifier: "b")
-        addCell(1,row: 2,title: "a",reuseIdentifier: "b")
+        addCell(1,row: 0,title: "评价此应用",reuseIdentifier: "Cell")
+        addCell(1,row: 1,title: "应用版本",reuseIdentifier: "Cell")
         // section3
-        addCell(2,row: 0,title: "a",reuseIdentifier: "b")
-        addCell(2,row: 1,title: "a",reuseIdentifier: "b")
+        addCell(2,row: 0,title: "推荐给朋友",reuseIdentifier: "Cell")
+        addCell(2,row: 1,title: "意见与反馈",reuseIdentifier: "Cell")
         if (User.isLogged()) {
             addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
         }
@@ -71,6 +69,7 @@ class SettingsController: BaseTableViewController {
         } else {
             let cell = UITableViewCell(style: .Default, reuseIdentifier: row["reuseIdentifier"])
             cell.textLabel?.text = row["title"]
+            cell.accessoryType = .DisclosureIndicator
             return cell
         }
     }

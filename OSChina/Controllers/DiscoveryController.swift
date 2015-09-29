@@ -116,7 +116,6 @@ class DiscoveryController: BaseTableViewController {
             self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_ACTIVITIES_LATEST:
-            HUD.show(self.view, message: "线下活动GO")
             break
         case CELL_OPEN_SOURCE_PROJECT:
             HUD.show(self.view, message: "开源项目")
