@@ -59,6 +59,7 @@
 		87A9EEEB262598037704AE21 /* NewsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDE99A4621D88917E54B /* NewsListController.swift */; };
 		87A9EEF04554F83F751A9682 /* PublishTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */; };
 		87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */; };
+		F5B0BA021BB9B1DB00BB9DEE /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B0BA011BB9B1DB00BB9DEE /* PostCell.swift */; settings = {ASSET_TAGS = (); }; };
 		F5B3250F1BAFAAD900527D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */; };
 		F5B325161BAFAAD900527D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B325151BAFAAD900527D7D /* Assets.xcassets */; };
 		F5B325191BAFAAD900527D7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B325171BAFAAD900527D7D /* LaunchScreen.storyboard */; };
@@ -121,6 +122,7 @@
 		8B45D772AA858FD96316B5D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		94731FA4CF476F5D5FA61F37 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5556F0D1BB18F22006CEBB9 /* OSChina-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSChina-Bridging-Header.h"; sourceTree = "<group>"; };
+		F5B0BA011BB9B1DB00BB9DEE /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		F5B3250B1BAFAAD900527D7D /* OSChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B325151BAFAAD900527D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				87A9ED6A726EDCFEE10E326D /* TextFieldCell.swift */,
 				87A9E11BE0D7A42782EA48A0 /* ButtonBarViewCell.xib */,
 				87A9E25225A42DAB24BD40AC /* QuestionCell.swift */,
+				F5B0BA011BB9B1DB00BB9DEE /* PostCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				87A9E2465A83D375BC5A1A63 /* SearchController.swift in Sources */,
 				87A9E9C19B9E79B816EF551D /* PostListController.swift in Sources */,
 				87A9E2CE951FB43F070D9249 /* TweetListController.swift in Sources */,
+				F5B0BA021BB9B1DB00BB9DEE /* PostCell.swift in Sources */,
 				87A9E19255FD560F79CA6CAA /* ProjectListController.swift in Sources */,
 				87A9E434C9AF586523B3C605 /* PublishPostController.swift in Sources */,
 				87A9E44E89389CBEED874463 /* TweetDetailController.swift in Sources */,

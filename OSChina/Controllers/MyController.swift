@@ -51,6 +51,10 @@ class MyController: BaseTableViewController {
         let tapName = UITapGestureRecognizer(target: self, action: Selector("tapAvatarOrName"))
         self.mpvInfo.avatar.addGestureRecognizer(tapAvatar)
         self.mpvInfo.name.addGestureRecognizer(tapName)
+        
+        
+        self.tableView.estimatedRowHeight = 88; // 设置为一个接近“平均”行高的值
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -128,6 +132,7 @@ class MyController: BaseTableViewController {
         }
         let cell = UITableViewCell()
         cell.textLabel?.text = title
+        cell.textLabel?.numberOfLines = 0
         cell.restorationIdentifier = identifier
         cell.accessoryType = .DisclosureIndicator
         return cell

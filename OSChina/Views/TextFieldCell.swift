@@ -49,6 +49,7 @@ class TextFieldCell: UITableViewCell {
             make.width.equalTo(self.textLabel!)
             make.height.equalTo(self.textLabel!)
             make.left.equalTo(self.textLabel!)
+            make.right.equalTo(self.textLabel!)
         }
     }
 }

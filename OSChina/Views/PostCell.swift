@@ -16,6 +16,6 @@
 
 import UIKit
 
-class QuestionCell: UITableViewCell {
+class PostCell: UITableViewCell {
     
 }

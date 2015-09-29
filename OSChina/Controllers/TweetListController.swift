@@ -40,12 +40,12 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.estimatedRowHeight = 88; // 设置为一个接近“平均”行高的值
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
+
         self.tableView.header.beginRefreshing()
-        tableView.rowHeight = UITableViewAutomaticDimension
-//        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        self.tableView.estimatedRowHeight = 88;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -113,6 +113,7 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         cell.content.text = tweet.body
         cell.imageSmall.sd_setImageWithURL(NSURL(string: tweet.imgSmall!))
         cell.commentCount.text = "\tweet.commentCount\""
+        cell.layoutIfNeeded()
         return cell
     }
 
@@ -124,12 +125,12 @@ class TweetListController: BaseTableViewController, XLPagerTabStripChildItem {
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
-    }
-
-//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//    
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
 //        return UITableViewAutomaticDimension
 //    }
+
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }

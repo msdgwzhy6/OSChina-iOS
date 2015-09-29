@@ -24,20 +24,15 @@ class LoginController: BaseTableViewController {
     
     var tfUsername: UITextField = UITextField()
     var tfPassword: UITextField = UITextField()
+    var btnOnepassword: UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
-
-        let btnOnePassword: UIBarButtonItem = UIBarButtonItem(title: "ACTION_ONEPASSWORD".localized, style: .Plain, target: self, action: "onepassword:")
         
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
-        
-        if (OnePasswordExtension.sharedExtension().isAppExtensionAvailable()) {
-            self.navigationItem.rightBarButtonItem = btnOnePassword
-        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -85,9 +80,23 @@ class LoginController: BaseTableViewController {
                 cell.textField.placeholder = "用户名"
                 tfUsername = cell.textField
                 tfUsername.returnKeyType = .Next
+                tfUsername.addTarget(self, action: "usernameFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+                
+                // 添加onepassword按钮
+                if (OnePasswordExtension.sharedExtension().isAppExtensionAvailable()) {
+                    self.btnOnepassword.setBackgroundImage(UIImage(named: "onepassword-button"), forState: UIControlState.Normal)
+                    self.btnOnepassword.addTarget(self, action: Selector("onepassword:"), forControlEvents: .TouchUpInside)
+                    cell.textField.addSubview(btnOnepassword)
+                    self.btnOnepassword.snp_makeConstraints {
+                        (make) -> Void in
+                        make.right.equalTo(cell.textField)
+                        make.centerY.equalTo(cell.textField)
+                    }
+                }
                 return cell
             case 1:
                 let cell = TextFieldCell(reuseIdentifier: CELL_PASSWORD)
+                
                 cell.textField.placeholder = "密码"
                 cell.textField.secureTextEntry = true
                 tfPassword = cell.textField
@@ -134,12 +143,7 @@ class LoginController: BaseTableViewController {
         )
     }
     
-//    func close(sender: UIBarButtonItem) {
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//        self.navigationController?.popToRootViewControllerAnimated(true)
-//    }
-    
-    func onepassword(sender: UIBarButtonItem) {
+    func onepassword(sender: UIButton!) {
         OnePasswordExtension.sharedExtension().findLoginForURLString(URLs.baseURL, forViewController: self, sender: sender, completion: { (loginDictionary, error) -> Void in
             if loginDictionary == nil {
                 if error!.code != Int(AppExtensionErrorCodeCancelledByUser) {
@@ -150,6 +154,12 @@ class LoginController: BaseTableViewController {
             
             self.tfUsername.text = loginDictionary?[AppExtensionUsernameKey] as? String
             self.tfPassword.text = loginDictionary?[AppExtensionPasswordKey] as? String
+            // 判断是否隐藏1password按钮
+            self.usernameFieldDidChange(self.tfUsername)
         })
+    }
+    
+    func usernameFieldDidChange(textField: UITextField) {
+        btnOnepassword.hidden = textField.text?.characters.count != 0
     }
 }
