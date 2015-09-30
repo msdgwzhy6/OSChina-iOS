@@ -31,6 +31,10 @@ class User: Mappable {
     var joinTime: String?       // 加入时间
     var lastLoginTime: String?  // 最近登录时间
     var portrait: String?       // 头像
+    var fans: Int = 0           // 粉丝数
+    var favoritecount: Int = 0  // 收藏数
+    var followers: Int = 0      // 关注数
+    var score: Int = 0          // 积分
     
     init() { }
 
@@ -51,6 +55,10 @@ class User: Mappable {
         joinTime        <- map["joinTime"]
         lastLoginTime   <- map["lastLoginTime"]
         portrait        <- map["portrait"]
+        fans            <- map["fans"]
+        favoritecount   <- map["favoritecount"]
+        followers       <- map["followers"]
+        score           <- map["score"]
     }
     
     static func parse(element: ONOXMLElement) -> User {
@@ -69,6 +77,10 @@ class User: Mappable {
         data.joinTime       = parser.stringValue("joinTime")
         data.lastLoginTime  = parser.stringValue("lastLoginTime")
         data.portrait       = parser.stringValue("portrait")
+        data.fans           = parser.integerValue("fans")
+        data.favoritecount  = parser.integerValue("favoritecount")
+        data.followers      = parser.integerValue("followers")
+        data.score          = parser.integerValue("score")
         
         return data
     }

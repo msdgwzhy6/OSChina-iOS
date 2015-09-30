@@ -51,8 +51,7 @@ class MyController: BaseTableViewController {
         let tapName = UITapGestureRecognizer(target: self, action: Selector("tapAvatarOrName"))
         self.mpvInfo.avatar.addGestureRecognizer(tapAvatar)
         self.mpvInfo.name.addGestureRecognizer(tapName)
-        
-        
+
         self.tableView.estimatedRowHeight = 88; // 设置为一个接近“平均”行高的值
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
@@ -62,13 +61,12 @@ class MyController: BaseTableViewController {
         if (User.isLogged()) {
             let user: User = User.current()!
             self.navigationItem.leftBarButtonItem = btnMessages
-            mpvInfo.name.text = user.name
-            mpvInfo.avatar.sd_setImageWithURL(NSURL(string: user.portrait!))
+            mpvInfo.bind(user)
         } else {
             self.navigationItem.leftBarButtonItem = nil
-            mpvInfo.name.text = "登录/注册"
-            mpvInfo.avatar.sd_setImageWithURL(nil)
+            mpvInfo.bind(nil)
         }
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +92,7 @@ class MyController: BaseTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var title: String = "";
         var identifier: String = "";
+        var count: Int = 0
         switch (indexPath.section) {
         case 0:
             switch (indexPath.row) {
@@ -108,6 +107,9 @@ class MyController: BaseTableViewController {
             case 2:
                 title = "我的收藏"
                 identifier = CELL_MY_FAVORITES
+                if (User.isLogged()) {
+                    count = (User.current()?.favoritecount)!
+                }
                 break
             default:
                 break
@@ -130,9 +132,13 @@ class MyController: BaseTableViewController {
         default:
             break
         }
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
         cell.textLabel?.text = title
-        cell.textLabel?.numberOfLines = 0
+        if (count > 0) {
+            cell.detailTextLabel?.text = "\(count)"
+        } else {
+            cell.detailTextLabel?.text = ""
+        }
         cell.restorationIdentifier = identifier
         cell.accessoryType = .DisclosureIndicator
         return cell

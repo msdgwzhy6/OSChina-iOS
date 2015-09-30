@@ -21,6 +21,9 @@ class MyProfileCell: UITableViewCell {
     var container = UIView()
     var avatar: UIImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
     var name: UILabel = UILabel()
+    var bootomView: UIView = UIView()
+    var fansCount: UILabel = UILabel()
+    var followersCount: UILabel = UILabel()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String!) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -64,6 +67,20 @@ class MyProfileCell: UITableViewCell {
         self.name.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.container)
             make.top.equalTo(self.avatar.snp_bottom).offset(8)
+        }
+    }
+    
+    func bind(data: User?) {
+        if (data == nil) {
+            self.name.text = "登录/注册"
+            self.avatar.sd_setImageWithURL(nil)
+            self.fansCount.text = "0"
+            self.followersCount.text = "0"
+        } else {
+            self.name.text = data!.name
+            self.avatar.sd_setImageWithURL(NSURL(string: (data?.portrait)!))
+            self.fansCount.text = "\(data?.fans)"
+            self.followersCount.text = "\(data?.followers)"
         }
     }
 }
