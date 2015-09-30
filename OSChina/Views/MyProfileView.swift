@@ -62,21 +62,21 @@ class MyProfileCell: UITableViewCell {
         self.scoreNumber.font = UIFont.boldSystemFontOfSize(18)
         self.scoreLabel.textColor = UIColor.whiteColor()
         self.scoreLabel.textAlignment = .Center
-        self.scoreLabel.font = UIFont.systemFontOfSize(15)
-        
+        self.scoreLabel.font = UIFont.systemFontOfSize(14)
+
         self.fansCount.textColor = UIColor.whiteColor()
         self.fansCount.textAlignment = .Center
         self.fansCount.font = UIFont.boldSystemFontOfSize(18)
         self.fansLabel.textColor = UIColor.whiteColor()
         self.fansLabel.textAlignment = .Center
-        self.fansLabel.font = UIFont.systemFontOfSize(15)
+        self.fansLabel.font = UIFont.systemFontOfSize(14)
 
         self.followersCount.textColor = UIColor.whiteColor()
         self.followersCount.textAlignment = .Center
         self.followersCount.font = UIFont.boldSystemFontOfSize(18)
         self.followersLabel.textColor = UIColor.whiteColor()
         self.followersLabel.textAlignment = .Center
-        self.followersLabel.font = UIFont.systemFontOfSize(15)
+        self.followersLabel.font = UIFont.systemFontOfSize(14)
         
         self.container.addSubview(self.avatar)
         self.container.addSubview(self.name)
@@ -106,7 +106,7 @@ class MyProfileCell: UITableViewCell {
         }
         self.bottomLayout.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(self.container.frame.width)
-            make.height.equalTo(60)
+            make.height.equalTo(65)
             make.bottom.equalTo(self.container.snp_bottom)
         }
         self.scoreNumber.snp_makeConstraints { (make) -> Void in
@@ -117,7 +117,7 @@ class MyProfileCell: UITableViewCell {
         }
         self.scoreLabel.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(self.bottomLayout).dividedBy(3)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
             make.left.equalTo(self.bottomLayout)
             make.top.equalTo(35)
         }
@@ -129,7 +129,7 @@ class MyProfileCell: UITableViewCell {
         }
         self.fansLabel.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(self.bottomLayout).dividedBy(3)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
             make.left.equalTo(self.scoreLabel.snp_right)
             make.top.equalTo(35)
         }
@@ -141,7 +141,7 @@ class MyProfileCell: UITableViewCell {
         }
         self.followersLabel.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(self.bottomLayout).dividedBy(3)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
             make.left.equalTo(self.fansCount.snp_right)
             make.top.equalTo(35)
         }

@@ -97,13 +97,12 @@ class TweetCell: UITableViewCell {
     
     
     func bind(data: Tweet) {
-        
         self.name.text = data.author
         self.avatar.sd_setImageWithURL(NSURL(string: data.portrait!))
         self.pubDate.text = data.pubDate
         self.content.text = data.body
         self.imageSmall.sd_setImageWithURL(NSURL(string: data.imgSmall!))
         self.commentCount.text = "\tweet.commentCount\""
-//        self.layoutIfNeeded()
+        self.layoutIfNeeded()
     }
 }
