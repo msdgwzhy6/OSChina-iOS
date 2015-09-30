@@ -2,6 +2,10 @@
 
 开源中国
 
+```
+$pod install --verbose
+```
+
 # License
 
     Copyright (C) 2015 JianyingLi

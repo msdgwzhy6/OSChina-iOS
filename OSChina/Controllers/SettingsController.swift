@@ -77,6 +77,10 @@ class SettingsController: BaseTableViewController, MFMailComposeViewControllerDe
         cell.accessoryType = .DisclosureIndicator
         cell.textLabel?.text = row["title"]
         switch (row["reuseIdentifier"]!) {
+        case CELL_NOTIFICATION:
+            let switch_ = UISwitch()
+            cell.accessoryView = switch_
+            break
         case CELL_APP_VERSION:
             if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
                 cell.detailTextLabel?.text = version

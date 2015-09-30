@@ -31,6 +31,7 @@ class NewsCell: UITableViewCell {
         self.contentView.addSubview(self.pubDate)
         
         self.title.numberOfLines = 0
+        self.title.font = UIFont.boldSystemFontOfSize(16)
         
         self.body.textColor = UIColor.grayColor()
         self.body.font = UIFont.systemFontOfSize(16)

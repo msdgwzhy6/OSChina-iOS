@@ -126,15 +126,8 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
-//
+    
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        let height = tableView.fd_heightForCellWithIdentifier("Cell", configuration: { (make) -> Void in
-////            let cell = TweetCell()
-////            let tweet: Tweet = self.dataSource[indexPath.row]
-////            cell.bind(tweet)
-////            cell.layoutIfNeeded()
-//        })
-//        return height
 //    }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

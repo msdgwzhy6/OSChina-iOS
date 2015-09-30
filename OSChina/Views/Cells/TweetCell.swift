@@ -39,6 +39,7 @@ class TweetCell: UITableViewCell {
         self.name.numberOfLines = 0
         
         self.content.numberOfLines = 0
+        self.content.font = UIFont.boldSystemFontOfSize(16)
         
         self.pubDate.textColor = UIColor.grayColor()
         self.pubDate.font = UIFont.systemFontOfSize(14)
