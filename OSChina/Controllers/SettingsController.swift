@@ -15,11 +15,14 @@
  */
 
 import UIKit
+import MessageUI
 
-class SettingsController: BaseTableViewController {
+class SettingsController: BaseTableViewController, MFMailComposeViewControllerDelegate {
     
     let CELL_NOTIFICATION: String = "CELL_NOTIFICATION"
+    let CELL_RATE_THIS_APP: String = "CELL_RATE_THIS_APP"
     let CELL_APP_VERSION: String = "CELL_APP_VERSION"
+    let CELL_SHARE_THIS_APP: String = "CELL_SHARE_THIS_APP"
     let CELL_FEEDBACK: String = "CELL_FEEDBACK"
     let CELL_LOGOUT: String = "CELL_LOGOUT"
 
@@ -32,16 +35,16 @@ class SettingsController: BaseTableViewController {
         self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         // section1
-        addCell(0,row: 0,title: "消息通知",reuseIdentifier: "Cell")
+        addCell(0,row: 0,title: "消息通知",reuseIdentifier: CELL_NOTIFICATION)
         // section2
-        addCell(1,row: 0,title: "评价此应用",reuseIdentifier: "Cell")
+        addCell(1,row: 0,title: "评价此应用",reuseIdentifier: CELL_RATE_THIS_APP)
         addCell(1,row: 1,title: "应用版本",reuseIdentifier: CELL_APP_VERSION)
         // section3
-        addCell(2,row: 0,title: "推荐给朋友",reuseIdentifier: "Cell")
+        addCell(2,row: 0,title: "推荐给朋友",reuseIdentifier: CELL_SHARE_THIS_APP)
         addCell(2,row: 1,title: "意见与反馈",reuseIdentifier: CELL_FEEDBACK)
-//        if (User.isLogged()) {
+        if (User.isLogged()) {
             addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
-//        }
+        }
         print(dataSource_)
     }
 
@@ -92,9 +95,19 @@ class SettingsController: BaseTableViewController {
         switch (cell.reuseIdentifier!) {
         case CELL_NOTIFICATION:
             break
+        case CELL_RATE_THIS_APP:
+            UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/app/1password-password-manager/id568903335")!)
+            break
         case CELL_APP_VERSION:
             let controller: AboutController = AboutController()
             self.presentViewController(controller, animated: true, leftButtonType: .Close)
+            break
+        case CELL_SHARE_THIS_APP:
+            let controller = UIActivityViewController(activityItems: ["OSChina", NSURL(string: "https://github.com/lijy91/OSChina-iOS")!], applicationActivities: nil)
+            self.presentViewController(controller, animated: true, completion: nil)
+            break
+        case CELL_FEEDBACK:
+            feedback()
             break
         case CELL_LOGOUT:
             logout()
@@ -102,6 +115,28 @@ class SettingsController: BaseTableViewController {
         default:
             break
         }
+    }
+    
+    func feedback() {
+        UIActionSheet.showInView(self.view,
+            withTitle: nil,
+            cancelButtonTitle: "取消",
+            destructiveButtonTitle: nil,
+            otherButtonTitles: ["告诉我们您喜欢的功能", "告诉我们您不喜欢的功能", "报告错误", "请求帮助"],
+            tapBlock: {
+                (actionSheet, buttonIndex) -> Void in
+                
+                let controller = MFMailComposeViewController()
+                controller.mailComposeDelegate = self
+                controller.setSubject("feedback")
+                controller.setMessageBody("feedback", isHTML: true)
+                self.presentViewController(controller, animated: true, completion: nil)
+            }
+        )
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func logout() {
