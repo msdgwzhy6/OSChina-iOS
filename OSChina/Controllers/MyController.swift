@@ -44,7 +44,7 @@ class MyController: BaseTableViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         // 设置 headerView
         self.tableView.tableHeaderView = mpvInfo
-        self.tableView.contentInset = UIEdgeInsetsMake(-600, 0, 0, 0)
+        self.tableView.contentInset = UIEdgeInsetsMake(-620, 0, 0, 0)
         // 设置事件
         
         let tapAvatar = UITapGestureRecognizer(target: self, action: Selector("tapAvatarOrName"))
