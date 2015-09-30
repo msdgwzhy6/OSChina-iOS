@@ -75,7 +75,6 @@ class DiscoveryController: BaseTableViewController {
                 cell.restorationIdentifier = CELL_ACTIVITIES_LATEST
                 cell.layoutIfNeeded()
                 return cell
-                break
             default:
                 break
             }

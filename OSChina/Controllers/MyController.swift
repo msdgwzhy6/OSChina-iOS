@@ -148,19 +148,29 @@ class MyController: BaseTableViewController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         switch (cell.restorationIdentifier!) {
         case CELL_MY_TWEETS:
-            HUD.show(self.parentViewController!.view, message: "我的动弹")
+            let controller: TweetListController = TweetListController(flag: .My)
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_MY_BLOG:
-            HUD.show(self.parentViewController!.view, message: "我的博客")
+            let controller: BlogListController = BlogListController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_MY_FAVORITES:
-            HUD.show(self.parentViewController!.view, message: "我的关注")
+            let controller: FavoriteListController = FavoriteListController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_MY_PROJECTS:
-            HUD.show(self.parentViewController!.view, message: "我的项目")
+            let controller: ProjectListController = ProjectListController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_MY_TEAMS:
-            HUD.show(self.parentViewController!.view, message: "我的团队")
+            let controller: TeamController = TeamController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         default:
             return

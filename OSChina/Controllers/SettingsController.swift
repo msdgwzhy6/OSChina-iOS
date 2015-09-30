@@ -45,7 +45,6 @@ class SettingsController: BaseTableViewController, MFMailComposeViewControllerDe
         if (User.isLogged()) {
             addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
         }
-        print(dataSource_)
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +93,9 @@ class SettingsController: BaseTableViewController, MFMailComposeViewControllerDe
         cell.selected = false
         switch (cell.reuseIdentifier!) {
         case CELL_NOTIFICATION:
+            let controller: NotificationSettingsController = NotificationSettingsController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_RATE_THIS_APP:
             UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/app/1password-password-manager/id568903335")!)
