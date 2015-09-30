@@ -125,12 +125,13 @@ class SettingsController: BaseTableViewController, MFMailComposeViewControllerDe
             otherButtonTitles: ["告诉我们您喜欢的功能", "告诉我们您不喜欢的功能", "报告错误", "请求帮助"],
             tapBlock: {
                 (actionSheet, buttonIndex) -> Void in
-                
-                let controller = MFMailComposeViewController()
-                controller.mailComposeDelegate = self
-                controller.setSubject("feedback")
-                controller.setMessageBody("feedback", isHTML: true)
-                self.presentViewController(controller, animated: true, completion: nil)
+                if (buttonIndex != actionSheet.cancelButtonIndex) {
+                    let controller = MFMailComposeViewController()
+                    controller.mailComposeDelegate = self
+                    controller.setSubject("feedback")
+                    controller.setMessageBody("feedback", isHTML: true)
+                    self.presentViewController(controller, animated: true, completion: nil)
+                }
             }
         )
     }

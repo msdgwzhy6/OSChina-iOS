@@ -18,11 +18,12 @@ import MBProgressHUD
 
 class HUD {
 
-    static func show(view: UIView, message: String) {
+    static func show(view: UIView, message: String) -> MBProgressHUD {
         let hud: MBProgressHUD = MBProgressHUD.showHUDAddedTo(view, animated: true)
         hud.mode = MBProgressHUDMode.Text
         hud.labelText = message
         hud.show(true)
         hud.hide(true, afterDelay: 1.5)
+        return hud
     }
 }

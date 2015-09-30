@@ -132,12 +132,14 @@ class LoginController: BaseTableViewController {
         ApiClient.login(username, password: password,
             success: {
                 (data: User) -> Void in
-                //
-                HUD.show(self.view, message: "欢迎" + data.name!)
+                let hud = HUD.show((self.parentViewController?.view)!, message: "欢迎" + data.name!)
+                hud.completionBlock = {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
             },
             failure: {
                 (code: Int, message: String) -> Void in
-                //
                 HUD.show(self.view, message: message)
             }
         )
