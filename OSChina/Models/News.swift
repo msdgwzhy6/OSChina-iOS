@@ -22,6 +22,7 @@ class News: Mappable {
     var author: String?     // 投递者名称
     var authorid: Int?      // 投递者编号
     var title: String?      // 新闻标题
+    var body: String?       // 新闻内容
     var pubDate: String?    // 发布日期
     var commentCount: Int?  // 评论数
     var type: Int?          // 新闻类型 [0-链接新闻|1-软件推荐|2-讨论区帖子|3-博客|4-普通新闻|7-翻译文章]
@@ -38,6 +39,7 @@ class News: Mappable {
         author          <- map["author"]
         authorid        <- map["authorid"]
         title           <- map["title"]
+        body            <- map["body"]
         pubDate         <- map["pubDate"]
         commentCount    <- map["commentCount"]
         type            <- map["type"]
@@ -55,6 +57,7 @@ class News: Mappable {
         data.author       = parser.stringValue("author")
         data.authorid     = parser.integerValue("authorid")
         data.title        = parser.stringValue("title")
+        data.body         = parser.stringValue("body")
         data.pubDate      = parser.stringValue("pubDate")
         data.commentCount = parser.integerValue("commentCount")
         data.type         = parser.integerValue("type")
