@@ -23,8 +23,11 @@ class BaseTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.primaryColor()
     }
 
-    func addTab(title: String?, controller: UIViewController?) {
+    func addTab(title: String?, icon: String?, controller: UIViewController?) {
         controller?.title = title
+        if (icon != nil) {
+            controller?.tabBarItem.image = UIImage(named: icon!)
+        }
         let navigationController: UINavigationController = UINavigationController.init(rootViewController: controller!)
         navigationController.navigationBar.tintColor = UIColor.whiteColor()
         navigationController.navigationBar.barStyle = UIBarStyle.Black

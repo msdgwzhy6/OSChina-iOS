@@ -21,7 +21,8 @@ class MyProfileCell: UITableViewCell {
     var container = UIView()
     var avatar: UIImageView = UIImageView(frame: CGRectMake(0, 0, 50, 50))
     var name: UILabel = UILabel()
-    var bootomView: UIView = UIView()
+
+    var bootomPanel: UIView = UIView()
     var fansCount: UILabel = UILabel()
     var followersCount: UILabel = UILabel()
 
@@ -49,9 +50,12 @@ class MyProfileCell: UITableViewCell {
         // 名字
         self.name.textColor = UIColor.whiteColor()
         self.name.userInteractionEnabled = true
-
+        // 
+        self.bootomPanel.backgroundColor = UIColor(rgba: "#00000040")
+        
         self.container.addSubview(self.avatar)
         self.container.addSubview(self.name)
+        self.container.addSubview(self.bootomPanel)
         
         self.container.snp_makeConstraints { (make) -> Void in
             make.width.equalTo(self.contentView.frame.width).priorityLow()
@@ -67,6 +71,11 @@ class MyProfileCell: UITableViewCell {
         self.name.snp_makeConstraints { (make) -> Void in
             make.centerX.equalTo(self.container)
             make.top.equalTo(self.avatar.snp_bottom).offset(8)
+        }
+        self.bootomPanel.snp_makeConstraints { (make) -> Void in
+            make.width.equalTo(self.container.frame.width).priorityLow()
+            make.height.equalTo(80)
+            make.bottom.equalTo(self.container.snp_bottom)
         }
     }
     
