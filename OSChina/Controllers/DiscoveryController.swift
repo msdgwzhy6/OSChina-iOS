@@ -62,12 +62,14 @@ class DiscoveryController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var title     : String = "";
+        var subtitle  : String = "";
         var identifier: String    = "";
         switch (indexPath.section) {
         case 0:
             switch (indexPath.row) {
             case 0:
                 title = "线下活动"
+                subtitle = "你不应该错过的开发者活动"
                 identifier = CELL_ACTIVITIES
                 break
             case 1:
@@ -83,10 +85,12 @@ class DiscoveryController: BaseTableViewController {
             switch (indexPath.row) {
             case 0:
                 title = "开源项目"
+                subtitle = "-"
                 identifier = CELL_OPEN_SOURCE_PROJECT
                 break
             case 1:
                 title = "技术博客"
+                subtitle = "-"
                 identifier = CELL_BLOG
                 break
             default:
@@ -98,10 +102,18 @@ class DiscoveryController: BaseTableViewController {
         }
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
         cell.textLabel?.text = title
-        cell.detailTextLabel?.text = title
+        cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.textColor = UIColor.grayColor()
         cell.restorationIdentifier = identifier
         cell.accessoryType = .DisclosureIndicator
+        cell.detailTextLabel?.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(cell.textLabel!.snp_bottom).inset(-5)
+            make.left.equalTo(cell.textLabel!)
+        }
+        cell.contentView.snp_makeConstraints { (make) -> Void in
+            make.edges.equalTo(cell)
+            make.bottom.equalTo((cell.detailTextLabel?.snp_bottom)!).inset(-10)
+        }
         return cell
     }
 
