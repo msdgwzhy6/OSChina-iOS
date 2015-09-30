@@ -41,8 +41,8 @@ class TweetController: BaseButtonBarPagerTabStripViewController {
     }
 
     func publishTweet(sender: UIBarButtonItem) {
-        let controller: PublishTweetController = PublishTweetController(nibName: nil, bundle: nil)
-        self.presentViewController(controller, animated: true)
+        let controller: PublishTweetController = PublishTweetController()
+        self.presentViewController(controller, animated: true, leftButtonType: .Cancel)
     }
     
 }
