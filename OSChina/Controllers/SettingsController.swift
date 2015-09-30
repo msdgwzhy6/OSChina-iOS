@@ -17,6 +17,10 @@
 import UIKit
 
 class SettingsController: BaseTableViewController {
+    
+    let CELL_NOTIFICATION: String = "CELL_NOTIFICATION"
+    let CELL_APP_VERSION: String = "CELL_APP_VERSION"
+    let CELL_FEEDBACK: String = "CELL_FEEDBACK"
     let CELL_LOGOUT: String = "CELL_LOGOUT"
 
     var dataSource_: [Int:[Int:[String:String]]] = [:]
@@ -31,13 +35,13 @@ class SettingsController: BaseTableViewController {
         addCell(0,row: 0,title: "消息通知",reuseIdentifier: "Cell")
         // section2
         addCell(1,row: 0,title: "评价此应用",reuseIdentifier: "Cell")
-        addCell(1,row: 1,title: "应用版本",reuseIdentifier: "Cell")
+        addCell(1,row: 1,title: "应用版本",reuseIdentifier: CELL_APP_VERSION)
         // section3
         addCell(2,row: 0,title: "推荐给朋友",reuseIdentifier: "Cell")
-        addCell(2,row: 1,title: "意见与反馈",reuseIdentifier: "Cell")
-        if (User.isLogged()) {
+        addCell(2,row: 1,title: "意见与反馈",reuseIdentifier: CELL_FEEDBACK)
+//        if (User.isLogged()) {
             addCell(3,row: 0,title: "退出登录",reuseIdentifier: CELL_LOGOUT)
-        }
+//        }
         print(dataSource_)
     }
 
@@ -66,27 +70,59 @@ class SettingsController: BaseTableViewController {
             cell.textLabel?.textAlignment = .Center
             cell.textLabel?.textColor = UIColor.redColor()
             return cell
-        } else {
-            let cell = UITableViewCell(style: .Default, reuseIdentifier: row["reuseIdentifier"])
-            cell.textLabel?.text = row["title"]
-            cell.accessoryType = .DisclosureIndicator
-            return cell
         }
+        let cell = UITableViewCell(style: .Value1, reuseIdentifier: row["reuseIdentifier"])
+        cell.accessoryType = .DisclosureIndicator
+        cell.textLabel?.text = row["title"]
+        switch (row["reuseIdentifier"]!) {
+        case CELL_APP_VERSION:
+            if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+                cell.detailTextLabel?.text = version
+            }
+            break;
+        default:
+            break
+        }
+        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         cell.selected = false
-        if (cell.reuseIdentifier == CELL_LOGOUT) {
+        switch (cell.reuseIdentifier!) {
+        case CELL_NOTIFICATION:
+            break
+        case CELL_APP_VERSION:
+            let controller: AboutController = AboutController()
+            self.presentViewController(controller, animated: true, leftButtonType: .Close)
+            break
+        case CELL_LOGOUT:
             logout()
+            break
+        default:
+            break
         }
     }
     
     func logout() {
-        User.current(nil)
+        UIActionSheet.showInView(self.view,
+            withTitle: "是否确定要退出登录？",
+            cancelButtonTitle: "取消",
+            destructiveButtonTitle: "确定",
+            otherButtonTitles: [],
+            tapBlock: {
+                (actionSheet, buttonIndex) -> Void in
+                if (buttonIndex == actionSheet.destructiveButtonIndex) {
+                    User.current(nil)
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                }
+            }
+        )
     }
 
     func addCell(section: Int, row: Int, title: String, reuseIdentifier: String) {
+        
         if (dataSource_[section] == nil) {
             dataSource_.updateValue([:], forKey: section)
         }

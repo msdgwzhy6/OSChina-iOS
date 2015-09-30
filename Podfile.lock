@@ -11,6 +11,8 @@ PODS:
   - SnapKit (0.15.0)
   - SwiftyJSON (2.3.0)
   - TTTAttributedLabel (1.13.4)
+  - UIActionSheet+Blocks (0.9)
+  - UIAlertController+Blocks (0.9)
   - UITableView+FDTemplateLayoutCell (1.4.beta)
   - XLPagerTabStrip (2.0.0)
 
@@ -25,6 +27,8 @@ DEPENDENCIES:
   - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - TTTAttributedLabel
+  - UIActionSheet+Blocks
+  - UIAlertController+Blocks
   - UITableView+FDTemplateLayoutCell (~> 1.4.beta)
   - XLPagerTabStrip (~> 2.0)
 
@@ -48,6 +52,8 @@ SPEC CHECKSUMS:
   SnapKit: 4962eed2ee18e48cbd2b2292fffc57efe7235f87
   SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
+  UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
   UITableView+FDTemplateLayoutCell: 9d20bf0518f3c01e42ae614243b97f1161063d27
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 
