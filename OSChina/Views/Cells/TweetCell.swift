@@ -26,14 +26,6 @@ class TweetCell: UITableViewCell {
     var imageSmall: UIImageView = UIImageView(frame: CGRectMake(0, 0, 0, 0))
     var commentCount: UILabel = UILabel()
 
-//    init() {
-//        super.init(style: .Default, reuseIdentifier: "Cell")
-//    }
-//
-//    required init?(coder aDedacoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         // 头像
@@ -41,13 +33,16 @@ class TweetCell: UITableViewCell {
         self.avatar.multipleTouchEnabled = true
         self.avatar.userInteractionEnabled = true
         // 名字
-        self.name.textColor = UIColor.blackColor()
+        self.name.textColor = UIColor.grayColor()
+        self.name.font = UIFont.systemFontOfSize(14)
         self.name.userInteractionEnabled = true
+        self.name.numberOfLines = 0
         
         self.content.numberOfLines = 0
         
         self.imageSmall.backgroundColor = UIColor.brownColor()
         self.imageSmall.contentMode = .ScaleAspectFill
+        
         
         self.contentView.addSubview(self.avatar)
         self.contentView.addSubview(self.name)
@@ -56,37 +51,28 @@ class TweetCell: UITableViewCell {
         self.contentView.addSubview(self.imageSmall)
         self.contentView.addSubview(self.commentCount)
         
+//        self.textLabel?.text = " "
+//        self.textLabel!.numberOfLines = 0
+
+        // top -> left -> bottom -> right
+        let padding: UIEdgeInsets = UIEdgeInsetsMake(8, 16, 10, 8)
+        print(padding)
+        self.content.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(padding.top)
+            make.left.equalTo(padding.left)
+            make.right.equalTo(self.avatar.snp_left)
+            
+        }
         self.avatar.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(padding.top)
+            make.right.equalTo(-padding.right)
             make.width.equalTo(30)
             make.height.equalTo(30)
-            make.right.equalTo(self.contentView)
-        }
-        self.content.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(self.contentView).offset(-50)
-            make.left.equalTo(self.contentView)
-            make.top.equalTo(self.contentView)
-        }
-        self.imageSmall.snp_makeConstraints { (make) -> Void in
-//            make.width.equalTo(100)
-//            make.height.equalTo(100)
-            make.left.equalTo(self.contentView)
-            make.top.equalTo(self.content.snp_bottom)
-        }
-        self.imageSmall.snp_updateConstraints { (make) -> Void in
-            //            make.width.equalTo(100)
-            //            make.height.equalTo(100)
-            make.left.equalTo(self.contentView)
-            make.top.equalTo(self.content.snp_bottom)
         }
         self.name.snp_makeConstraints { (make) -> Void in
-            make.width.equalTo(100)
-            make.height.equalTo(30)
-            make.left.equalTo(self.contentView)
-            make.top.equalTo(self.imageSmall.snp_bottom)
-        }
-        self.pubDate.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.name.snp_top)
-            make.left.equalTo(self.name.snp_right)
+            make.top.equalTo(self.content.snp_bottom)
+            make.left.equalTo(padding.left)
+//            make.bottom.equalTo(-padding.bottom)
         }
         self.contentView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self)

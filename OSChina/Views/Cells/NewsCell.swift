@@ -22,15 +22,7 @@ class NewsCell: UITableViewCell {
     var body: UILabel = UILabel()
     var author: UILabel = UILabel()
     var pubDate: UILabel = UILabel()
-    
-//    init() {
-//        super.init(style: .Default, reuseIdentifier: "Cell")
-//    }
-//    
-//    required init?(coder aDedacoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         self.contentView.addSubview(self.title)
