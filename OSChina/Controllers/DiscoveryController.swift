@@ -117,10 +117,14 @@ class DiscoveryController: BaseTableViewController {
         case CELL_ACTIVITIES_LATEST:
             break
         case CELL_OPEN_SOURCE_PROJECT:
-            HUD.show(self.view, message: "开源项目")
+            let controller: OpenSourceProjectController = OpenSourceProjectController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_BLOG:
-            HUD.show(self.view, message: "技术博客")
+            let controller: BlogListController = BlogListController()
+            controller.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(controller, animated: true)
             break
         default:
             return
