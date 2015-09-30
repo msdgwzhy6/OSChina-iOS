@@ -40,6 +40,9 @@ class TweetCell: UITableViewCell {
         
         self.content.numberOfLines = 0
         
+        self.pubDate.textColor = UIColor.grayColor()
+        self.pubDate.font = UIFont.systemFontOfSize(14)
+        
         self.imageSmall.backgroundColor = UIColor.brownColor()
         self.imageSmall.contentMode = .ScaleAspectFill
         
@@ -51,17 +54,17 @@ class TweetCell: UITableViewCell {
         self.contentView.addSubview(self.imageSmall)
         self.contentView.addSubview(self.commentCount)
         
-//        self.textLabel?.text = " "
-//        self.textLabel!.numberOfLines = 0
+//        self.name.backgroundColor = UIColor.redColor()
+//        self.content.backgroundColor = UIColor.greenColor()
+//        self.pubDate.backgroundColor = UIColor.orangeColor()
 
         // top -> left -> bottom -> right
-        let padding: UIEdgeInsets = UIEdgeInsetsMake(8, 16, 10, 8)
-        print(padding)
+        let padding: UIEdgeInsets = UIEdgeInsetsMake(8, 16, 8, 8)
+
         self.content.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(padding.top)
             make.left.equalTo(padding.left)
             make.right.equalTo(self.avatar.snp_left)
-            
         }
         self.avatar.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(padding.top)
@@ -69,18 +72,25 @@ class TweetCell: UITableViewCell {
             make.width.equalTo(30)
             make.height.equalTo(30)
         }
+//        self.imageSmall.snp_makeConstraints { (make) -> Void in
+//            make.width.equalTo(100)
+//            make.top.equalTo(self.content.snp_bottom).inset(-5)
+//            make.left.equalTo(padding.left)
+//            make.bottom.equalTo(self.name.snp_top)
+//        }
         self.name.snp_makeConstraints { (make) -> Void in
-            make.top.equalTo(self.content.snp_bottom)
+            make.top.equalTo(self.content.snp_bottom).inset(-5)
             make.left.equalTo(padding.left)
-//            make.bottom.equalTo(-padding.bottom)
+        }
+        self.pubDate.snp_makeConstraints { (make) -> Void in
+            make.centerY.equalTo(self.name)
+            make.left.equalTo(self.name.snp_right).inset(-10)
         }
         self.contentView.snp_makeConstraints { (make) -> Void in
             make.edges.equalTo(self)
-            make.bottom.equalTo(self.name.snp_bottom)
+            make.bottom.equalTo(self.name.snp_bottom).inset(-padding.bottom)
         }
     }
-    
-    
     
     func bind(data: Tweet) {
         self.name.text = data.author
