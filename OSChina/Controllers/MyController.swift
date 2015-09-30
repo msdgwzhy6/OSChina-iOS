@@ -146,6 +146,10 @@ class MyController: BaseTableViewController {
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        if (!User.isLogged()) {
+            tapAvatarOrName()
+            return
+        }
         switch (cell.restorationIdentifier!) {
         case CELL_MY_TWEETS:
             let controller: TweetListController = TweetListController(flag: .My)
