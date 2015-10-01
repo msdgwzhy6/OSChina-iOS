@@ -20,7 +20,7 @@ class FavoriteListController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.title = "TITLE_MY_FAVORITES".localized
     }
 
     override func didReceiveMemoryWarning() {

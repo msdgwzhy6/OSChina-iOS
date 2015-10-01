@@ -154,4 +154,32 @@ class ApiClient {
         }
         return tweetList(page, uid: uid, success: success, failure: failure)
     }
+
+    // MAKE: 消息列表
+    static func messageList(page: Int, success: (data:[Message]) -> Void, failure: (code:Int, message:String) -> Void) {
+        var uid: Int = 0
+        if (User.isLogged()) {
+            uid = User.current()!.uid!
+        }
+        let parameters: [String:AnyObject] = [
+                "uid": uid,
+                "pageIndex": page,
+                "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.GET, URLs.MESSAGE_LIST, parameters: parameters)
+        .responseXMLDocument {
+            (request, response, result) -> Void in
+            // 请求是否发生错误
+            if (isError(result.error, failure: failure)) {
+                return
+            }
+            let rootElement: ONOXMLElement = result.value!.rootElement
+            let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+            if (ret.isSuccess()) {
+                success(data: Message.parseArray(rootElement.firstChildWithTag("messages"), needSort: uid != -1)!)
+            } else {
+                failure(code: ret.errorCode!, message: ret.errorMessage!)
+            }
+        }
+    }
 }

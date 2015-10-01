@@ -16,15 +16,65 @@
 
 import UIKit
 
-class MessagesController: BaseTableViewController {
+class MessagesController: BaseMJRefreshTableViewController {
+    
+    var dataSource: [Message] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_MESSAGES".localized
+        
+        self.beginRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func loadData(page: Int) {
+        let success = {
+            (data: [Message]) -> Void in
+            self.endRefreshing()
+            // 下拉刷新时清空数据源
+            if (page == 0) {
+                self.dataSource = []
+            }
+            self.dataSource += data
+            self.tableView.reloadData()
+            // 没有更多数据
+            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
+                self.tableView.footer.noticeNoMoreData()
+            }
+        };
+        let failure = {
+            (code: Int, message: String) -> Void in
+            self.endRefreshing()
+        };
+        ApiClient.messageList(page, success: success, failure: failure)
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let message: Message = self.dataSource[indexPath.row]
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        cell.imageView!.sd_setImageWithURL(NSURL(string: message.portrait!))
+        cell.textLabel!.text = message.friendname
+        cell.detailTextLabel!.text = message.content
+        cell.accessoryType = .DisclosureIndicator
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
+        
+//        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
+//        controller.hidesBottomBarWhenPushed = true
+//        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

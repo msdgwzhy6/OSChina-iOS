@@ -46,7 +46,9 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
         self.tableView.registerClass(TweetCell.self, forCellReuseIdentifier: "Cell")
         
         self.beginRefreshing()
-
+        if (flag == .My) {
+            self.title = "TITLE_MY_TWEET".localized
+        }
     }
 
     override func didReceiveMemoryWarning() {
