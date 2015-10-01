@@ -20,16 +20,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var homeController: HomeController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:AnyObject]?) -> Bool {
-        // 1.创建窗口
+        // 显示主界面
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        // 2.设置窗口的根控制器
-        self.homeController = HomeController(nibName: nil, bundle: nil)
-        self.window!.rootViewController = homeController
-        // 3.显示窗口
+        self.window!.rootViewController = HomeController()
         self.window!.makeKeyAndVisible()
+
+        // 开启后台刷新（主要用来获取通知）
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         return true
     }
 
@@ -55,5 +54,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MAKE: 处理后台获取当前消息数
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        
+        ApiClient.userNotice({ (data: Notice) -> Void in
+            //
+            print(data)
+            print("success")
+            
+            completionHandler(UIBackgroundFetchResult.NewData)
+            }) { (code, message) -> Void in
+                //
+                
+                print("failure")
+                            completionHandler(UIBackgroundFetchResult.Failed)
+        }
+    }
 }
 

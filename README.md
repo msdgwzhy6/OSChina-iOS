@@ -9,6 +9,10 @@ OSChina-iOS 是采用 Swift 开发的开源中国客户端
 > 博客：[Jianying.Li](http://jianying.li)
 > 微信：[lijy91]()
 
+#编译环境
+XCode 7+
+iOS 8+
+
 # 运行
 本项目使用CocoaPods管理第三方库
  

@@ -127,6 +127,13 @@ class DiscoveryController: BaseTableViewController {
             self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_ACTIVITIES_LATEST:
+            
+            ApiClient.userNotice({ (data) -> Void in
+                //
+                print(data)
+                }) { (code, message) -> Void in
+                    //
+            }
             break
         case CELL_OPEN_SOURCE_PROJECT:
             let controller: OpenSourceProjectController = OpenSourceProjectController()

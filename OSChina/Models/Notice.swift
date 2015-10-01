@@ -18,11 +18,11 @@ import ObjectMapper
 import Ono
 
 class Notice: Mappable {
-    var replyCount: Int? = 0 // 未读评论数
+    var atmeCount: Int? = 0 // 未读@我数
     var msgCount: Int? = 0   // 未读私信数
-    var fansCount: Int? = 0  // 新增粉丝数
-    var referCount: Int? = 0 // 未读@我数
-    
+    var reviewCount: Int? = 0 //
+    var newFansCount: Int? = 0  // 新增粉丝数
+    var newLikeCount: Int? = 0  //
     
     init() { }
     
@@ -32,10 +32,11 @@ class Notice: Mappable {
     
     // Mappable
     func mapping(map: Map) {
-        replyCount       <- map["replyCount"]
-        msgCount         <- map["msgCount"]
-        fansCount        <- map["fansCount"]
-        referCount       <- map["referCount"]
+        atmeCount       <- map["atmeCount"]
+        msgCount        <- map["msgCount"]
+        reviewCount     <- map["reviewCount"]
+        newFansCount    <- map["newFansCount"]
+        newFansCount    <- map["newFansCount"]
     }
     
     static func parse(element: ONOXMLElement?) -> Notice {
@@ -45,10 +46,11 @@ class Notice: Mappable {
         let parser: XmlParser = XmlParser(element: element!)
         let data: Notice = Notice()
         
-        data.replyCount  = parser.integerValue("replyCount")
-        data.msgCount    = parser.integerValue("msgCount")
-        data.fansCount   = parser.integerValue("fansCount")
-        data.referCount  = parser.integerValue("referCount")
+        data.atmeCount     = parser.integerValue("atmeCount")
+        data.msgCount      = parser.integerValue("msgCount")
+        data.reviewCount   = parser.integerValue("reviewCount")
+        data.newFansCount  = parser.integerValue("newFansCount")
+        data.newFansCount  = parser.integerValue("newFansCount")
         return data
     }
 }

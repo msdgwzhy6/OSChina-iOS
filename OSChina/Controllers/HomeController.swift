@@ -33,11 +33,13 @@ class HomeController: BaseTabBarController {
         self.myController        = MyController()
         
         // 增加Tab
-        self.addTab("TAB_NEWS".localized, icon: "ic_tab_news", controller: self.newsController)
-        self.addTab("TAB_QUESTION".localized, icon: "ic_tab_question", controller: self.qsnController)
-        self.addTab("TAB_TWEET".localized, icon: "ic_tab_tweet", controller: self.tweetController)
+        self.addTab("TAB_NEWS".localized     , icon: "ic_tab_news"     , controller: self.newsController)
+        self.addTab("TAB_QUESTION".localized , icon: "ic_tab_question" , controller: self.qsnController)
+        self.addTab("TAB_TWEET".localized    , icon: "ic_tab_tweet"    , controller: self.tweetController)
         self.addTab("TAB_DISCOVERY".localized, icon: "ic_tab_discovery", controller: self.discoveryController)
-        self.addTab("TAB_MY".localized, icon: "ic_tab_my", controller: self.myController)
+        self.addTab("TAB_MY".localized       , icon: "ic_tab_my"       , controller: self.myController)
+        
+        self.myController?.tabBarItem.badgeValue = "10"
     }
 
     override func didReceiveMemoryWarning() {

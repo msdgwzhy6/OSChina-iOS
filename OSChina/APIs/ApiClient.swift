@@ -56,6 +56,32 @@ class ApiClient {
         }
     }
     
+    static func userNotice(success: (data: Notice) -> Void, failure: (code: Int, message: String) -> Void) {
+        var uid: Int = 0
+        if (User.isLogged()) {
+            uid = User.current()!.uid!
+        }
+        let parameters: [String: AnyObject] = [
+            "uid": uid
+        ]
+        Alamofire.request(.GET, URLs.USER_NOTICE, parameters: parameters)
+            .responseXMLDocument {
+                (request, response, result) -> Void in
+                // 请求是否发生错误
+                if (isError(result.error, failure: failure)) {
+                    return
+                }
+                let rootElement: ONOXMLElement = result.value!.rootElement
+                let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+                if (ret.isSuccess()) {
+                    success(data: Notice.parse(rootElement.firstChildWithTag("notice")))
+                } else {
+                    failure(code: ret.errorCode!, message: ret.errorMessage!)
+                }
+        }
+        
+    }
+    
     // MAKE: 资讯列表
     static func newsList(page: Int, catalog: Int, success: (data:[News]) -> Void, failure: (code:Int, message:String) -> Void) {
         // 1-所有|2-综合新闻|3-软件更新
@@ -118,10 +144,10 @@ class ApiClient {
     
     // MAKE: 我的动弹
     static func tweetListMy(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
-        var user: Int = 0
+        var uid: Int = 0
         if (User.isLogged()) {
-            user = User.current()!.uid!
+            uid = User.current()!.uid!
         }
-        return tweetList(page, uid: user, success: success, failure: failure)
+        return tweetList(page, uid: uid, success: success, failure: failure)
     }
 }

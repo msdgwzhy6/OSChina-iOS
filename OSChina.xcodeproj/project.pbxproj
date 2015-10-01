@@ -248,27 +248,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		87A9E9889067059646008F42 /* onepassword-button.imageset */ = {
-			isa = PBXGroup;
-			children = (
-				87A9ED486D1061DB94F61990,
-				87A9EEBEA00762A856F33BE6,
-				87A9EA9385FEB92AFBD31047,
-				87A9EADA2FEAE40216F30462,
-			);
-			path = "onepassword-button.imageset";
-			sourceTree = "<group>";
-		};
-		87A9E9EF4ECA200B1B5AB668 /* Assets.xcassets */ = {
-			isa = PBXGroup;
-			children = (
-				87A9ECA37F16DE62F87E2C7D,
-				87A9EEBC64128C59E64B982C /* AppIcon.appiconset */,
-				87A9E9889067059646008F42 /* onepassword-button.imageset */,
-			);
-			path = Assets.xcassets;
-			sourceTree = "<group>";
-		};
 		87A9EAA7F1387E3E0D822F7E /* APIs */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,24 +299,6 @@
 				87A9E04A981D3A529F084B2E /* RequestExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		87A9EEBC64128C59E64B982C /* AppIcon.appiconset */ = {
-			isa = PBXGroup;
-			children = (
-				87A9E3578CCAACA228494C41,
-				87A9E2130AC661016E9DC65C,
-				87A9E580957F5E810B069E7F,
-				87A9E5FD2C1ABE90481905B2,
-				87A9EAAECA5EEEF3AD0F96F3,
-				87A9EEC64EF82D40D0B7D4CE,
-				87A9E2FB50BEC06AA0F7694D,
-				87A9EA0E3F624225A97147E0,
-				87A9E3542B811A4DD7553BDE,
-				87A9E67198278AC5E86C876D,
-				87A9EBEA5FC6BB861E544D25,
-			);
-			path = AppIcon.appiconset;
 			sourceTree = "<group>";
 		};
 		87A9EFEBB9DD707FEA6898A9 /* Views */ = {
@@ -433,6 +394,11 @@
 					F5B3250A1BAFAAD900527D7D = {
 						CreatedOnToolsVersion = 7.0;
 						DevelopmentTeam = 8CBW3QTZNP;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -465,22 +431,6 @@
 				F5B325161BAFAAD900527D7D /* Assets.xcassets in Resources */,
 				F5FC45ED1BB66FF50071CFCE /* Localizable.strings in Resources */,
 				87A9E26DEC7A6181716E4BBC /* ButtonBarViewCell.xib in Resources */,
-				87A9ECAA55B5186574A9C866,
-				87A9ECC36FAAC4FC2DA81F44,
-				87A9E9447EF6CCB0ECB9B575,
-				87A9E2C08A4E3F8F42EEE10F,
-				87A9EC23C657ED8E63B1C8F9,
-				87A9E276ACA32734E9A5EB7A,
-				87A9EBCCD858C9FFD349D0B8,
-				87A9E964F653F62538C99E41,
-				87A9ED2D204A07A01FBC12CE,
-				87A9EB79BEC749115A5EB428,
-				87A9E7709EF6892D531C8EFC,
-				87A9E06370460F00A7442D3C,
-				87A9E38E0983961BD83CD192,
-				87A9E056A2D6334B5A281A61,
-				87A9E410810CFB79C9F2D979,
-				87A9EB176EC4A34C62F6CF80,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
