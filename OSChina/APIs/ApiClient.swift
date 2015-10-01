@@ -20,7 +20,16 @@ import Ono
 
 class ApiClient {
     static let PAGE_SIZE: Int = 20
+    
+    static func isError(error: ErrorType?, failure: (code: Int, message: String) -> Void) -> Bool {
+        if (error != nil) {
+            failure(code: -1, message: "网络发生异常")
+            return true
+        }
+        return false
+    }
 
+    // MAKE: 用户登录
     static func login(username: String, password: String, success: (data: User) -> Void, failure: (code: Int, message: String) -> Void) {
         let parameters: [String:AnyObject] = [
                 "username": username,
@@ -30,6 +39,10 @@ class ApiClient {
         Alamofire.request(.POST, URLs.LOGIN, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
+            // 请求是否发生错误
+            if (isError(result.error, failure: failure)) {
+                return
+            }
             let rootElement: ONOXMLElement = result.value!.rootElement
             print(rootElement)
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
@@ -43,28 +56,9 @@ class ApiClient {
         }
     }
     
-    
-    
-    static func tweetListHot(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
-        let parameters: [String: AnyObject] = [
-            "pageIndex": page,
-            "pageSize": PAGE_SIZE
-        ]
-        Alamofire.request(.POST, URLs.TWEET_TOPIC_LIST, parameters: parameters)
-            .responseXMLDocument {
-                (request, response, result) -> Void in
-                let rootElement: ONOXMLElement = result.value!.rootElement
-                let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
-                if (ret.isSuccess()) {
-                    success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
-                } else {
-                    failure(code: ret.errorCode!, message: ret.errorMessage!)
-                }
-        }
-    }
-
+    // MAKE: 资讯列表
     static func newsList(page: Int, catalog: Int, success: (data:[News]) -> Void, failure: (code:Int, message:String) -> Void) {
-        
+        // 1-所有|2-综合新闻|3-软件更新
         let parameters: [String: AnyObject] = [
                 "catalog": catalog,
                 "pageIndex": page,
@@ -73,6 +67,10 @@ class ApiClient {
         Alamofire.request(.POST, URLs.NEWS_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
+            // 请求是否发生错误
+            if (isError(result.error, failure: failure)) {
+                return
+            }
             let rootElement: ONOXMLElement = result.value!.rootElement
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
             if (ret.isSuccess()) {
@@ -82,22 +80,48 @@ class ApiClient {
             }
         }
     }
-
-    static func tweetListLatest(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+    
+    static func tweetList(page: Int, uid: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        // 用户ID [ 0：最新动弹，-1：热门动弹，其他：我的动弹 ]
         let parameters: [String:AnyObject] = [
+                "uid": uid,
                 "pageIndex": page,
                 "pageSize": PAGE_SIZE
         ]
         Alamofire.request(.POST, URLs.TWEET_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
+            // 请求是否发生错误
+            if (isError(result.error, failure: failure)) {
+                return
+            }
             let rootElement: ONOXMLElement = result.value!.rootElement
             let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
             if (ret.isSuccess()) {
-                success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"))!)
+                success(data: Tweet.parseArray(rootElement.firstChildWithTag("tweets"), needSort: uid != -1)!)
             } else {
                 failure(code: ret.errorCode!, message: ret.errorMessage!)
             }
         }
+    }
+    
+    // MAKE: 最新动弹
+    static func tweetListLatest(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        return tweetList(page, uid: 0, success: success, failure: failure)
+    }
+    
+    
+    // MAKE: 热门动弹
+    static func tweetListHot(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        return tweetList(page, uid: -1, success: success, failure: failure)
+    }
+    
+    // MAKE: 我的动弹
+    static func tweetListMy(page: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
+        var user: Int = 0
+        if (User.isLogged()) {
+            user = User.current()!.uid!
+        }
+        return tweetList(page, uid: user, success: success, failure: failure)
     }
 }

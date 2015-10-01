@@ -68,16 +68,17 @@ class Tweet: Mappable {
         return data
     }
     
-    static func parseArray(element: ONOXMLElement?) -> [Tweet]? {
+    static func parseArray(element: ONOXMLElement?, needSort: Bool) -> [Tweet]? {
         if (element == nil) {
             return []
         }
         var list: [Tweet] = []
         for children in element!.children {
-//            print(children)
             list.append(parse(children as? ONOXMLElement)!)
         }
-        list.sortInPlace({ $0.pubDate > $1.pubDate })
+        if (needSort) {
+            list.sortInPlace({ $0.pubDate > $1.pubDate })
+        }
         return list
     }
 }

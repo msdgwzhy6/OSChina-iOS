@@ -80,7 +80,7 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
             self.dataSource += data
             self.tableView.reloadData()
             // 没有更多数据
-            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0) {
+            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
                 self.tableView.footer.noticeNoMoreData()
             }
         };
@@ -97,7 +97,7 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
             ApiClient.tweetListHot(page, success: success, failure: failure)
             break
         case .My:
-            ApiClient.tweetListLatest(page, success: success, failure: failure)
+            ApiClient.tweetListMy(page, success: success, failure: failure)
             break
         }
     }
@@ -128,6 +128,9 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
     }
     
 //    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as? TweetCell
+//
+//        return cell!.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
 //    }
 
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
