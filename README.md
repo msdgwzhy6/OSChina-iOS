@@ -3,9 +3,10 @@
 
 OSChina-iOS 是采用 Swift 开发的开源中国客户端
 
+现在仅仅开发了一小部分功能
+
 > 关于我，欢迎关注  
 > 博客：[Jianying.Li](http://jianying.li)
-> 
 > 微信：[lijy91]()
 
 # 运行
