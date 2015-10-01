@@ -12,6 +12,7 @@ OSChina-iOS 是采用 Swift 开发的开源中国客户端
 #编译环境
 XCode 7+
 iOS 8+
+Swift 2.0
 
 # 运行
 本项目使用CocoaPods管理第三方库
