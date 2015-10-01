@@ -1,10 +1,50 @@
-# OSChina-iOS
+# OSChina iOS Client
+======================
 
-开源中国
+OSChina-iOS 是采用 Swift 开发的开源中国客户端
 
+> 关于我，欢迎关注  
+> 博客：[Jianying.Li](http://jianying.li)
+> 
+> 微信：[lijy91]()
+
+# 运行
+本项目使用CocoaPods管理第三方库
+ 
+安装项目依赖的库 
 ```
 $pod install --verbose
 ```
+
+打开OSChina.xcworkspace
+
+# 项目说明
+## 
+```
+.
+├── LICENSE
+├── OSChina
+│   ├── APIs						// API
+│   ├── AppDelegate.swift
+│   ├── Assets.xcassets
+│   ├── Base.lproj
+│   ├── Controllers
+│   ├── Extensions
+│   ├── Info.plist
+│   ├── Models
+│   ├── OSChina-Bridging-Header.h
+│   ├── Resources
+│   ├── Utils
+│   └── Views
+│       └── Cells
+├── OSChina.xcodeproj
+├── OSChina.xcworkspace
+├── Podfile
+├── Podfile.lock
+├── Pods
+└── README.md
+```
+
 
 # License
 
