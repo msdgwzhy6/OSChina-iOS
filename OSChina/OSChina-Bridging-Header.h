@@ -25,3 +25,4 @@
 #import "UIAlertController_Blocks/UIAlertController+Blocks.h"
 #import "UIActionSheet_Blocks/UIActionSheet+Blocks.h"
 #import "UIBarButtonItem_Badge/UIBarButtonItem+Badge.h"
+#import "ZBarSDK/ZBarSDK.h"

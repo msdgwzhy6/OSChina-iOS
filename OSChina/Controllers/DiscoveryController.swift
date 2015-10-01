@@ -15,6 +15,7 @@
  */
 
 import UIKit
+import ZBarSDK
 
 class DiscoveryController: BaseTableViewController {
 
@@ -170,7 +171,8 @@ class DiscoveryController: BaseTableViewController {
     }
     
     func scanQRCode(sender: UIBarButtonItem) {
-        let controller: ScanQRCodeController = ScanQRCodeController(nibName: nil, bundle: nil)
+//        let controller: ScanQRCodeController = ScanQRCodeController(nibName: nil, bundle: nil)
+        let controller: ZBarReaderViewController = ZBarReaderViewController()
         self.presentViewController(controller, animated: true)
     }
 }

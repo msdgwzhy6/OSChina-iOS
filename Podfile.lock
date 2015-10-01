@@ -16,6 +16,7 @@ PODS:
   - UIBarButtonItem-Badge (0.0.1)
   - UITableView+FDTemplateLayoutCell (1.4.beta)
   - XLPagerTabStrip (2.0.0)
+  - ZBarSDK (1.3.1)
 
 DEPENDENCIES:
   - 1PasswordExtension (~> 1.6.1)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - UIBarButtonItem-Badge (from `https://github.com/mikeMTOL/UIBarButtonItem-Badge.git`)
   - UITableView+FDTemplateLayoutCell (~> 1.4.beta)
   - XLPagerTabStrip (~> 2.0)
+  - ZBarSDK (~> 1.3.1)
 
 EXTERNAL SOURCES:
   SwiftyJSON:
@@ -64,5 +66,6 @@ SPEC CHECKSUMS:
   UIBarButtonItem-Badge: 8f5ed4d32d32dbb03034d4f273d02c8da680236b
   UITableView+FDTemplateLayoutCell: 9d20bf0518f3c01e42ae614243b97f1161063d27
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
+  ZBarSDK: 4c1b5daeb7d6cc67dc9355e690af0230a661f6ec
 
 COCOAPODS: 0.38.2
