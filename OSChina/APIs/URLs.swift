@@ -25,4 +25,6 @@ struct URLs {
     static let TWEET_LIST: String = baseURL + "/action/api/tweet_list"
     // message
     static let MESSAGE_LIST: String = baseURL + "/action/api/message_list"
+    // event
+    static let EVENT_LIST: String = baseURL + "action/api/event_list"
 }

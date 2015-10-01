@@ -74,6 +74,7 @@
 		87A9EEF76138975FC3005722 /* DiscoveryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EBCADAEC765A860FEA8E /* DiscoveryController.swift */; };
 		87A9EF7AB42A2D9A0B608175 /* BlogListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E3C1CBEA33DA2C3D469C /* BlogListController.swift */; };
 		87A9EF87F39914D16941C8A6 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9EDACBC73CE42D7B06B51 /* QuestionCell.swift */; };
+		F55CD15F1BBD433C0025DE02 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55CD15E1BBD433C0025DE02 /* Event.swift */; settings = {ASSET_TAGS = (); }; };
 		F5B3250F1BAFAAD900527D7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */; };
 		F5B325161BAFAAD900527D7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B325151BAFAAD900527D7D /* Assets.xcassets */; };
 		F5B325191BAFAAD900527D7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B325171BAFAAD900527D7D /* LaunchScreen.storyboard */; };
@@ -151,6 +152,7 @@
 		8B45D772AA858FD96316B5D9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		94731FA4CF476F5D5FA61F37 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5556F0D1BB18F22006CEBB9 /* OSChina-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSChina-Bridging-Header.h"; sourceTree = "<group>"; };
+		F55CD15E1BBD433C0025DE02 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F5B3250B1BAFAAD900527D7D /* OSChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OSChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B3250E1BAFAAD900527D7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5B325151BAFAAD900527D7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				87A9E5DEF9C17FC53A1051B6 /* Notice.swift */,
 				87A9EE3EF3FE77049F61A410 /* News.swift */,
 				87A9E742F16A5CF72B00030D /* Message.swift */,
+				F55CD15E1BBD433C0025DE02 /* Event.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				87A9E88D95438A6D1731B1D7 /* Comment.swift in Sources */,
 				87A9E42C9529452D198AAF6C /* Project.swift in Sources */,
 				87A9EB433BFC9592C556A408 /* FileUtils.swift in Sources */,
+				F55CD15F1BBD433C0025DE02 /* Event.swift in Sources */,
 				87A9E849C5A1FA51422DF15D /* MyController.swift in Sources */,
 				87A9E4DA1C67C6F092D48B3D /* HomeController.swift in Sources */,
 				87A9EA2B2EDDEDACD89E9563 /* LoginController.swift in Sources */,

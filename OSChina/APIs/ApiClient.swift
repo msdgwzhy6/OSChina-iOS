@@ -56,6 +56,7 @@ class ApiClient {
         }
     }
     
+    // 未读消息数
     static func userNotice(success: (data: Notice) -> Void, failure: (code: Int, message: String) -> Void) {
         var uid: Int = 0
         if (User.isLogged()) {
@@ -111,6 +112,7 @@ class ApiClient {
         }
     }
     
+    // MAKE: 动弹列表
     static func tweetList(page: Int, uid: Int, success: (data:[Tweet]) -> Void, failure: (code:Int, message:String) -> Void) {
         // 用户ID [ 0：最新动弹，-1：热门动弹，其他：我的动弹 ]
         let parameters: [String:AnyObject] = [
@@ -181,5 +183,43 @@ class ApiClient {
                 failure(code: ret.errorCode!, message: ret.errorMessage!)
             }
         }
+    }
+    
+    // MAKE: 活动列表
+    static func eventList(page: Int, uid: Int, success: (data:[Event]) -> Void, failure: (code:Int, message:String) -> Void) {
+        let parameters: [String:AnyObject] = [
+            "uid": uid,
+            "pageIndex": page,
+            "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.GET, URLs.EVENT_LIST, parameters: parameters)
+            .responseXMLDocument {
+                (request, response, result) -> Void in
+                // 请求是否发生错误
+                if (isError(result.error, failure: failure)) {
+                    return
+                }
+                let rootElement: ONOXMLElement = result.value!.rootElement
+                let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+                if (ret.isSuccess()) {
+                    success(data: Event.parseArray(rootElement.firstChildWithTag("events"), needSort: uid != -1)!)
+                } else {
+                    failure(code: ret.errorCode!, message: ret.errorMessage!)
+                }
+        }
+    }
+    
+    // MAKE: 最新活动
+    static func eventListLatest(page: Int, success: (data:[Event]) -> Void, failure: (code:Int, message:String) -> Void) {
+        return eventList(page, uid: 0, success: success, failure: failure)
+    }
+    
+    // MAKE: 我参与的活动
+    static func eventListMy(page: Int, success: (data:[Event]) -> Void, failure: (code:Int, message:String) -> Void) {
+        var uid: Int = 0
+        if (User.isLogged()) {
+            uid = User.current()!.uid!
+        }
+        return eventList(page, uid: uid, success: success, failure: failure)
     }
 }
