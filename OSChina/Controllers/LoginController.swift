@@ -34,23 +34,7 @@ class LoginController: BaseTableViewController {
         
         self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-//        if OnePasswordExtension.sharedExtension().isAppExtensionAvailable() == false {
-//            let alertController = UIAlertController(title: "1Password is not installed", message: "Get 1Password from the App Store", preferredStyle: UIAlertControllerStyle.Alert)
-//            
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-//            alertController.addAction(cancelAction)
-//            
-//            let OKAction = UIAlertAction(title: "Get 1Password", style: .Default) { (action) in UIApplication.sharedApplication().openURL(NSURL(string: "https://itunes.apple.com/app/1password-password-manager/id568903335")!)
-//            }
-//            
-//            alertController.addAction(OKAction)
-//            self.presentViewController(alertController, animated: true, completion: nil)
-//        }
-    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -122,6 +106,8 @@ class LoginController: BaseTableViewController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         cell.selected = false
         if (cell.reuseIdentifier == CELL_LOGIN) {
+            self.tfUsername.text = "lijy91@foxmail.com"
+            self.tfPassword.text = "w3DXHZ2MTWDmPv"
             login()
         }
     }

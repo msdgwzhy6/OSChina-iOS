@@ -13,6 +13,7 @@ PODS:
   - TTTAttributedLabel (1.13.4)
   - UIActionSheet+Blocks (0.9)
   - UIAlertController+Blocks (0.9)
+  - UIBarButtonItem-Badge (0.0.1)
   - UITableView+FDTemplateLayoutCell (1.4.beta)
   - XLPagerTabStrip (2.0.0)
 
@@ -29,17 +30,23 @@ DEPENDENCIES:
   - TTTAttributedLabel
   - UIActionSheet+Blocks
   - UIAlertController+Blocks
+  - UIBarButtonItem-Badge (from `https://github.com/mikeMTOL/UIBarButtonItem-Badge.git`)
   - UITableView+FDTemplateLayoutCell (~> 1.4.beta)
   - XLPagerTabStrip (~> 2.0)
 
 EXTERNAL SOURCES:
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  UIBarButtonItem-Badge:
+    :git: https://github.com/mikeMTOL/UIBarButtonItem-Badge.git
 
 CHECKOUT OPTIONS:
   SwiftyJSON:
     :commit: 3b5d0d4e0c19173b1bf0dc823bde25ad870f70c0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  UIBarButtonItem-Badge:
+    :commit: 7a556e360ce0c63d18177e8b77e104ce3e05a5a1
+    :git: https://github.com/mikeMTOL/UIBarButtonItem-Badge.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 42b79b7ac6d8e7468b22b7a651fc0b445bcdbd3e
@@ -54,6 +61,7 @@ SPEC CHECKSUMS:
   TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
   UIActionSheet+Blocks: e180b7dad0a721ab7f212ac9742af799008bb358
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
+  UIBarButtonItem-Badge: 8f5ed4d32d32dbb03034d4f273d02c8da680236b
   UITableView+FDTemplateLayoutCell: 9d20bf0518f3c01e42ae614243b97f1161063d27
   XLPagerTabStrip: 2c69b8e3208432a94e713c198ce597faad5a87bb
 

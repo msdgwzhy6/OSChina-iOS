@@ -74,7 +74,11 @@ class ApiClient {
                 let rootElement: ONOXMLElement = result.value!.rootElement
                 let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
                 if (ret.isSuccess()) {
-                    success(data: Notice.parse(rootElement.firstChildWithTag("notice")))
+                    let notice: Notice = Notice.parse(rootElement.firstChildWithTag("notice"))
+                    notice.msgCount = 10
+                    notice.atmeCount = 5
+                    Notice.current(notice)
+                    success(data: notice)
                 } else {
                     failure(code: ret.errorCode!, message: ret.errorMessage!)
                 }

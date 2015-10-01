@@ -38,8 +38,17 @@ class HomeController: BaseTabBarController {
         self.addTab("TAB_TWEET".localized    , icon: "ic_tab_tweet"    , controller: self.tweetController)
         self.addTab("TAB_DISCOVERY".localized, icon: "ic_tab_discovery", controller: self.discoveryController)
         self.addTab("TAB_MY".localized       , icon: "ic_tab_my"       , controller: self.myController)
-        
-        self.myController?.tabBarItem.badgeValue = "10"
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if (User.isLogged()) {
+            // 显示未读消息数
+            let noticeCount: Int = Notice.current()!.count()
+            self.myController!.tabBarItem.badgeValue = noticeCount > 0 ? "\(noticeCount)" : nil
+        } else {
+            self.myController!.tabBarItem.badgeValue = nil
+        }
     }
 
     override func didReceiveMemoryWarning() {

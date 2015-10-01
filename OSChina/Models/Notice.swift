@@ -36,7 +36,17 @@ class Notice: Mappable {
         msgCount        <- map["msgCount"]
         reviewCount     <- map["reviewCount"]
         newFansCount    <- map["newFansCount"]
-        newFansCount    <- map["newFansCount"]
+        newLikeCount    <- map["newLikeCount"]
+    }
+    
+    // MAKE: 未读消息数（不包含新粉丝及新关注）
+    func messageCount() -> Int {
+        return atmeCount! + msgCount! + reviewCount!
+    }
+    
+    // MAKE: 全部未读消息
+    func count() -> Int {
+        return atmeCount! + msgCount! + reviewCount! + newFansCount! + newLikeCount!
     }
     
     static func parse(element: ONOXMLElement?) -> Notice {
@@ -52,5 +62,21 @@ class Notice: Mappable {
         data.newFansCount  = parser.integerValue("newFansCount")
         data.newFansCount  = parser.integerValue("newFansCount")
         return data
+    }
+    
+    static func current() -> Notice? {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let jsonString = userDefaults.stringForKey("__current_notice")
+        if (jsonString != nil && jsonString != "") {
+            let data: Notice? = Mapper<Notice>().map(jsonString!)
+            return data
+        }
+        return nil
+    }
+    
+    static func current(data: Notice?) {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let jsonString = data == nil ? "" : Mapper<Notice>().toJSONString(data!, prettyPrint: false)
+        userDefaults.setValue(jsonString, forKey: "__current_notice")
     }
 }

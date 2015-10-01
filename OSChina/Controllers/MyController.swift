@@ -61,10 +61,13 @@ class MyController: BaseTableViewController {
         if (User.isLogged()) {
             let user: User = User.current()!
             self.navigationItem.leftBarButtonItem = btnMessages
-            mpvInfo.bind(user)
+            self.mpvInfo.bind(user)
+            let msgCount: Int = Notice.current()!.messageCount()
+            self.btnMessages?.badgeValue = msgCount > 0 ? "\(msgCount)" : nil
         } else {
             self.navigationItem.leftBarButtonItem = nil
-            mpvInfo.bind(nil)
+            self.mpvInfo.bind(nil)
+            self.btnMessages?.badgeValue = nil
         }
         self.tableView.reloadData()
     }
