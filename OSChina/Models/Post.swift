@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import Foundation
 import ObjectMapper
+import Ono
 
 class Post: Mappable {
     var id: Int?            // 帖子ID
@@ -31,6 +31,8 @@ class Post: Mappable {
     var url: String?        // 帖子链接
     var tags: [String]?     // 相关标签
     
+    init() { }
+
     required init?(_ map: Map){
         
     }
@@ -49,5 +51,40 @@ class Post: Mappable {
         portrait        <- map["portrait"]
         url             <- map["url"]
         tags            <- map["tags"]
+    }
+    
+    static func parse(element: ONOXMLElement?) -> Post? {
+        if (element == nil) {
+            return nil
+        }
+        let parser: XmlParser = XmlParser(element: element!)
+        let data: Post = Post()
+        
+        data.id          = parser.integerValue("id")
+        data.pubDate     = parser.stringValue("pubDate")
+        data.author      = parser.stringValue("author")
+        data.authorid    = parser.integerValue("authorid")
+        data.body        = parser.stringValue("body")
+        data.title       = parser.stringValue("title")
+        data.favorite    = parser.integerValue("favorite")
+        data.answerCount = parser.integerValue("answerCount")
+        data.viewCount   = parser.integerValue("viewCount")
+        data.portrait    = parser.stringValue("portrait")
+        data.url         = parser.stringValue("url")
+//        data.tags        = parser.stringValue("tags")
+        
+        return data
+    }
+    
+    static func parseArray(element: ONOXMLElement?) -> [Post]? {
+        if (element == nil) {
+            return []
+        }
+        var list: [Post] = []
+        for children in element!.children {
+            list.append(parse(children as? ONOXMLElement)!)
+        }
+        list.sortInPlace({ $0.pubDate > $1.pubDate })
+        return list
     }
 }

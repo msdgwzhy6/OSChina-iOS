@@ -18,7 +18,7 @@
 
 // Controller
 "TITLE_NEWS" = "资讯";
-"TITLE_QUESTION" = "问题";
+"TITLE_POST" = "问答";
 "TITLE_TWEET" = "动弹";
 "TITLE_DISCOVERY" = "发现";
 "TITLE_MY" = "我的";
@@ -28,18 +28,17 @@
 "TITLE_ABOUT" = "关于";
 "TITLE_SCAN_QRCODE" = "二维码/条码";
 "TITLE_PUBLISH_TWEET" = "弹一弹";
-"TITLE_PUBLISH_QUESTION" = "提问";
-"TITLE_POST_DETAIL" = "文章详情";
+"TITLE_PUBLISH_POST" = "提问";
 "TITLE_NEWS_DETAIL" = "资讯详情";
+"TITLE_POST_DETAIL" = "问答详情";
 "TITLE_TWEET_DETAIL" = "动弹详情";
-"TITLE_QUESTION_DETAIL" = "问题详情";
 "TITLE_ACTIVITIES_LIST" = "线下活动";
 "TITLE_MY_TWEET" = "我的动弹";
 "TITLE_MY_FAVORITES" = "我的收藏";
 
 // TabBar
 "TAB_NEWS" = "资讯";
-"TAB_QUESTION" = "问题";
+"TAB_POST" = "问答";
 "TAB_TWEET" = "动弹";
 "TAB_DISCOVERY" = "发现";
 "TAB_MY" = "我的";
@@ -52,7 +51,7 @@
 "ACTION_MESSAGES" = "消息";
 "ACTION_SETTINGS" = "设置";
 "ACTION_PUBLISH_TWEET" = "弹一弹";
-"ACTION_PUBLISH_QUESTION" = "提问";
+"ACTION_PUBLISH_POST" = "提问";
 "ACTION_SCAN_QRCODE" = "扫一扫";
 "ACTION_LOGIN" = "登录";
 
@@ -61,19 +60,16 @@
 "TAB_NEWS_LIST_INDUSTRY" = "行业";
 "TAB_NEWS_LIST_PROJECT" = "软件";
 
-// QuestionList
-"TAB_QUESTION_LIST_1" = "1";
-"TAB_QUESTION_LIST_2" = "2";
-"TAB_QUESTION_LIST_3" = "3";
-"TAB_QUESTION_LIST_4" = "4";
+// POSTList
+"TAB_POST_LIST_QA" = "问答";
+"TAB_POST_LIST_SHARE" = "分享";
+"TAB_POST_LIST_IT" = "IT";
+"TAB_POST_LIST_JOB" = "职业";
 
 // TweetList
 "TAB_TWEET_LIST_LATEST" = "最新";
 "TAB_TWEET_LIST_HOT" = "热门";
 "TAB_TWEET_LIST_MY" = "我的动弹";
-
-// Login
-"ACTION_ONEPASSWORD" = "1Password";
 
 // Settings
 "CELL_TEXT_ABOUT" = "关于";

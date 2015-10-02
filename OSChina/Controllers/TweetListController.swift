@@ -117,6 +117,9 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
 //        }
         let tweet: Tweet = self.dataSource[indexPath.row]
         cell.bind(tweet)
+        cell.layoutIfNeeded()
+        cell.setNeedsUpdateConstraints()
+        cell.updateConstraintsIfNeeded()
         return cell
     }
 
@@ -129,13 +132,21 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as? TweetCell
-//
-//        return cell!.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height
-//    }
-
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let tweet: Tweet = self.dataSource[indexPath.row]
+        return self.tableView.fd_heightForCellWithIdentifier("Cell", cacheByKey: tweet.id, configuration: {
+            (cell) -> Void in
+//            cell.bind(tweet)
+            let cell2 = cell as! TweetCell
+            print(cell)
+            print(tweet)
+            cell2.bind(tweet)
+            cell.layoutIfNeeded()
+            cell.setNeedsUpdateConstraints()
+            cell.updateConstraintsIfNeeded()
+        })
     }
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return UITableViewAutomaticDimension
+//    }
 }

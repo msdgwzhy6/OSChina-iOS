@@ -173,6 +173,8 @@ class DiscoveryController: BaseTableViewController {
     func scanQRCode(sender: UIBarButtonItem) {
 //        let controller: ScanQRCodeController = ScanQRCodeController(nibName: nil, bundle: nil)
         let controller: ZBarReaderViewController = ZBarReaderViewController()
+        controller.showsCameraControls = false  // for UIImagePickerController
+        controller.showsZBarControls = false
         self.presentViewController(controller, animated: true)
     }
 }

@@ -21,6 +21,8 @@ struct URLs {
     static let USER_NOTICE: String = baseURL + "/action/api/user_notice"
     // news
     static let NEWS_LIST: String = baseURL + "/action/api/news_list"
+    // post
+    static let POST_LIST:String = baseURL + "/action/api/post_list"
     // tweet
     static let TWEET_LIST: String = baseURL + "/action/api/tweet_list"
     // message

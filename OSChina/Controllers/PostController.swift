@@ -17,23 +17,23 @@
 import UIKit
 import XLPagerTabStrip
 
-class QuestionController: BaseButtonBarPagerTabStripViewController {
+class PostController: BaseButtonBarPagerTabStripViewController {
     
-    var btnPublishQuestion: UIBarButtonItem?
+    var btnPublishPost: UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TITLE_QUESTION".localized
+        self.title = "TITLE_POST".localized
 
-        self.btnPublishQuestion = UIBarButtonItem(title: "ACTION_PUBLISH_QUESTION".localized, style: .Plain, target: self, action: "publishQuestion:")
-        self.navigationItem.rightBarButtonItem = btnPublishQuestion
+        self.btnPublishPost = UIBarButtonItem(title: "ACTION_PUBLISH_POST".localized, style: .Plain, target: self, action: "publishPost:")
+        self.navigationItem.rightBarButtonItem = btnPublishPost
     }
 
     override func childViewControllersForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> [AnyObject]! {
-        let controller1 = QuestionListController(flag: QuestionListFlag._1)
-        let controller2 = QuestionListController(flag: QuestionListFlag._2)
-        let controller3 = QuestionListController(flag: QuestionListFlag._3)
-        let controller4 = QuestionListController(flag: QuestionListFlag._4)
+        let controller1 = PostListController(flag: PostListFlag.Qa)
+        let controller2 = PostListController(flag: PostListFlag.Share)
+        let controller3 = PostListController(flag: PostListFlag.It)
+        let controller4 = PostListController(flag: PostListFlag.Job)
         controller1.tableView.contentInset = self.contentInset()
         controller2.tableView.contentInset = self.contentInset()
         controller3.tableView.contentInset = self.contentInset()
@@ -45,8 +45,8 @@ class QuestionController: BaseButtonBarPagerTabStripViewController {
         return [controller1, controller2, controller3, controller4]
     }
     
-    func publishQuestion(sender: UIBarButtonItem) {
-        let controller: PublishQuestionController = PublishQuestionController(nibName: nil, bundle: nil)
+    func publishPost(sender: UIBarButtonItem) {
+        let controller: PublishPostController = PublishPostController(nibName: nil, bundle: nil)
         self.presentViewController(controller, animated: true)
     }
 }

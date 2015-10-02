@@ -45,7 +45,6 @@ class News: Mappable {
         type            <- map["type"]
     }
     
-    
     static func parse(element: ONOXMLElement?) -> News? {
         if (element == nil) {
             return nil
