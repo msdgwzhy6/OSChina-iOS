@@ -35,6 +35,7 @@
 "TITLE_ACTIVITIES_LIST" = "线下活动";
 "TITLE_MY_TWEET" = "我的动弹";
 "TITLE_MY_FAVORITES" = "我的收藏";
+"TITLE_BLOG" = "技术博客";
 
 // TabBar
 "TAB_NEWS" = "资讯";
@@ -60,7 +61,7 @@
 "TAB_NEWS_LIST_INDUSTRY" = "行业";
 "TAB_NEWS_LIST_PROJECT" = "软件";
 
-// POSTList
+// PostList
 "TAB_POST_LIST_QA" = "问答";
 "TAB_POST_LIST_SHARE" = "分享";
 "TAB_POST_LIST_IT" = "IT";
@@ -70,6 +71,11 @@
 "TAB_TWEET_LIST_LATEST" = "最新";
 "TAB_TWEET_LIST_HOT" = "热门";
 "TAB_TWEET_LIST_MY" = "我的动弹";
+
+// BlogList
+"TAB_BLOG_LIST_LATEST" = "最新";
+"TAB_BLOG_LIST_RECOMMEND" = "推荐";
+"TAB_BLOG_LIST_MY" = "我的";
 
 // Settings
 "CELL_TEXT_ABOUT" = "关于";

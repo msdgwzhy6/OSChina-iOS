@@ -15,17 +15,91 @@
  */
 
 import UIKit
+import XLPagerTabStrip
 
-class BlogListController: BaseListController<Blog> {
+enum BlogListFlag {
+    case Latest
+    case Recommend
+    case My
+}
+
+class BlogListController: BaseListController<Blog>, XLPagerTabStripChildItem {
     
+    var flag: BlogListFlag = BlogListFlag.Latest
+
+    init(flag: BlogListFlag) {
+        self.flag = flag
+        super.init()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.beginRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func titleForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> String! {
+        switch (flag) {
+        case .Latest:
+            return "TAB_BLOG_LIST_LATEST".localized
+        case .Recommend:
+            return "TAB_BLOG_LIST_RECOMMEND".localized
+        case .My:
+            return "TAB_BLOG_LIST_MY".localized
+        }
+    }
+    
+    override func loadData(page: Int) {
+        let success = {
+            (data: [Blog]) -> Void in
+            // 下拉刷新时清空数据源
+            if (page == 0) {
+                self.dataSource = []
+            }
+            self.dataSource += data
+            self.tableView.reloadData()
+            // 停止刷新中...
+            self.endRefreshing()
+        };
+        let failure = {
+            (code: Int, message: String) -> Void in
+            self.endRefreshing()
+        };
+        // latest-最新 recommend-推荐
+        switch (flag) {
+        case .Latest:
+            ApiClient.blogList(page, type: "latest", success: success, failure: failure)
+            break
+        case .Recommend:
+            ApiClient.blogList(page, type: "recommend", success: success, failure: failure)
+            break
+        case .My:
+            break
+        }
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let blog: Blog = self.dataSource[indexPath.row]
+        
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        cell.textLabel!.text = blog.title
+        cell.detailTextLabel!.text = blog.pubDate
+        cell.accessoryType = .DisclosureIndicator
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
+        
+        //        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
+        //        controller.hidesBottomBarWhenPushed = true
+        //        self.navigationController?.pushViewController(controller, animated: true)
     }
 
 }

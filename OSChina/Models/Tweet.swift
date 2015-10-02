@@ -47,7 +47,6 @@ class Tweet: Mappable {
         portrait        <- map["portrait"]
     }
     
-    
     static func parse(element: ONOXMLElement?) -> Tweet? {
         if (element == nil) {
             return nil

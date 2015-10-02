@@ -24,8 +24,7 @@ enum PostListFlag {
     case Job
 }
 
-class PostListController: BaseListController<Post>, XLPagerTabStripChildItem  {
-    
+class PostListController: BaseListController<Post>, XLPagerTabStripChildItem {
     
     var flag: PostListFlag = PostListFlag.Qa
     

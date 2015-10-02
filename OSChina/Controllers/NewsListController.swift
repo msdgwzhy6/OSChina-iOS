@@ -97,11 +97,7 @@ class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
             break
         }
     }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
-    }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: NewsCell? = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as? NewsCell
         if (cell == nil) {

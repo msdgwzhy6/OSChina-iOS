@@ -53,6 +53,7 @@
 		87A9EA2B2EDDEDACD89E9563 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E11982A56F87DA4BBF38 /* LoginController.swift */; };
 		87A9EA424D7898532C6D086D /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E804A7F65BE358CE8957 /* BaseTabBarController.swift */; };
 		87A9EA838FB818694DCBAA6D /* BlogDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E5074A0FE4E7215C058F /* BlogDetailController.swift */; };
+		87A9EA99113D6B8D0CAE31EE /* BlogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E17AAFBC8BBC88824E95 /* BlogController.swift */; };
 		87A9EA9FE4F7DE055E3C5A92 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E05C7D9959451E999D9D /* Tweet.swift */; };
 		87A9EAAA0AD1FC152CD8C900 /* NewsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E7097614A747D642E561 /* NewsDetailController.swift */; };
 		87A9EAC21F93366E37B24816 /* PostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A9E4FAB3B7D9093B7E55B6 /* PostListController.swift */; };
@@ -92,6 +93,7 @@
 		87A9E11982A56F87DA4BBF38 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		87A9E11BE0D7A42782EA48A0 /* ButtonBarViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonBarViewCell.xib; sourceTree = "<group>"; };
 		87A9E156AB2ED70F8B4C1DCC /* PublishTweetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublishTweetController.swift; sourceTree = "<group>"; };
+		87A9E17AAFBC8BBC88824E95 /* BlogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogController.swift; sourceTree = "<group>"; };
 		87A9E1BB06DE0E656A6E6345 /* MyProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileView.swift; sourceTree = "<group>"; };
 		87A9E1DDDF7C338608CE662C /* BlogCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		87A9E1EE2CEA64227AC5E16A /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				87A9EE1D5825F871BB27A3FD /* NotificationSettingsController.swift */,
 				87A9E8BE9CF0F20A0A6A8D1C /* OSSProjectListController.swift */,
 				87A9EBF24FCD8E0A5E0CC44A /* OpenSourceComponentsAndLicensesController.swift */,
+				87A9E17AAFBC8BBC88824E95 /* BlogController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				87A9E2928BB0BCECBA86C2A5 /* BaseListController.swift in Sources */,
 				87A9EC11CFD558BF419E1BFB /* BaseGroupedListController.swift in Sources */,
 				87A9E05F7EC4002F4B8FD7A4 /* BlogCell.swift in Sources */,
+				87A9EA99113D6B8D0CAE31EE /* BlogController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

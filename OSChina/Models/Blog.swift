@@ -18,6 +18,14 @@ import ObjectMapper
 import Ono
 
 class Blog: Mappable {
+    var id: Int?            // 博客id
+    var title: String?      // 博客标题
+    var body: String?       // 博客内容
+    var pubDate: String?    // 发布日期
+    var authorid: Int?      // 投递者编号
+    var authorname: String? // 投递者名称
+    var commentCount: Int?  // 评论数
+    var documentType: Int?  // 1-原创 4-转载
 
     init() { }
 
@@ -28,5 +36,38 @@ class Blog: Mappable {
     // Mappable
     func mapping(map: Map) {
 
+    }
+    
+    static func parse(element: ONOXMLElement?) -> Blog? {
+        if (element == nil) {
+            return nil
+        }
+        let parser: XmlParser = XmlParser(element: element!)
+        let data: Blog = Blog()
+        
+        data.id           = parser.integerValue("id")
+        data.title        = parser.stringValue("title")
+        data.body         = parser.stringValue("body")
+        data.pubDate      = parser.stringValue("pubDate")
+        data.authorid     = parser.integerValue("authorid")
+        data.authorname   = parser.stringValue("authorname")
+        data.commentCount = parser.integerValue("commentCount")
+        data.documentType = parser.integerValue("documentType")
+        
+        return data
+    }
+    
+    static func parseArray(element: ONOXMLElement?, needSort: Bool) -> [Blog]? {
+        if (element == nil) {
+            return []
+        }
+        var list: [Blog] = []
+        for children in element!.children {
+            list.append(parse(children as? ONOXMLElement)!)
+        }
+        if (needSort) {
+            list.sortInPlace({ $0.pubDate > $1.pubDate })
+        }
+        return list
     }
 }

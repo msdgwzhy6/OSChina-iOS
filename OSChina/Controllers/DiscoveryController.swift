@@ -139,7 +139,7 @@ class DiscoveryController: BaseGroupedListController {
             self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_BLOG:
-            let controller: BlogListController = BlogListController()
+            let controller: BlogController = BlogController()
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
             break

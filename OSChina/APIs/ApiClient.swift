@@ -95,7 +95,7 @@ class ApiClient {
                 "pageIndex": page,
                 "pageSize": PAGE_SIZE
         ]
-        Alamofire.request(.POST, URLs.NEWS_LIST, parameters: parameters)
+        Alamofire.request(.GET, URLs.NEWS_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
             // 请求是否发生错误
@@ -120,7 +120,7 @@ class ApiClient {
             "pageIndex": page,
             "pageSize": PAGE_SIZE
         ]
-        Alamofire.request(.POST, URLs.POST_LIST, parameters: parameters)
+        Alamofire.request(.GET, URLs.POST_LIST, parameters: parameters)
             .responseXMLDocument {
                 (request, response, result) -> Void in
                 // 请求是否发生错误
@@ -145,7 +145,7 @@ class ApiClient {
                 "pageIndex": page,
                 "pageSize": PAGE_SIZE
         ]
-        Alamofire.request(.POST, URLs.TWEET_LIST, parameters: parameters)
+        Alamofire.request(.GET, URLs.TWEET_LIST, parameters: parameters)
         .responseXMLDocument {
             (request, response, result) -> Void in
             // 请求是否发生错误
@@ -246,5 +246,31 @@ class ApiClient {
             uid = User.current()!.uid!
         }
         return eventList(page, uid: uid, success: success, failure: failure)
+    }
+
+    // MAKE: 博客列表
+    static func blogList(page: Int, type: String, success: (data:[Blog]) -> Void, failure: (code:Int, message:String) -> Void) {
+        // 类别ID 1-问答 2-分享 3-IT杂烩(综合) 4-站务 100-职业生涯 0-所有
+        let parameters: [String: AnyObject] = [
+            "type": type,
+            "pageIndex": page,
+            "pageSize": PAGE_SIZE
+        ]
+        Alamofire.request(.GET, URLs.BLOG_LIST, parameters: parameters)
+            .responseXMLDocument {
+                (request, response, result) -> Void in
+                // 请求是否发生错误
+                if (isError(result.error, failure: failure)) {
+                    return
+                }
+                let rootElement: ONOXMLElement = result.value!.rootElement
+                print(rootElement)
+                let ret: Result_ = Result_.parse(rootElement.firstChildWithTag("result"))
+                if (ret.isSuccess()) {
+                    success(data: Blog.parseArray(rootElement.firstChildWithTag("blogs"), needSort: true)!)
+                } else {
+                    failure(code: ret.errorCode!, message: ret.errorMessage!)
+                }
+        }
     }
 }

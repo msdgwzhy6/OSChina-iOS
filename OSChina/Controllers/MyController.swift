@@ -158,7 +158,7 @@ class MyController: BaseGroupedListController {
             self.navigationController?.pushViewController(controller, animated: true)
             break
         case CELL_MY_BLOG:
-            let controller: BlogListController = BlogListController()
+            let controller: BlogListController = BlogListController(flag: BlogListFlag.My)
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
             break
