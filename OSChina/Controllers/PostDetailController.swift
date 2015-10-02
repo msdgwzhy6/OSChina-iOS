@@ -16,7 +16,7 @@
 
 import UIKit
 
-class PostDetailController: BaseTableViewController {
+class PostDetailController: BaseListController<Post> {
     
     override func viewDidLoad() {
         super.viewDidLoad()

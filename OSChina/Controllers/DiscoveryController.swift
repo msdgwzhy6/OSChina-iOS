@@ -17,7 +17,7 @@
 import UIKit
 import ZBarSDK
 
-class DiscoveryController: BaseTableViewController {
+class DiscoveryController: BaseGroupedListController {
 
     // section 1
     let CELL_ACTIVITIES         : String = "ID_CELL_ACTIVITIES"
@@ -33,9 +33,6 @@ class DiscoveryController: BaseTableViewController {
         self.title = "TITLE_DISCOVERY".localized
         self.btnScanQRCode = UIBarButtonItem(title: "ACTION_SCAN_QRCODE".localized, style: .Plain, target: self, action: "scanQRCode:")
         self.navigationItem.rightBarButtonItem = btnScanQRCode
-
-        // 设置TableView
-        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         self.tableView.estimatedRowHeight = 88;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -101,7 +98,7 @@ class DiscoveryController: BaseTableViewController {
         default:
             break
         }
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         cell.textLabel?.text = title
         cell.detailTextLabel?.text = subtitle
         cell.detailTextLabel?.textColor = UIColor.grayColor()

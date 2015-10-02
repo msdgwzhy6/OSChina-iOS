@@ -16,7 +16,7 @@
 
 import UIKit
 
-class BlogDetailController: BaseTableViewController  {
+class BlogDetailController: BaseGroupedListController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()

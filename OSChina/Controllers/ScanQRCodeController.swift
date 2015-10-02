@@ -16,7 +16,7 @@
 
 import UIKit
 
-class ScanQRCodeController: BaseTableViewController {
+class ScanQRCodeController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

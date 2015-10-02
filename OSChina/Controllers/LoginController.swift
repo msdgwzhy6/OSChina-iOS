@@ -17,7 +17,7 @@
 import UIKit
 import OnePasswordExtension
 
-class LoginController: BaseTableViewController {
+class LoginController: BaseGroupedListController {
     let CELL_USERNAME: String = "CELL_USERNAME"
     let CELL_PASSWORD: String = "CELL_PASSWORD"
     let CELL_LOGIN   : String = "CELL_LOGIN"
@@ -30,9 +30,7 @@ class LoginController: BaseTableViewController {
         super.viewDidLoad()
         self.title = "TITLE_LOGIN".localized
         
-        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
-        
-        self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: CELL_IDENTIFIER)
+        self.tableView.registerClass(TextFieldCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,7 +97,7 @@ class LoginController: BaseTableViewController {
         default:
             break
         }
-        return UITableViewCell(style: .Default, reuseIdentifier: CELL_IDENTIFIER)
+        return UITableViewCell(style: .Default, reuseIdentifier: "Cell")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

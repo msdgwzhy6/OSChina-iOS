@@ -46,7 +46,7 @@ class PostController: BaseButtonBarPagerTabStripViewController {
     }
     
     func publishPost(sender: UIBarButtonItem) {
-        let controller: PublishPostController = PublishPostController(nibName: nil, bundle: nil)
+        let controller: PublishPostController = PublishPostController()
         self.presentViewController(controller, animated: true)
     }
 }

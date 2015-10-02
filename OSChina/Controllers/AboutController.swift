@@ -14,20 +14,18 @@
  * limitations under the License.
  */
 
-class AboutController: BaseTableViewController {
+// MAKE: 关于
+class AboutController: BaseGroupedListController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TITLE_ABOUT".localized
-
-        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2

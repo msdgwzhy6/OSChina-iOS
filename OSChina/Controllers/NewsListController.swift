@@ -23,20 +23,18 @@ enum NewsListFlag {
     case Project    // 软件
 }
 
-class NewsListController: BaseMJRefreshTableViewController , XLPagerTabStripChildItem {
+class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
     
     var flag: NewsListFlag = NewsListFlag.All
     
     init(flag: NewsListFlag) {
         self.flag = flag
-        super.init(style: .Plain)
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    var dataSource: [News] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +77,8 @@ class NewsListController: BaseMJRefreshTableViewController , XLPagerTabStripChil
             }
             self.dataSource += data
             self.tableView.reloadData()
+            // 停止刷新中...
+            self.endRefreshing()
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -117,7 +117,7 @@ class NewsListController: BaseMJRefreshTableViewController , XLPagerTabStripChil
         let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selected = false
         
-        let controller: NewsDetailController = NewsDetailController(nibName: nil, bundle: nil)
+        let controller: NewsDetailController = NewsDetailController()
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

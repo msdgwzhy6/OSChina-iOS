@@ -17,7 +17,7 @@
 import UIKit
 import SDWebImage
 
-class MyController: BaseTableViewController {
+class MyController: BaseGroupedListController {
     // section 1
     let CELL_MY_TWEETS   : String = "ID_CELL_MY_TWEETS"
     let CELL_MY_BLOG     : String = "ID_CELL_MY_BLOG"
@@ -37,8 +37,6 @@ class MyController: BaseTableViewController {
         self.btnMessages = UIBarButtonItem(title: "ACTION_MESSAGES".localized, style: .Plain, target: self, action: "messages:")
         self.btnSettings = UIBarButtonItem(title: "ACTION_SETTINGS".localized, style: .Plain, target: self, action: "settings:")
         self.navigationItem.rightBarButtonItem = btnSettings
-        // 设置TableView
-        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
         
         self.navigationController?.navigationBar.shadowImage = UIImage();
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
@@ -201,19 +199,19 @@ class MyController: BaseTableViewController {
     
     func tapAvatarOrName() {
         if (!User.isLogged()) {
-            let controller: LoginController = LoginController(nibName: nil, bundle: nil)
+            let controller: LoginController = LoginController()
             self.presentViewController(controller, animated: true, leftButtonType: .Cancel)
         }
     }
     
     func messages(sender: UIBarButtonItem) {
-        let controller: MessagesController = MessagesController(nibName: nil, bundle: nil)
+        let controller: MessagesController = MessagesController()
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
 
     func settings(sender: UIBarButtonItem) {
-        let controller: SettingsController = SettingsController(nibName: nil, bundle: nil)
+        let controller: SettingsController = SettingsController()
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

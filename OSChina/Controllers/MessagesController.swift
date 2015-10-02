@@ -16,9 +16,7 @@
 
 import UIKit
 
-class MessagesController: BaseMJRefreshTableViewController {
-    
-    var dataSource: [Message] = []
+class MessagesController: BaseListController<Message> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +40,8 @@ class MessagesController: BaseMJRefreshTableViewController {
             }
             self.dataSource += data
             self.tableView.reloadData()
-            // 没有更多数据
-            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
-                self.tableView.footer.noticeNoMoreData()
-            }
+            // 停止刷新中...
+            self.endRefreshing()
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -61,7 +57,7 @@ class MessagesController: BaseMJRefreshTableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let message: Message = self.dataSource[indexPath.row]
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         cell.imageView!.sd_setImageWithURL(NSURL(string: message.portrait!))
         cell.textLabel!.text = message.friendname
         cell.detailTextLabel!.text = message.content

@@ -16,7 +16,7 @@
 
 import UIKit
 
-class OpenSourceProjectController: BaseTableViewController {
+class OpenSourceProjectController: BaseGroupedListController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

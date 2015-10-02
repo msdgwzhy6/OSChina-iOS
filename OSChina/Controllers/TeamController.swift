@@ -16,7 +16,7 @@
 
 import UIKit
 
-class TeamController: BaseTableViewController {
+class TeamController: BaseGroupedListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -16,7 +16,7 @@
 
 import UIKit
 
-class PublishTweetController: BaseTableViewController {
+class PublishTweetController: BaseGroupedListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

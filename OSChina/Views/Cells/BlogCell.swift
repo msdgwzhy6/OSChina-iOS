@@ -16,6 +16,5 @@
 
 import UIKit
 
-class QuestionCell: UITableViewCell {
-    
+class BlogCell: UITableViewCell {
 }

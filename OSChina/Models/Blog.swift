@@ -14,18 +14,19 @@
  * limitations under the License.
  */
 
-import UIKit
+import ObjectMapper
+import Ono
 
-class SearchController: BaseGroupedListController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+class Blog: Mappable {
+
+    init() { }
+
+    required init?(_ map: Map){
+
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    // Mappable
+    func mapping(map: Map) {
+
     }
-    
 }

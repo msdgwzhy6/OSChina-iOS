@@ -15,8 +15,19 @@
  */
 
 import UIKit
-import MJRefresh
 
-class BaseTableViewController: UITableViewController {
-    let CELL_IDENTIFIER: String = "Cell"
+class BaseGroupedListController: UITableViewController {
+    
+    init() {
+        super.init(style: .Grouped)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
 }

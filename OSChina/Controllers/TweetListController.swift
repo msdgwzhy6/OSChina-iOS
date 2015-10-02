@@ -23,16 +23,14 @@ enum TweetListFlag {
     case My
 }
 
-class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChildItem {
+class TweetListController: BaseListController<Tweet>, XLPagerTabStripChildItem {
     
     var flag: TweetListFlag = TweetListFlag.Latest
     
     init(flag: TweetListFlag) {
         self.flag = flag
-        super.init(style: .Plain)
+        super.init()
     }
-    
-    var dataSource: [Tweet] = []
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,17 +72,14 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
     override func loadData(page: Int) {
         let success = {
             (data: [Tweet]) -> Void in
-            self.endRefreshing()
             // 下拉刷新时清空数据源
             if (page == 0) {
                 self.dataSource = []
             }
             self.dataSource += data
             self.tableView.reloadData()
-            // 没有更多数据
-            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
-                self.tableView.footer.noticeNoMoreData()
-            }
+            // 停止刷新中
+            self.endRefreshing()
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -127,7 +122,7 @@ class TweetListController: BaseMJRefreshTableViewController, XLPagerTabStripChil
         let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
         cell?.selected = false
         
-        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
+        let controller: TweetDetailController = TweetDetailController()
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }

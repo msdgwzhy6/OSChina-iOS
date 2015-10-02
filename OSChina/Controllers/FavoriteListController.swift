@@ -16,7 +16,7 @@
 
 import UIKit
 
-class FavoriteListController: BaseTableViewController {
+class FavoriteListController: BaseGroupedListController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

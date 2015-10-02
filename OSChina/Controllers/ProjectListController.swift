@@ -16,7 +16,7 @@
 
 import UIKit
 
-class ProjectListController: BaseTableViewController {
+class ProjectListController: BaseGroupedListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

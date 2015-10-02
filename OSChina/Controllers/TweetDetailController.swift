@@ -16,7 +16,7 @@
 
 import UIKit
 
-class TweetDetailController: BaseTableViewController {
+class TweetDetailController: BaseGroupedListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

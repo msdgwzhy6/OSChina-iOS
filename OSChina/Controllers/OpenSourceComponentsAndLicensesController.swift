@@ -17,7 +17,7 @@
 import UIKit
 
 // MAKE: 开源组件和许可
-class OpenSourceComponentsAndLicensesController: BaseTableViewController {
+class OpenSourceComponentsAndLicensesController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

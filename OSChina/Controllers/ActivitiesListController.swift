@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-class ActivitiesListController: BaseMJRefreshTableViewController {
-    
-    var dataSource: [Event] = []
+class ActivitiesListController: BaseListController<Event> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +31,14 @@ class ActivitiesListController: BaseMJRefreshTableViewController {
     override func loadData(page: Int) {
         let success = {
             (data: [Event]) -> Void in
-            self.endRefreshing()
             // 下拉刷新时清空数据源
             if (page == 0) {
                 self.dataSource = []
             }
             self.dataSource += data
             self.tableView.reloadData()
-            // 没有更多数据
-            if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
-                self.tableView.footer.noticeNoMoreData()
-            }
+            // 停止刷新中...
+            self.endRefreshing()
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -52,14 +47,10 @@ class ActivitiesListController: BaseMJRefreshTableViewController {
         ApiClient.eventListLatest(page, success: success, failure: failure)
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let event: Event = self.dataSource[indexPath.row]
         
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         cell.imageView!.sd_setImageWithURL(NSURL(string: event.cover!))
         cell.textLabel!.text = event.title
         cell.detailTextLabel!.text = event.startTime

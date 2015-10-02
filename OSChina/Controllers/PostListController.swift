@@ -24,14 +24,14 @@ enum PostListFlag {
     case Job
 }
 
-class PostListController: BaseMJRefreshTableViewController, XLPagerTabStripChildItem  {
+class PostListController: BaseListController<Post>, XLPagerTabStripChildItem  {
     
     
     var flag: PostListFlag = PostListFlag.Qa
     
     init(flag: PostListFlag) {
         self.flag = flag
-        super.init(style: .Plain)
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,8 +39,6 @@ class PostListController: BaseMJRefreshTableViewController, XLPagerTabStripChild
     }
     
     var btnPublishPost: UIBarButtonItem?
-    
-    var dataSource: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,68 +66,60 @@ class PostListController: BaseMJRefreshTableViewController, XLPagerTabStripChild
     }
     
     func publishPost(sender: UIBarButtonItem) {
-        let controller: PublishPostController = PublishPostController(nibName: nil, bundle: nil)
+        let controller: PublishPostController = PublishPostController()
         self.presentViewController(controller, animated: true)
     }
-    
 
-override func loadData(page: Int) {
-    let success = {
-        (data: [Post]) -> Void in
-        self.endRefreshing()
-        // 下拉刷新时清空数据源
-        if (page == 0) {
-            self.dataSource = []
+    override func loadData(page: Int) {
+        let success = {
+            (data: [Post]) -> Void in
+            // 下拉刷新时清空数据源
+            if (page == 0) {
+                self.dataSource = []
+            }
+            self.dataSource += data
+            self.tableView.reloadData()
+            // 停止刷新中...
+            self.endRefreshing()
+        };
+        let failure = {
+            (code: Int, message: String) -> Void in
+            self.endRefreshing()
+        };
+        // 类别ID 1-问答 2-分享 3-IT杂烩(综合) 4-站务 100-职业生涯 0-所有
+        switch (flag) {
+        case .Qa:
+            ApiClient.postList(page, catalog: 1, success: success, failure: failure)
+            break
+        case .Share:
+            ApiClient.postList(page, catalog: 2, success: success, failure: failure)
+            break
+        case .It:
+            ApiClient.postList(page, catalog: 3, success: success, failure: failure)
+            break
+        case .Job:
+            ApiClient.postList(page, catalog: 100, success: success, failure: failure)
+            break
         }
-        self.dataSource += data
-        self.tableView.reloadData()
-        // 没有更多数据
-        if (self.dataSource.count % ApiClient.PAGE_SIZE != 0 || (page > 0 && data.count == 0)) {
-            self.tableView.footer.noticeNoMoreData()
-        }
-    };
-    let failure = {
-        (code: Int, message: String) -> Void in
-        self.endRefreshing()
-    };
-    // 类别ID 1-问答 2-分享 3-IT杂烩(综合) 4-站务 100-职业生涯 0-所有
-    switch (flag) {
-    case .Qa:
-        ApiClient.postList(page, catalog: 1, success: success, failure: failure)
-        break
-    case .Share:
-        ApiClient.postList(page, catalog: 2,success: success, failure: failure)
-        break
-    case .It:
-        ApiClient.postList(page, catalog: 3,success: success, failure: failure)
-        break
-    case .Job:
-        ApiClient.postList(page, catalog: 100,success: success, failure: failure)
-        break
     }
-}
 
-override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return self.dataSource.count
-}
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let post: Post = self.dataSource[indexPath.row]
 
-override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let event: Post = self.dataSource[indexPath.row]
-    
-    let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: CELL_IDENTIFIER)
-    cell.textLabel!.text = event.title
-    cell.detailTextLabel!.text = event.pubDate
-    cell.accessoryType = .DisclosureIndicator
-    return cell
-}
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        cell.textLabel!.text = post.title
+        cell.detailTextLabel!.text = post.pubDate
+        cell.accessoryType = .DisclosureIndicator
+        return cell
+    }
 
-override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
-    cell?.selected = false
-    
-    //        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
-    //        controller.hidesBottomBarWhenPushed = true
-    //        self.navigationController?.pushViewController(controller, animated: true)
-}
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell: UITableViewCell? = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.selected = false
+
+        //        let controller: TweetDetailController = TweetDetailController(nibName: nil, bundle: nil)
+        //        controller.hidesBottomBarWhenPushed = true
+        //        self.navigationController?.pushViewController(controller, animated: true)
+    }
 
 }

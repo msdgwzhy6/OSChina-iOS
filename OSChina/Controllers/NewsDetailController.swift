@@ -16,7 +16,7 @@
 
 import UIKit
 
-class NewsDetailController: BaseTableViewController {
+class NewsDetailController: BaseGroupedListController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

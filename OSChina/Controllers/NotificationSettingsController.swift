@@ -16,7 +16,7 @@
 
 import UIKit
 
-class NotificationSettingsController: BaseTableViewController {
+class NotificationSettingsController: BaseGroupedListController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

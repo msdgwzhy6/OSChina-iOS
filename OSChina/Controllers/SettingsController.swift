@@ -17,7 +17,7 @@
 import UIKit
 import MessageUI
 
-class SettingsController: BaseTableViewController, MFMailComposeViewControllerDelegate {
+class SettingsController: BaseGroupedListController, MFMailComposeViewControllerDelegate {
     
     let CELL_NOTIFICATION: String = "CELL_NOTIFICATION"
     let CELL_RATE_THIS_APP: String = "CELL_RATE_THIS_APP"
@@ -32,8 +32,6 @@ class SettingsController: BaseTableViewController, MFMailComposeViewControllerDe
         super.viewDidLoad()
         self.title = "TITLE_SETTINGS".localized
 
-        self.tableView = UITableView(frame: self.tableView.frame, style: .Grouped)
-        
         // section1
         addCell(0,row: 0,title: "消息通知",reuseIdentifier: CELL_NOTIFICATION)
         // section2
