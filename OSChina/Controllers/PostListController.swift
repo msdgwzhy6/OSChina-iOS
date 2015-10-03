@@ -43,7 +43,7 @@ class PostListController: BaseListController<Post>, XLPagerTabStripChildItem {
         super.viewDidLoad()
         self.btnPublishPost = UIBarButtonItem(title: "提问", style: .Plain, target: self, action: "publishPost:")
         
-        self.beginRefreshing()
+        self.firstRefreshing()
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,9 +77,9 @@ class PostListController: BaseListController<Post>, XLPagerTabStripChildItem {
                 self.dataSource = []
             }
             self.dataSource += data
-            self.tableView.reloadData()
             // 停止刷新中...
             self.endRefreshing()
+            self.tableView.reloadData()
         };
         let failure = {
             (code: Int, message: String) -> Void in

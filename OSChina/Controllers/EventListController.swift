@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-class ActivitiesListController: BaseListController<Event> {
+class EventListController: BaseListController<Event> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "TITLE_ACTIVITIES_LIST".localized
+        self.title = "TITLE_EVENT_LIST".localized
         
-        self.beginRefreshing()
+        self.firstRefreshing()
     }
     
     override func didReceiveMemoryWarning() {

@@ -37,6 +37,8 @@ class TweetController: BaseButtonBarPagerTabStripViewController {
         controller2.tableView.contentInset = self.contentInset()
         controller1.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
         controller2.tableView.scrollIndicatorInsets = self.scrollIndicatorInsets()
+        controller1.tabStripViewController = self
+        controller2.tabStripViewController = self
         return [controller1, controller2]
     }
 

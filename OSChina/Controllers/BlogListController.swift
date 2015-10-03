@@ -34,7 +34,8 @@ class BlogListController: BaseListController<Blog>, XLPagerTabStripChildItem {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.beginRefreshing()
+        
+        self.firstRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,9 +63,9 @@ class BlogListController: BaseListController<Blog>, XLPagerTabStripChildItem {
                 self.dataSource = []
             }
             self.dataSource += data
-            self.tableView.reloadData()
             // 停止刷新中...
             self.endRefreshing()
+            self.tableView.reloadData()
         };
         let failure = {
             (code: Int, message: String) -> Void in
@@ -79,6 +80,9 @@ class BlogListController: BaseListController<Blog>, XLPagerTabStripChildItem {
             ApiClient.blogList(page, type: "recommend", success: success, failure: failure)
             break
         case .My:
+            delay(1, closure: { () -> () in
+                self.endRefreshing()
+            })
             break
         }
     }

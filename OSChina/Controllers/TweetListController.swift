@@ -43,7 +43,7 @@ class TweetListController: BaseListController<Tweet>, XLPagerTabStripChildItem {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.registerClass(TweetCell.self, forCellReuseIdentifier: "Cell")
         
-        self.beginRefreshing()
+        self.firstRefreshing()
         if (flag == .My) {
             self.title = "TITLE_MY_TWEET".localized
         }
@@ -66,7 +66,7 @@ class TweetListController: BaseListController<Tweet>, XLPagerTabStripChildItem {
     }
 
     func colorForPagerTabStripViewController(pagerTabStripViewController: XLPagerTabStripViewController!) -> UIColor! {
-            return UIColor.whiteColor()
+        return UIColor.whiteColor()
     }
 
     override func loadData(page: Int) {
@@ -77,9 +77,9 @@ class TweetListController: BaseListController<Tweet>, XLPagerTabStripChildItem {
                 self.dataSource = []
             }
             self.dataSource += data
-            self.tableView.reloadData()
             // 停止刷新中
             self.endRefreshing()
+            self.tableView.reloadData()
         };
         let failure = {
             (code: Int, message: String) -> Void in

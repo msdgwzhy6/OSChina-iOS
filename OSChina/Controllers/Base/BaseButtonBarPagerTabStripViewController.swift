@@ -20,8 +20,6 @@ import XLPagerTabStrip
 
 class BaseButtonBarPagerTabStripViewController: XLButtonBarPagerTabStripViewController {
 
-    let mainScreen: UIScreen = UIScreen()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.isProgressiveIndicator = true;

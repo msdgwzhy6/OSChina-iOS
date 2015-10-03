@@ -16,6 +16,7 @@
 
 import UIKit
 import MJRefresh
+import XLPagerTabStrip
 
 // MAKE:
 class BaseListController<T>: UITableViewController {
@@ -23,6 +24,12 @@ class BaseListController<T>: UITableViewController {
     init() {
         super.init(style: .Plain)
     }
+    
+    var tabStripViewController: XLButtonBarPagerTabStripViewController? = nil
+
+    var btnLoading: UIButton = UIButton()
+    var btnEmpty: UIButton = UIButton()
+    var btnError: UIButton = UIButton()
 
     var dataSource: [T] = []
 
@@ -31,6 +38,15 @@ class BaseListController<T>: UITableViewController {
         // 下拉刷新
         let header = MJRefreshNormalHeader { () -> Void in
             self.tableView.footer.resetNoMoreData()
+            if (self.dataSource.count == 0) {
+                self.btnLoading.hidden = false
+                self.btnEmpty.hidden = true
+                self.btnError.hidden = true
+            } else {
+                self.btnLoading.hidden = true
+                self.btnEmpty.hidden = true
+                self.btnError.hidden = true
+            }
             self.loadData(0)
         }
         header.lastUpdatedTimeLabel!.hidden = true
@@ -40,32 +56,78 @@ class BaseListController<T>: UITableViewController {
         }
         self.tableView.header = header
         self.tableView.footer = footer
+        // 不显示多余的分割线
+        self.tableView.tableFooterView = UIView()
+        
+        var btnFrame: CGRect = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height - self.tableView.contentInset.bottom)
+        self.btnLoading.frame = btnFrame
+        self.btnLoading.backgroundColor = UIColor.blueColor()
+        self.btnLoading.setTitle("Loading...", forState: .Normal)
+        
+        self.btnEmpty.frame = btnFrame
+        self.btnEmpty.backgroundColor = UIColor.blueColor()
+        self.btnEmpty.setTitle("Empty", forState: .Normal)
+        
+        self.btnError.frame = btnFrame
+        self.btnError.backgroundColor = UIColor.blueColor()
+        self.btnError.setTitle("Error", forState: .Normal)
+
+        self.view.addSubview(self.btnLoading)
+        self.view.addSubview(self.btnEmpty)
+        self.view.addSubview(self.btnError)
+        
+        self.btnLoading.hidden = true
+        self.btnEmpty.hidden = true
+        self.btnError.hidden = true
     }
     
     // MAKE: TableView数量默认为dataSource.count
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataSource.count
     }
-    
+
+    // MAKE: 首次进入时刷新数据
+    func firstRefreshing() {
+        self.btnLoading.hidden = false
+        self.btnEmpty.hidden = true
+        self.btnError.hidden = true
+        self.loadData(0)
+    }
+
     // MAKE: 默认进入下拉刷新状态，如需要进入上拉加载状态请使用self.tableView.footer.beginRefreshing()
     func beginRefreshing() {
-        self.endRefreshing()
         self.tableView.header.beginRefreshing()
     }
     
     // MAKE: 默认会结束下拉刷新及上拉加载刷新状态
     func endRefreshing() {
-        self.tableView.header.endRefreshing()
-        self.tableView.footer.endRefreshing()
+        if (self.tableView.header.isRefreshing()) {
+            self.tableView.header.endRefreshing()
+        }
+        if (self.tableView.footer.isRefreshing()) {
+            self.tableView.footer.endRefreshing()
+        }
         // 通知MJRefresh是否未全部加载
         if (!self.hasMore()) {
             self.tableView.footer.noticeNoMoreData()
+        }
+
+        if (self.dataSource.count == 0) {
+            self.btnLoading.hidden = true
+            self.btnEmpty.hidden = false
+            self.btnError.hidden = true
+        } else {
+            self.btnLoading.hidden = true
+            self.btnEmpty.hidden = true
+            self.btnError.hidden = true
         }
     }
     
     // MAKE: 加载数据
     func loadData(page: Int) {
-        
+        delay(1.5) { () -> () in
+            self.endRefreshing()
+        }
     }
 
     // MAKE: 当前页码（按照TableView的数量计算）

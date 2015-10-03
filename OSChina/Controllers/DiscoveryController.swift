@@ -20,8 +20,8 @@ import ZBarSDK
 class DiscoveryController: BaseGroupedListController {
 
     // section 1
-    let CELL_ACTIVITIES         : String = "ID_CELL_ACTIVITIES"
-    let CELL_ACTIVITIES_LATEST  : String = "ID_CELL_ACTIVITIES_LATEST"
+    let CELL_EVENT              : String = "ID_CELL_EVENT"
+    let CELL_EVENT_LATEST       : String = "ID_CELL_EVENT_LATEST"
     // section 2
     let CELL_OPEN_SOURCE_PROJECT: String = "ID_CELL_OPEN_SOURCE_PROJECT"
     let CELL_BLOG               : String = "ID_CELL_BLOG"
@@ -68,11 +68,11 @@ class DiscoveryController: BaseGroupedListController {
             case 0:
                 title = "线下活动"
                 subtitle = "你不应该错过的开发者活动"
-                identifier = CELL_ACTIVITIES
+                identifier = CELL_EVENT
                 break
             case 1:
-                let cell = ActivitiesLatestView()
-                cell.restorationIdentifier = CELL_ACTIVITIES_LATEST
+                let cell = EventLatestView()
+                cell.restorationIdentifier = CELL_EVENT_LATEST
                 cell.layoutIfNeeded()
                 return cell
             default:
@@ -119,19 +119,12 @@ class DiscoveryController: BaseGroupedListController {
         let cell: UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
 
         switch (cell.restorationIdentifier!) {
-        case CELL_ACTIVITIES:
-            let controller = ActivitiesListController()
+        case CELL_EVENT:
+            let controller = EventListController()
             controller.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(controller, animated: true)
             break
-        case CELL_ACTIVITIES_LATEST:
-            
-            ApiClient.userNotice({ (data) -> Void in
-                //
-                print(data)
-                }) { (code, message) -> Void in
-                    //
-            }
+        case CELL_EVENT_LATEST:
             break
         case CELL_OPEN_SOURCE_PROJECT:
             let controller: OpenSourceProjectController = OpenSourceProjectController()

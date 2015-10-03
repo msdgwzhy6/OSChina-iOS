@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-class ActivitiesLatestView: UITableViewCell {
+class EventLatestView: UITableViewCell {
 
     var container: UIView = UIView()
     

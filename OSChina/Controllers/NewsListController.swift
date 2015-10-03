@@ -43,7 +43,7 @@ class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.registerClass(NewsCell.self, forCellReuseIdentifier: "Cell")
         
-        self.beginRefreshing()
+        self.firstRefreshing()
         
     }
     
@@ -76,9 +76,9 @@ class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
                 self.dataSource = []
             }
             self.dataSource += data
-            self.tableView.reloadData()
             // 停止刷新中...
             self.endRefreshing()
+            self.tableView.reloadData()
         };
         let failure = {
             (code: Int, message: String) -> Void in
