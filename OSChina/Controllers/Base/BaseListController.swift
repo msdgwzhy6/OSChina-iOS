@@ -61,15 +61,18 @@ class BaseListController<T>: UITableViewController {
         
         var btnFrame: CGRect = CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: self.tableView.frame.height - self.tableView.contentInset.bottom)
         self.btnLoading.frame = btnFrame
-        self.btnLoading.backgroundColor = UIColor.blueColor()
+//        self.btnLoading.backgroundColor = UIColor.blueColor()
+        self.btnLoading.setTitleColor(UIColor.grayColor(), forState: .Normal)
         self.btnLoading.setTitle("Loading...", forState: .Normal)
         
         self.btnEmpty.frame = btnFrame
-        self.btnEmpty.backgroundColor = UIColor.blueColor()
+        //        self.btnEmpty.backgroundColor = UIColor.blueColor()
+        self.btnEmpty.setTitleColor(UIColor.grayColor(), forState: .Normal)
         self.btnEmpty.setTitle("Empty", forState: .Normal)
         
         self.btnError.frame = btnFrame
-        self.btnError.backgroundColor = UIColor.blueColor()
+        //        self.btnError.backgroundColor = UIColor.blueColor()
+        self.btnError.setTitleColor(UIColor.grayColor(), forState: .Normal)
         self.btnError.setTitle("Error", forState: .Normal)
 
         self.view.addSubview(self.btnLoading)
