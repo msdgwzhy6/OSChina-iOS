@@ -91,7 +91,10 @@ class BaseListController<T>: UITableViewController {
         self.btnLoading.hidden = false
         self.btnEmpty.hidden = true
         self.btnError.hidden = true
-        self.loadData(0)
+        // 延时0.3秒后执行加载数据操作，延时是为了Loading不会因为加载速度过快造成一闪而过的不好体验
+        self.delay(0.3) { () -> () in
+            self.loadData(0)
+        }
     }
 
     // MAKE: 默认进入下拉刷新状态，如需要进入上拉加载状态请使用self.tableView.footer.beginRefreshing()
