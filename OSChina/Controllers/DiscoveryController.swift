@@ -153,7 +153,7 @@ class DiscoveryController: BaseGroupedListController {
         if (indexPath.section == 0 && indexPath.row == 1) {
             return UITableViewAutomaticDimension
         }
-        return 60
+        return 65
     }
     
     override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

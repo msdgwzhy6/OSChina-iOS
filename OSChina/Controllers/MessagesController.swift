@@ -22,7 +22,7 @@ class MessagesController: BaseListController<Message> {
         super.viewDidLoad()
         self.title = "TITLE_MESSAGES".localized
         
-        self.beginRefreshing()
+        self.firstRefreshing()
     }
     
     override func didReceiveMemoryWarning() {

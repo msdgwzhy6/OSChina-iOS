@@ -36,15 +36,18 @@ class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var prototypeCell: NewsCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.estimatedRowHeight = 88;
-        self.tableView.rowHeight = UITableViewAutomaticDimension;
+//        self.tableView.estimatedRowHeight = 88;
+//        self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.registerClass(NewsCell.self, forCellReuseIdentifier: "Cell")
         
         self.firstRefreshing()
         
+        prototypeCell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as! NewsCell
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,13 +120,30 @@ class NewsListController: BaseListController<News> , XLPagerTabStripChildItem {
         controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
+    var heights: [Int: CGFloat] = [:]
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+
+//        return UITableViewAutomaticDimension
+        if let height = heights[indexPath.row] {
+                    print("\(indexPath.row)|\(height)|heightForRowAtIndexPath")
+            return height
+        }
+        print(">>>")
+                let cell = prototypeCell
+                let news = self.dataSource[indexPath.row]
+                cell.bind(news)
+                let height = cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height + 1
+        heights.updateValue(height, forKey: indexPath.row)
+        return height
     }
     
-    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
+//    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        print("\(indexPath.row)|estimatedHeightForRowAtIndexPath")
+////        let cell = prototypeCell
+////        let news = self.dataSource[indexPath.row]
+////        cell.bind(news)
+////        return cell.contentView.systemLayoutSizeFittingSize(UILayoutFittingCompressedSize).height + 1
+//        return UITableViewAutomaticDimension
+//    }
 
 }
