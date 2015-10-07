@@ -23,8 +23,8 @@ class NewsCell: UITableViewCell {
     var author: UILabel = UILabel()
     var pubDate: UILabel = UILabel()
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubview(self.title)
         self.contentView.addSubview(self.body)
         self.contentView.addSubview(self.author)
@@ -74,6 +74,10 @@ class NewsCell: UITableViewCell {
             make.edges.equalTo(self)
             make.bottom.equalTo(self.pubDate.snp_bottom).inset(-padding.bottom)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func bind(data: News) {

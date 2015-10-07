@@ -25,9 +25,9 @@ class TweetCell: UITableViewCell {
     var content: UILabel = UILabel()
     var imageSmall: UIImageView = UIImageView(frame: CGRectMake(0, 0, 0, 0))
     var commentCount: UILabel = UILabel()
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         // 头像
         self.avatar.backgroundColor = UIColor.blueColor()
         self.avatar.multipleTouchEnabled = true
@@ -91,6 +91,10 @@ class TweetCell: UITableViewCell {
             make.edges.equalTo(self)
             make.bottom.equalTo(self.name.snp_bottom).inset(-padding.bottom)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func bind(data: Tweet) {
