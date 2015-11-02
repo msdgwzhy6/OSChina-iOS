@@ -10,7 +10,7 @@ OSChina-iOS 是采用 Swift 开发的开源中国客户端
 > 微信：[lijy91]()
 
 #编译环境
-XCode 7+
+Xcode 7
 iOS 8+
 Swift 2.0
 
